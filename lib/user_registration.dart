@@ -1,10 +1,9 @@
-import 'package:first/custom_button.dart';
-import 'package:first/text_box.dart';
 import 'package:flutter/material.dart';
+import 'package:first/text_box.dart';
+import 'package:first/custom_button.dart';
 
-
-class ChangePassword extends StatelessWidget {
-  const ChangePassword({super.key});
+class UserRegistration extends StatelessWidget {
+  const UserRegistration({super.key});
 
   @override
   Widget build(context) {
@@ -35,7 +34,7 @@ class ChangePassword extends StatelessWidget {
                 Padding(padding: EdgeInsets.fromLTRB(37, 0, 0, 0),
                 ),
                  Text(
-                 'Change Password',
+                 'Register',
                  style: TextStyle(
                  color: Colors.black,
                  fontWeight: FontWeight.w600,
@@ -44,30 +43,55 @@ class ChangePassword extends StatelessWidget {
                  ),
                  ],
               ),
-            const SizedBox(height: 10),
+            const SizedBox(height: 20),
            
             
-            const SizedBox(height: 30),
+            //const SizedBox(height:),
+             const TextBox(
+              labelText: 'Phone Number', 
+              hintText:'Enter your Phone Number',
+              keyboardType: TextInputType.phone,
+            ),
+            const SizedBox(height: 15),
+             const TextBox(
+              labelText: 'User Name', 
+              hintText:'Enter a User Name',
+              keyboardType: TextInputType.name,
+            ),
+            const SizedBox(height: 15),
+             const TextBox(
+              labelText: 'Date Of Birth', 
+              hintText:'Enter your Birthday',
+              keyboardType: TextInputType.datetime,
+            ),
+            
+            const SizedBox(height: 15),
             const TextBox(
-              labelText: 'Enter Password', 
-              hintText:'Enter your New Password',
+              labelText: 'Create a Password', 
+              hintText:'Enter your Password',
               obscureText: true,
             ),
-            const SizedBox(height: 20),
+            const SizedBox(height: 15),
             const TextBox(
-              labelText: 'Re-enter Password', 
+              labelText: 'Re-enter the Password', 
               hintText:'Re-enter your Password',
               obscureText: true,
             ),
-            const SizedBox(height: 30),
-            Image.asset(
-              'assets/images/reset_password.jpg',
-              width: 450,
-              height: 300,
+            //const SizedBox(height: 30),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: [
+                 Image.asset(
+              'assets/images/Prototyping.jpg',
+              width: 250,
+              height: 200,
+              ),
+              ],
             ),
-            const SizedBox(height: 30),
+           
+            const SizedBox(height: 10),
             CustomButton(
-              text: 'Change Password',
+              text: 'Register',
               onPressed: () {},
               ),
           ],

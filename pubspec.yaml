@@ -65,6 +65,13 @@ flutter:
     - assets/images/google.png
     - assets/images/forget_password.png
     - assets/images/reset_password.jpg
+    - assets/images/Prototyping.jpg
+    - assets/images/Push_notifications.png
+    - assets/images/Female.png
+    - assets/images/Male.png
+    - assets/images/Height_meter.png
+
+
 
 
   # An image asset can refer to one or more resolution-specific "variants", see

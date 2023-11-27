@@ -14,7 +14,7 @@ class TextBox extends StatelessWidget {
       this.keyboardType = TextInputType.text,
       this.obscureText = false,
       this.width = 320.0,
-      this.height =40.0,
+      this.height =35.0,
       super.key});
 
   @override
@@ -30,7 +30,7 @@ class TextBox extends StatelessWidget {
           labelText: labelText,
           hintText: hintText,
           contentPadding:
-              const EdgeInsets.symmetric(vertical: 15.0, horizontal: 10.0),
+              const EdgeInsets.symmetric(vertical: 10.0, horizontal: 10.0),
           border: OutlineInputBorder(
             borderRadius: BorderRadius.circular(10.0),
           ),
