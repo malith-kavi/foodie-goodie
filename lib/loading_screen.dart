@@ -13,17 +13,23 @@ class LoadingScreen extends StatelessWidget {
       decoration: BoxDecoration(
         image: DecorationImage(image: AssetImage(loading), fit: BoxFit.cover),
       ),
-      child: Stack(children: [
-        Positioned(
-          left: 75,
-          top: 150,
-          child: Image.asset(
-            logo,
-            width: 250,
-            height: 250,
-          ),
+      child: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Stack(children: [
+              Positioned(
+                top: 150,
+                child: Image.asset(
+                  logo,
+                  width: 250,
+                  height: 250,
+                ),
+              ),
+            ]),
+          ],
         ),
-      ]),
+      ),
     );
   }
 }

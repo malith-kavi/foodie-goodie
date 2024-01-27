@@ -4,11 +4,7 @@ class WhiteButton extends StatelessWidget {
   final String text;
   final VoidCallback onPressed;
 
-
-  const WhiteButton(
-      {required this.text,
-      required this.onPressed,
-      super.key});
+  const WhiteButton({required this.text, required this.onPressed, super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -18,7 +14,7 @@ class WhiteButton extends StatelessWidget {
       child: TextButton(
         onPressed: onPressed,
         style: TextButton.styleFrom(
-          backgroundColor:const  Color.fromARGB(255, 255, 255, 255),
+          backgroundColor: const Color.fromARGB(255, 255, 255, 255),
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(10.0),
           ),
@@ -27,7 +23,7 @@ class WhiteButton extends StatelessWidget {
           text,
           style: const TextStyle(
             color: Color.fromARGB(255, 0, 187, 24),
-            fontSize: 16.0,
+            fontSize: 20.0,
           ),
         ),
       ),

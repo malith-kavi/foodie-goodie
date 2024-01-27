@@ -70,6 +70,10 @@ flutter:
     - assets/images/Female.png
     - assets/images/Male.png
     - assets/images/Height_meter.png
+    - assets/images/verification.png
+    - assets/images/weight.png
+
+    
 
 
 

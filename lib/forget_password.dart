@@ -19,48 +19,50 @@ class ForgetPassword extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
             const SizedBox(height: 50),
-            const Row(
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: [
-                Padding(padding: EdgeInsets.fromLTRB(10, 0, 0, 0),
-                ),
-                Icon(Icons.arrow_back_ios_new,
+            const Row(mainAxisAlignment: MainAxisAlignment.start, children: [
+              Padding(
+                padding: EdgeInsets.fromLTRB(10, 0, 0, 0),
+              ),
+              Icon(
+                Icons.arrow_back_ios_new,
                 size: 30.0,
                 color: Colors.black,
-                ),
-                SizedBox(height: 110,)
-              ]
-            ),
+              ),
+              SizedBox(
+                height: 110,
+              )
+            ]),
             const Row(
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
-                Padding(padding: EdgeInsets.fromLTRB(37, 0, 0, 0),
+                Padding(
+                  padding: EdgeInsets.fromLTRB(37, 0, 0, 0),
                 ),
-                 Text(
-                 'Forget Password',
-                 style: TextStyle(
-                 color: Colors.black,
-                 fontWeight: FontWeight.w600,
-                 fontSize: 20,
+                Text(
+                  'Forget Password',
+                  style: TextStyle(
+                    color: Colors.black,
+                    fontWeight: FontWeight.w600,
+                    fontSize: 20,
                   ),
-                 ),
-                 ],
-              ),
+                ),
+              ],
+            ),
             const SizedBox(height: 10),
             const Row(
               mainAxisAlignment: MainAxisAlignment.start,
-
               children: [
-                Padding(padding: EdgeInsets.fromLTRB(37, 0, 0, 0),
+                Padding(
+                  padding: EdgeInsets.fromLTRB(37, 0, 0, 0),
                 ),
-                 StyledText('Enter your registered phone number \n and we’ll send a code to login again'),
+                StyledText(
+                    'Enter your registered phone number \n and we’ll send a code to login again'),
               ],
             ),
-            
             const SizedBox(height: 30),
             const TextBox(
-              labelText: 'Phone Number', 
-              hintText:'Enter your Phone Number',
+              labelText: 'Phone Number',
+              hintText: 'Enter your Phone Number',
               keyboardType: TextInputType.phone,
             ),
             const SizedBox(height: 60),
@@ -73,10 +75,10 @@ class ForgetPassword extends StatelessWidget {
             CustomButton(
               text: 'Reset Password',
               onPressed: () {},
-              ),
+            ),
           ],
         ),
       ),
- );
+    );
   }
 }
