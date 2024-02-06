@@ -2,6 +2,8 @@ import 'package:first/change_password.dart';
 import 'package:first/forget_password.dart';
 import 'package:first/loading_screen.dart';
 import 'package:first/login_screen.dart';
+import 'package:first/meal_plan.dart';
+import 'package:first/user_registration.dart';
 import 'package:first/verification_fpw.dart';
 import 'package:first/weight.dart';
 import 'package:flutter/material.dart';
@@ -11,7 +13,7 @@ void main() {
   runApp(
     const MaterialApp(
       home: Scaffold(
-        body: Weight(),
+        body: MealPlan(),
       ),
     ),
   );

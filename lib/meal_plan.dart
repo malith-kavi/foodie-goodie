@@ -1,12 +1,9 @@
 import 'package:first/gray_bar.dart';
-import 'package:first/weight_button.dart';
+import 'package:first/select_button.dart';
 import 'package:flutter/material.dart';
-import 'package:first/custom_button.dart';
 
-var weight = 'assets/images/weight.png';
-
-class Weight extends StatelessWidget {
-  const Weight({super.key});
+class MealPlan extends StatelessWidget {
+  const MealPlan({super.key});
 
   @override
   Widget build(context) {
@@ -32,7 +29,7 @@ class Weight extends StatelessWidget {
             const Row(mainAxisAlignment: MainAxisAlignment.center, children: [
               SizedBox(height: 20),
               Text(
-                'Enter Your Weight',
+                'Let us know how we can help you',
                 style: TextStyle(
                   color: Colors.black,
                   fontWeight: FontWeight.w600,
@@ -48,25 +45,31 @@ class Weight extends StatelessWidget {
                 (index) => Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 5.0),
                   child: GrayBar(
-                    isBlue:
-                        index == 0 || index == 1 || index == 2 || index == 3,
+                    isBlue: index == 0 ||
+                        index == 1 ||
+                        index == 2 ||
+                        index == 3 ||
+                        index == 4,
                   ),
                 ),
               ),
             ),
-            const SizedBox(height: 50),
-            Image.asset(
-              weight,
-              width: 300,
-              height: 250,
-            ),
-            const WeightButton(),
-            const SizedBox(height: 140),
-            const SizedBox(height: 30),
-            CustomButton(
-              text: 'Continue',
+            const SizedBox(height: 70),
+            SelectButton(
+              text: 'Weight loss',
               onPressed: () {},
             ),
+            SizedBox(height: 20),
+            SelectButton(
+              text: 'Track my nutrition',
+              onPressed: () {},
+            ),
+            SizedBox(height: 20),
+            SelectButton(
+              text: 'Improve overall fitness',
+              onPressed: () {},
+            ),
+            SizedBox(height: 20),
           ]),
         ),
       ),
