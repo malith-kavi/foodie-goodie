@@ -77,7 +77,9 @@ flutter:
     - assets/images/x.jpg
     - assets/images/whatsapp.png
     - assets/images/gmail.png
-    - assets/images/insta.png 
+    - assets/images/insta.png
+    - assets/images/picture1.png
+
 
     
 
