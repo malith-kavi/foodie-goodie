@@ -1,8 +1,8 @@
-import 'package:first/gray_bar.dart';
-import 'package:first/style_text.dart';
-import 'package:first/white_button.dart';
+import 'package:first/widgets/gray_bar.dart';
+import 'package:first/widgets/style_text.dart';
+import 'package:first/widgets/white_button.dart';
 import 'package:flutter/material.dart';
-import 'package:first/custom_button.dart';
+import 'package:first/widgets/custom_button.dart';
 
 class ProfilePic extends StatelessWidget {
   const ProfilePic({super.key});
@@ -64,22 +64,19 @@ class ProfilePic extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [],
             ),
-            const SizedBox(height:50),
+            const SizedBox(height: 50),
             const StyledText('Select a given profile picture'),
             const StyledText('Or add your own photo'),
             const SizedBox(height: 140),
-            WhiteButton(
-              text: 'Add Custom Photo', 
-              onPressed:(){} 
-              ),
+            WhiteButton(text: 'Add Custom Photo', onPressed: () {}),
             const SizedBox(height: 30),
             CustomButton(
               text: 'Continue',
               onPressed: () {},
             ),
-           ],
-            ),
+          ],
         ),
-      );
+      ),
+    );
   }
 }

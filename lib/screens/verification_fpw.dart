@@ -1,7 +1,7 @@
-import 'package:first/custom_button.dart';
-import 'package:first/num_box.dart';
-import 'package:first/s_button.dart';
-import 'package:first/style_text.dart';
+import 'package:first/widgets/custom_button.dart';
+import 'package:first/widgets/num_box.dart';
+import 'package:first/widgets/s_button.dart';
+import 'package:first/widgets/style_text.dart';
 import 'package:flutter/material.dart';
 
 var verification = 'assets/images/verification.png';

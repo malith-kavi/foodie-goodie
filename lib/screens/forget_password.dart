@@ -1,6 +1,6 @@
-import 'package:first/custom_button.dart';
-import 'package:first/style_text.dart';
-import 'package:first/text_box.dart';
+import 'package:first/widgets/custom_button.dart';
+import 'package:first/widgets/style_text.dart';
+import 'package:first/widgets/text_box.dart';
 import 'package:flutter/material.dart';
 
 var forget = 'assets/images/forget_password.png';

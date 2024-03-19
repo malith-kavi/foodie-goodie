@@ -1,9 +1,9 @@
-import 'package:first/s_button.dart';
+import 'package:first/widgets/s_button.dart';
 import 'package:flutter/material.dart';
-import 'package:first/style_text.dart';
+import 'package:first/widgets/style_text.dart';
 import 'package:first/screens/loading_screen.dart';
-import 'package:first/text_box.dart';
-import 'package:first/custom_button.dart';
+import 'package:first/widgets/text_box.dart';
+import 'package:first/widgets/custom_button.dart';
 
 class LoginScreen extends StatelessWidget {
   const LoginScreen({super.key});

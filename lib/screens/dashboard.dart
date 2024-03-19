@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(const MaterialApp(home: Home()));
+  runApp(const MaterialApp(debugShowCheckedModeBanner: false, home: Home()));
 }
 
 class Home extends StatefulWidget {

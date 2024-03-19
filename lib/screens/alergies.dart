@@ -1,9 +1,7 @@
-import 'package:first/check_box.dart';
-import 'package:first/gray_bar.dart';
-import 'package:first/style_text.dart';
-import 'package:first/white_button.dart';
+import 'package:first/widgets/check_box.dart';
+import 'package:first/widgets/gray_bar.dart';
 import 'package:flutter/material.dart';
-import 'package:first/custom_button.dart';
+import 'package:first/widgets/custom_button.dart';
 
 class Alergies extends StatelessWidget {
   const Alergies({super.key});
@@ -71,7 +69,7 @@ class Alergies extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [],
               ),
-              CustomCheckbox(),
+              const CustomCheckbox(),
               CustomButton(
                 text: 'Continue',
                 onPressed: () {},

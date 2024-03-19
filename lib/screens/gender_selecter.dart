@@ -1,8 +1,7 @@
-import 'package:first/check.dart';
-import 'package:first/gray_bar.dart';
-import 'package:first/style_text.dart';
+import 'package:first/widgets/gray_bar.dart';
+import 'package:first/widgets/style_text.dart';
 import 'package:flutter/material.dart';
-import 'package:first/custom_button.dart';
+import 'package:first/widgets/custom_button.dart';
 
 class GenderSelection extends StatelessWidget {
   const GenderSelection({super.key});

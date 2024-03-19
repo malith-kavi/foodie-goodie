@@ -1,7 +1,7 @@
-import 'package:first/gray_bar.dart';
-import 'package:first/height_button.dart';
+import 'package:first/widgets/gray_bar.dart';
+import 'package:first/widgets/height_button.dart';
 import 'package:flutter/material.dart';
-import 'package:first/custom_button.dart';
+import 'package:first/widgets/custom_button.dart';
 
 class Height extends StatelessWidget {
   const Height({super.key});

@@ -1,4 +1,4 @@
-import 'package:first/style_text.dart';
+import 'package:first/widgets/style_text.dart';
 import 'package:flutter/material.dart';
 
 var gmail = 'assets/images/gmail.png';

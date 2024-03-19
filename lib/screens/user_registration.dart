@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:first/text_box.dart';
-import 'package:first/custom_button.dart';
+import 'package:first/widgets/text_box.dart';
+import 'package:first/widgets/custom_button.dart';
 
 class UserRegistration extends StatelessWidget {
   const UserRegistration({super.key});

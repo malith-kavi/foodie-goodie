@@ -1,5 +1,5 @@
-import 'package:first/gray_bar.dart';
-import 'package:first/select_button.dart';
+import 'package:first/widgets/gray_bar.dart';
+import 'package:first/widgets/select_button.dart';
 import 'package:flutter/material.dart';
 
 class MealPlan extends StatelessWidget {

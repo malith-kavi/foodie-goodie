@@ -1,8 +1,7 @@
-import 'package:first/style_text.dart';
-import 'package:first/text_box.dart';
-import 'package:first/u_p_appbar.dart';
+import 'package:first/widgets/style_text.dart';
+import 'package:first/widgets/text_box.dart';
 import 'package:flutter/material.dart';
-import 'package:first/custom_button.dart';
+import 'package:first/widgets/custom_button.dart';
 
 class UserProfile extends StatelessWidget {
   const UserProfile({super.key});

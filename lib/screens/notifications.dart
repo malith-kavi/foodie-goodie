@@ -1,6 +1,6 @@
 import 'package:first/screens/gender_selecter.dart';
 import 'package:flutter/material.dart';
-import 'package:first/custom_button.dart';
+import 'package:first/widgets/custom_button.dart';
 
 class Notifications extends StatelessWidget {
   const Notifications({super.key});

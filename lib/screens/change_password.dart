@@ -1,5 +1,5 @@
-import 'package:first/custom_button.dart';
-import 'package:first/text_box.dart';
+import 'package:first/widgets/custom_button.dart';
+import 'package:first/widgets/text_box.dart';
 import 'package:flutter/material.dart';
 
 class ChangePassword extends StatelessWidget {
@@ -18,18 +18,18 @@ class ChangePassword extends StatelessWidget {
             children: [
               const SizedBox(height: 20),
               Row(mainAxisAlignment: MainAxisAlignment.start, children: [
-                Padding(
+                const Padding(
                   padding: EdgeInsets.fromLTRB(10, 0, 0, 0),
                 ),
                 IconButton(
-                  icon: Icon(
+                  icon: const Icon(
                     Icons.arrow_back_ios_new,
                     size: 30.0,
                     color: Colors.black,
                   ),
                   onPressed: () {},
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 100,
                 ),
               ]),

@@ -1,7 +1,7 @@
-import 'package:first/gray_bar.dart';
-import 'package:first/weight_button.dart';
+import 'package:first/widgets/gray_bar.dart';
+import 'package:first/widgets/weight_button.dart';
 import 'package:flutter/material.dart';
-import 'package:first/custom_button.dart';
+import 'package:first/widgets/custom_button.dart';
 
 var weight = 'assets/images/weight.png';
 
