@@ -17,18 +17,21 @@ class ChangePassword extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
               const SizedBox(height: 20),
-              const Row(mainAxisAlignment: MainAxisAlignment.start, children: [
+              Row(mainAxisAlignment: MainAxisAlignment.start, children: [
                 Padding(
                   padding: EdgeInsets.fromLTRB(10, 0, 0, 0),
                 ),
-                Icon(
-                  Icons.arrow_back_ios_new,
-                  size: 30.0,
-                  color: Colors.black,
+                IconButton(
+                  icon: Icon(
+                    Icons.arrow_back_ios_new,
+                    size: 30.0,
+                    color: Colors.black,
+                  ),
+                  onPressed: () {},
                 ),
                 SizedBox(
                   height: 100,
-                )
+                ),
               ]),
               const Row(
                 mainAxisAlignment: MainAxisAlignment.start,

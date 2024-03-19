@@ -1,3 +1,4 @@
+import 'package:first/check.dart';
 import 'package:first/gray_bar.dart';
 import 'package:first/style_text.dart';
 import 'package:flutter/material.dart';
@@ -65,14 +66,17 @@ class GenderSelection extends StatelessWidget {
                 Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Image.asset(
-                    'assets/images/Male.png',
-                    width: 150,
-                    height: 150,
+                    IconButton(
+                      icon: Image.asset(
+                        'assets/images/Male.png',
+                        width: 150,
+                        height: 150,
+                      ),
+                      onPressed: () {},
                     ),
                     const Text(
                       'Male',
-                        style: TextStyle(
+                      style: TextStyle(
                         color: Colors.black,
                         fontWeight: FontWeight.w600,
                         fontSize: 20,
@@ -83,14 +87,17 @@ class GenderSelection extends StatelessWidget {
                 Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Image.asset(
-                    'assets/images/Female.png',
-                    width: 150,
-                    height: 150,
+                    IconButton(
+                      icon: Image.asset(
+                        'assets/images/Female.png',
+                        width: 150,
+                        height: 150,
+                      ),
+                      onPressed: () {},
                     ),
                     const Text(
                       'Female',
-                        style: TextStyle(
+                      style: TextStyle(
                         color: Colors.black,
                         fontWeight: FontWeight.w600,
                         fontSize: 20,
@@ -100,17 +107,17 @@ class GenderSelection extends StatelessWidget {
                 )
               ],
             ),
-            const SizedBox(height:50),
+            const SizedBox(height: 50),
             const StyledText('To give you a customize experience'),
             const StyledText('we need to know your gender'),
-            const SizedBox(height: 184),
+            const SizedBox(height: 164),
             CustomButton(
               text: 'Continue',
               onPressed: () {},
             ),
-           ],
-            ),
+          ],
         ),
-      );
+      ),
+    );
   }
 }

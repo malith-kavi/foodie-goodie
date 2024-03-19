@@ -1,7 +1,7 @@
 import 'package:first/s_button.dart';
 import 'package:flutter/material.dart';
 import 'package:first/style_text.dart';
-import 'package:first/loading_screen.dart';
+import 'package:first/screens/loading_screen.dart';
 import 'package:first/text_box.dart';
 import 'package:first/custom_button.dart';
 

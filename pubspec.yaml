@@ -30,6 +30,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  #flashy_tab_bar: ^0.0.3 
 
 
   # The following adds the Cupertino Icons font to your application.
@@ -72,6 +73,11 @@ flutter:
     - assets/images/Height_meter.png
     - assets/images/verification.png
     - assets/images/weight.png
+    - assets/images/profile.png
+    - assets/images/x.jpg
+    - assets/images/whatsapp.png
+    - assets/images/gmail.png
+    - assets/images/insta.png 
 
     
 

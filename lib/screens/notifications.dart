@@ -1,4 +1,4 @@
-import 'package:first/gender_selecter.dart';
+import 'package:first/screens/gender_selecter.dart';
 import 'package:flutter/material.dart';
 import 'package:first/custom_button.dart';
 
@@ -40,30 +40,33 @@ class Notifications extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 SizedBox(height: 30),
-                Text(
-                  'Do you  want to turn on notification?',
-                  style: TextStyle(
-                    color: Colors.black,
-                    fontWeight: FontWeight.w600,
-                    fontSize: 20,
+                Center(
+                  child: Text(
+                    'Do you want to turn\n   on notification?',
+                    style: TextStyle(
+                      color: Colors.black,
+                      fontWeight: FontWeight.w600,
+                      fontSize: 20,
+                    ),
                   ),
                 ),
               ],
             ),
             const SizedBox(height: 10),
-            const SizedBox(height: 140),
+            const SizedBox(height: 130),
             Image.asset(
               'assets/images/Push_notifications.png',
               width: 360,
               height: 200,
             ),
-            const SizedBox(height: 170),
+            const SizedBox(height: 160),
             CustomButton(
               text: 'Allow',
               onPressed: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => const GenderSelection()),
+                  MaterialPageRoute(
+                      builder: (context) => const GenderSelection()),
                 );
               },
             ),

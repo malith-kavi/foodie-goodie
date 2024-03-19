@@ -1,19 +1,13 @@
-import 'package:first/change_password.dart';
-import 'package:first/forget_password.dart';
-import 'package:first/loading_screen.dart';
-import 'package:first/login_screen.dart';
-import 'package:first/meal_plan.dart';
-import 'package:first/user_registration.dart';
-import 'package:first/verification_fpw.dart';
-import 'package:first/weight.dart';
+import 'package:first/screens/register.dart';
+import 'package:first/screens/user_profile.dart';
+import 'package:first/screens/user_registration.dart';
 import 'package:flutter/material.dart';
-import 'package:first/height.dart';
 
 void main() {
   runApp(
     const MaterialApp(
       home: Scaffold(
-        body: MealPlan(),
+        body: Register(),
       ),
     ),
   );

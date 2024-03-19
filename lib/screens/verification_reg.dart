@@ -6,8 +6,8 @@ import 'package:flutter/material.dart';
 
 var verification = 'assets/images/verification.png';
 
-class VerificationFPW extends StatelessWidget {
-  const VerificationFPW({super.key});
+class VerificationReg extends StatelessWidget {
+  const VerificationReg({super.key});
 
   @override
   Widget build(context) {
