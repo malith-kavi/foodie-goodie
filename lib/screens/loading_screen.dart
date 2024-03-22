@@ -9,25 +9,27 @@ class LoadingScreen extends StatelessWidget {
 
   @override
   Widget build(context) {
-    return Container(
-      decoration: BoxDecoration(
-        image: DecorationImage(image: AssetImage(loading), fit: BoxFit.cover),
-      ),
-      child: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Stack(children: [
-              Positioned(
-                top: 150,
-                child: Image.asset(
-                  logo,
-                  width: 250,
-                  height: 250,
+    return Scaffold(
+      body: Container(
+        decoration: BoxDecoration(
+          image: DecorationImage(image: AssetImage(loading), fit: BoxFit.cover),
+        ),
+        child: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Stack(children: [
+                Positioned(
+                  top: 150,
+                  child: Image.asset(
+                    logo,
+                    width: 250,
+                    height: 250,
+                  ),
                 ),
-              ),
-            ]),
-          ],
+              ]),
+            ],
+          ),
         ),
       ),
     );

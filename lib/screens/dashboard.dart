@@ -35,8 +35,6 @@ class _HomeState extends State<Home> with TickerProviderStateMixin<Home> {
             });
           },
           backgroundColor: const Color.fromARGB(255, 255, 255, 255),
-
-          // Set background color here
           selectedItemColor: Colors.green,
           items: allDestinations
               .map((destination) => BottomNavigationBarItem(
@@ -157,12 +155,51 @@ class RootPage extends StatelessWidget {
         child: (ListView(
           padding: const EdgeInsets.all(20),
           children: <Widget>[
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                Container(
+                  margin: const EdgeInsets.only(bottom: 20),
+                  width: 160,
+                  height: 170,
+                  decoration: BoxDecoration(
+                    color: const Color.fromARGB(255, 255, 255, 255),
+                    borderRadius: BorderRadius.circular(20),
+                    boxShadow: const [
+                      BoxShadow(
+                          color: Colors.black12,
+                          spreadRadius: 5,
+                          blurRadius: 7,
+                          offset: Offset(0, 3)),
+                    ],
+                  ),
+                ),
+                const SizedBox(width: 10),
+                Container(
+                  margin: const EdgeInsets.only(bottom: 20),
+                  width: 160,
+                  height: 170,
+                  decoration: BoxDecoration(
+                    color: const Color.fromARGB(255, 255, 255, 255),
+                    borderRadius: BorderRadius.circular(20),
+                    boxShadow: const [
+                      BoxShadow(
+                          color: Colors.black12,
+                          spreadRadius: 5,
+                          blurRadius: 7,
+                          offset: Offset(0, 3)),
+                    ],
+                  ),
+                ),
+              ],
+            ),
             Container(
+              margin: const EdgeInsets.only(bottom: 20),
               height: 100,
               decoration: BoxDecoration(
                 color: const Color.fromARGB(255, 255, 255, 255),
                 borderRadius: BorderRadius.circular(20),
-                boxShadow: [
+                boxShadow: const [
                   BoxShadow(
                       color: Colors.black12,
                       spreadRadius: 5,
@@ -172,31 +209,173 @@ class RootPage extends StatelessWidget {
               ),
               child: Row(
                 children: [
+                  const SizedBox(width: 10),
                   ClipRRect(
-                      borderRadius: BorderRadius.circular(20),
-                      child: Image.asset(
-                        'assets/images/picture1.png',
-                      ))
+                    borderRadius: BorderRadius.circular(20),
+                    child: Image.asset(
+                      'assets/images/picture1.png',
+                      fit: BoxFit.cover,
+                      height: 80,
+                      width: 100,
+                    ),
+                  ),
+                  const SizedBox(width: 10),
+                  const Expanded(
+                    child: Column(
+                      children: [
+                        SizedBox(height: 10),
+                        Text(
+                          'Add Breakfast',
+                          style: TextStyle(
+                            color: Colors.black,
+                            fontSize: 20,
+                            fontWeight: FontWeight.w600,
+                          ),
+                        ),
+                        SizedBox(height: 10),
+                        Text(
+                          'Recommend:\n400-600 kCal',
+                          style: TextStyle(
+                            color: Colors.black38,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  IconButton(
+                    icon: Image.asset(
+                      'assets/images/plus.png',
+                      height: 38,
+                      width: 38,
+                    ),
+                    onPressed: () {},
+                  ),
+                  SizedBox(width: 10),
                 ],
               ),
-
-              //child: const Center(child: Text('Entry A')),
             ),
-            // Container(
-            //   height: 50,
-            //   color: Colors.black38,
-            //   child: const Center(child: Text('Entry B')),
-            // ),
-            // Container(
-            //   height: 50,
-            //   color: Colors.black38,
-            //   child: const Center(child: Text('Entry C')),
-            // ),
-            // Container(
-            //   height: 50,
-            //   color: Colors.black38,
-            //   child: const Center(child: Text('Entry D')),
-            // ),
+            Container(
+              margin: const EdgeInsets.only(bottom: 20),
+              height: 100,
+              decoration: BoxDecoration(
+                color: const Color.fromARGB(255, 255, 255, 255),
+                borderRadius: BorderRadius.circular(20),
+                boxShadow: const [
+                  BoxShadow(
+                      color: Colors.black12,
+                      spreadRadius: 5,
+                      blurRadius: 7,
+                      offset: Offset(0, 3)),
+                ],
+              ),
+              child: Row(
+                children: [
+                  const SizedBox(width: 10),
+                  ClipRRect(
+                    borderRadius: BorderRadius.circular(20),
+                    child: Image.asset(
+                      'assets/images/picture2.png',
+                      fit: BoxFit.cover,
+                      height: 80,
+                      width: 100,
+                    ),
+                  ),
+                  const SizedBox(width: 10),
+                  const Expanded(
+                    child: Column(
+                      children: [
+                        SizedBox(height: 10),
+                        Text(
+                          'Add Lunch',
+                          style: TextStyle(
+                            color: Colors.black,
+                            fontSize: 20,
+                            fontWeight: FontWeight.w600,
+                          ),
+                        ),
+                        SizedBox(height: 10),
+                        Text(
+                          'Recommend:\n400-600 kCal',
+                          style: TextStyle(
+                            color: Colors.black38,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  IconButton(
+                    icon: Image.asset(
+                      'assets/images/plus.png',
+                      height: 38,
+                      width: 38,
+                    ),
+                    onPressed: () {},
+                  ),
+                  const SizedBox(width: 10),
+                ],
+              ),
+            ),
+            Container(
+              margin: const EdgeInsets.only(bottom: 20),
+              height: 100,
+              decoration: BoxDecoration(
+                color: const Color.fromARGB(255, 255, 255, 255),
+                borderRadius: BorderRadius.circular(20),
+                boxShadow: const [
+                  BoxShadow(
+                      color: Colors.black12,
+                      spreadRadius: 5,
+                      blurRadius: 7,
+                      offset: Offset(0, 3)),
+                ],
+              ),
+              child: Row(
+                children: [
+                  const SizedBox(width: 10),
+                  ClipRRect(
+                    borderRadius: BorderRadius.circular(20),
+                    child: Image.asset(
+                      'assets/images/picture3.png',
+                      fit: BoxFit.cover,
+                      height: 80,
+                      width: 100,
+                    ),
+                  ),
+                  const SizedBox(width: 10),
+                  const Expanded(
+                    child: Column(
+                      children: [
+                        SizedBox(height: 10),
+                        Text(
+                          'Add Breakfast',
+                          style: TextStyle(
+                            color: Colors.black,
+                            fontSize: 20,
+                            fontWeight: FontWeight.w600,
+                          ),
+                        ),
+                        SizedBox(height: 10),
+                        Text(
+                          'Recommend:\n400-600 kCal',
+                          style: TextStyle(
+                            color: Colors.black38,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  IconButton(
+                    icon: Image.asset(
+                      'assets/images/plus.png',
+                      height: 38,
+                      width: 38,
+                    ),
+                    onPressed: () {},
+                  ),
+                  const SizedBox(width: 10),
+                ],
+              ),
+            ),
           ],
         )),
       ),

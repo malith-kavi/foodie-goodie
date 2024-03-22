@@ -1,12 +1,11 @@
-import 'package:first/screens/meal_plan.dart';
+import 'package:first/screens/alergies.dart';
 import 'package:first/widgets/check_box.dart';
 import 'package:first/widgets/gray_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:first/widgets/custom_button.dart';
-import 'package:first/screens/diseases.dart';
 
-class Alergies extends StatelessWidget {
-  const Alergies({super.key});
+class Diseases extends StatelessWidget {
+  const Diseases({super.key});
 
   @override
   Widget build(context) {
@@ -18,7 +17,7 @@ class Alergies extends StatelessWidget {
             Navigator.pop(
               context,
               MaterialPageRoute(
-                builder: (context) => MealPlan(),
+                builder: (context) => Alergies(),
               ),
             );
           },
@@ -43,7 +42,7 @@ class Alergies extends StatelessWidget {
                       ),
                       Center(
                         child: Text(
-                          'My Food Alergies',
+                          'My Diseases and Symptoms',
                           style: TextStyle(
                             color: Colors.black,
                             fontWeight: FontWeight.w600,
@@ -66,7 +65,8 @@ class Alergies extends StatelessWidget {
                               index == 2 ||
                               index == 3 ||
                               index == 4 ||
-                              index == 5,
+                              index == 5 ||
+                              index == 6,
                         ),
                       ),
                     ),
@@ -84,47 +84,32 @@ class Alergies extends StatelessWidget {
                         ),
                         SizedBox(height: 12),
                         CustomCheckBox(
-                          name: 'Cereals containing gluten',
-                          onChanged: (isChecked) {},
-                        ),
-                        SizedBox(height: 12),
-                        // CustomCheckBox(
-                        //   name: 'Crustaceans',
-                        //   onChanged: (isChecked) {},
-                        // ),
-                        // SizedBox(height: 12),
-                        CustomCheckBox(
-                          name: 'Eggs',
+                          name: 'Diabetes',
                           onChanged: (isChecked) {},
                         ),
                         SizedBox(height: 12),
                         CustomCheckBox(
-                          name: 'Fishes',
-                          onChanged: (isChecked) {},
-                        ),
-                        // SizedBox(height: 12),
-                        // CustomCheckBox(
-                        //   name: 'Groundnut',
-                        //   onChanged: (isChecked) {},
-                        // ),
-                        SizedBox(height: 12),
-                        CustomCheckBox(
-                          name: 'Milk',
+                          name: 'High Blood Pressure ',
                           onChanged: (isChecked) {},
                         ),
                         SizedBox(height: 12),
                         CustomCheckBox(
-                          name: 'Soy',
+                          name: 'Low Blood Pressure ',
                           onChanged: (isChecked) {},
                         ),
                         SizedBox(height: 12),
                         CustomCheckBox(
-                          name: 'Nuts',
+                          name: 'Cholesterol',
                           onChanged: (isChecked) {},
                         ),
                         SizedBox(height: 12),
                         CustomCheckBox(
-                          name: 'Milk',
+                          name: 'Heart Attack ',
+                          onChanged: (isChecked) {},
+                        ),
+                        SizedBox(height: 12),
+                        CustomCheckBox(
+                          name: 'Arthritis',
                           onChanged: (isChecked) {},
                         ),
                         SizedBox(height: 12),
@@ -132,9 +117,9 @@ class Alergies extends StatelessWidget {
                           mainAxisAlignment: MainAxisAlignment.end,
                           children: [
                             Image.asset(
-                              'assets/images/alergies.png',
-                              height: 220,
-                              width: 220,
+                              'assets/images/diseases.png',
+                              height: 250,
+                              width: 250,
                             ),
                           ],
                         )
@@ -147,10 +132,10 @@ class Alergies extends StatelessWidget {
                     child: CustomButton(
                       text: 'Continue',
                       onPressed: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(builder: (context) => Diseases()),
-                        );
+                        // Navigator.push(
+                        //   context,
+                        //   MaterialPageRoute(builder: (context) => ()),
+                        // );
                       },
                     ),
                   ),

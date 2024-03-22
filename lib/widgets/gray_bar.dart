@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 class GrayBar extends StatelessWidget {
   final bool isBlue;
-  
+
   const GrayBar({required this.isBlue});
 
   @override
@@ -11,7 +11,9 @@ class GrayBar extends StatelessWidget {
       width: 35.0,
       height: 5.0,
       decoration: BoxDecoration(
-        color: isBlue ? const Color.fromARGB(255, 58, 71, 192) : const  Color.fromARGB(75, 217, 217, 217),
+        color: isBlue
+            ? const Color.fromARGB(255, 58, 71, 192)
+            : const Color.fromARGB(75, 217, 217, 217),
         borderRadius: BorderRadius.circular(5.0),
       ),
     );

@@ -14,7 +14,7 @@ class TextBox extends StatelessWidget {
       this.keyboardType = TextInputType.text,
       this.obscureText = false,
       this.width = 320.0,
-      this.height =35.0,
+      this.height = 35.0,
       super.key});
 
   @override
