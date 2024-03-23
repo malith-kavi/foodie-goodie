@@ -1,3 +1,4 @@
+import 'package:first/screens/dashboard.dart';
 import 'package:first/widgets/style_text.dart';
 import 'package:flutter/material.dart';
 
@@ -14,7 +15,16 @@ class Contact extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         leading: IconButton(
-            icon: const Icon(Icons.arrow_back_ios_new), onPressed: () {}),
+          icon: const Icon(Icons.arrow_back_ios_new),
+          onPressed: () {
+            Navigator.pop(
+              context,
+              MaterialPageRoute(
+                builder: (context) => Home(),
+              ),
+            );
+          },
+        ),
         title: const Center(
           child: Text(
             'Contact Us        ',

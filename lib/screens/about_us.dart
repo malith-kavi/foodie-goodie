@@ -1,4 +1,5 @@
 import 'package:first/screens/contact.dart';
+import 'package:first/screens/dashboard.dart';
 import 'package:flutter/material.dart';
 
 class AboutUs extends StatelessWidget {
@@ -9,7 +10,16 @@ class AboutUs extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         leading: IconButton(
-            icon: const Icon(Icons.arrow_back_ios_new), onPressed: () {}),
+          icon: const Icon(Icons.arrow_back_ios_new),
+          onPressed: () {
+            Navigator.pop(
+              context,
+              MaterialPageRoute(
+                builder: (context) => Home(),
+              ),
+            );
+          },
+        ),
         title: const Center(
           child: Text(
             'About Us           ',
