@@ -1,4 +1,5 @@
 import 'package:first/screens/loading_screen.dart';
+import 'package:first/screens/verification_fpw.dart';
 import 'package:first/widgets/custom_button.dart';
 import 'package:first/widgets/style_text.dart';
 import 'package:first/widgets/text_box.dart';
@@ -80,7 +81,13 @@ class ForgetPassword extends StatelessWidget {
                     padding: const EdgeInsets.all(30.0),
                     child: CustomButton(
                       text: 'Reset Password',
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => VerificationFPW()),
+                        );
+                      },
                     ),
                   ),
                 ],

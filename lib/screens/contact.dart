@@ -1,4 +1,5 @@
 import 'package:first/screens/dashboard.dart';
+import 'package:first/widgets/bottom_navigation_bar.dart';
 import 'package:first/widgets/style_text.dart';
 import 'package:flutter/material.dart';
 
@@ -20,7 +21,7 @@ class Contact extends StatelessWidget {
             Navigator.pop(
               context,
               MaterialPageRoute(
-                builder: (context) => Home(),
+                builder: (context) => Dash(),
               ),
             );
           },

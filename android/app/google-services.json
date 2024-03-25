@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "889750802664",
+    "project_id": "foodigoodi-57147",
+    "storage_bucket": "foodigoodi-57147.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:889750802664:android:f8ac05cba1f7e2ffddb95d",
+        "android_client_info": {
+          "package_name": "com.example.first"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "889750802664-jhqiomfformk3p6qsfh5tfk3d976d91k.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAoFf0bhlaGGpczwQbWXivaobkLtdh1JaY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "889750802664-jhqiomfformk3p6qsfh5tfk3d976d91k.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

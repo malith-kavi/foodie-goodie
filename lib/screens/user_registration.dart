@@ -1,4 +1,5 @@
 import 'package:first/screens/loading_screen.dart';
+import 'package:first/screens/verification_reg.dart';
 import 'package:flutter/material.dart';
 import 'package:first/widgets/text_box.dart';
 import 'package:first/widgets/custom_button.dart';
@@ -94,7 +95,13 @@ class UserRegistration extends StatelessWidget {
                     padding: const EdgeInsets.all(30.0),
                     child: CustomButton(
                       text: 'Register',
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => VerificationReg()),
+                        );
+                      },
                     ),
                   ),
                 ],

@@ -1,5 +1,6 @@
 import 'package:first/screens/contact.dart';
 import 'package:first/screens/dashboard.dart';
+import 'package:first/widgets/bottom_navigation_bar.dart';
 import 'package:flutter/material.dart';
 
 class AboutUs extends StatelessWidget {
@@ -15,7 +16,7 @@ class AboutUs extends StatelessWidget {
             Navigator.pop(
               context,
               MaterialPageRoute(
-                builder: (context) => Home(),
+                builder: (context) => Dash(),
               ),
             );
           },

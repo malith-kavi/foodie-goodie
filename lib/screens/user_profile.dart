@@ -1,5 +1,6 @@
 import 'package:first/check/u_p_appbar.dart';
 import 'package:first/screens/dashboard.dart';
+import 'package:first/widgets/bottom_navigation_bar.dart';
 import 'package:first/widgets/g_text_box.dart';
 import 'package:first/widgets/style_text.dart';
 import 'package:first/widgets/text_box.dart';
@@ -19,7 +20,7 @@ class UserProfile extends StatelessWidget {
               Navigator.pop(
                 context,
                 MaterialPageRoute(
-                  builder: (context) => Home(),
+                  builder: (context) => Dash(),
                 ),
               );
             }),
@@ -42,7 +43,7 @@ class UserProfile extends StatelessWidget {
                 ),
               ),
               onPressed: () {},
-              child: const Text('Sign Out')),
+              child: const Text('Update')),
         ],
       ),
       body: Container(
@@ -132,13 +133,13 @@ class UserProfile extends StatelessWidget {
                 height: 10,
               ),
               const Spacer(),
-              Padding(
-                padding: const EdgeInsets.all(30.0),
-                child: CustomButton(
-                  text: 'Update',
-                  onPressed: () {},
-                ),
-              ),
+              // Padding(
+              //   padding: const EdgeInsets.all(30.0),
+              //   child: CustomButton(
+              //     text: 'Update',
+              //     onPressed: () {},
+              //   ),
+              // ),
             ],
           ),
         ),

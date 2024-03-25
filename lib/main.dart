@@ -4,6 +4,7 @@ import 'package:first/screens/forget_password.dart';
 import 'package:first/screens/gender_selecter.dart';
 import 'package:first/screens/height.dart';
 import 'package:first/screens/home_page.dart';
+import 'package:first/screens/loading_screen.dart';
 import 'package:first/screens/login_screen.dart';
 import 'package:first/screens/notifications.dart';
 import 'package:first/screens/profile_picture.dart';
@@ -20,7 +21,7 @@ void main() {
     MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
-        body: MyApp(),
+        body: LoadingScreen(),
       ),
     ),
   );

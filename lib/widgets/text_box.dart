@@ -33,6 +33,7 @@ class TextBox extends StatelessWidget {
               const EdgeInsets.symmetric(vertical: 10.0, horizontal: 10.0),
           border: OutlineInputBorder(
             borderRadius: BorderRadius.circular(10.0),
+            borderSide: BorderSide.none,
           ),
         ),
       ),

@@ -1,5 +1,6 @@
 import 'dart:math';
 
+import 'package:first/screens/notifications.dart';
 import 'package:first/screens/user_registration.dart';
 import 'package:first/widgets/custom_button.dart';
 import 'package:first/widgets/num_box.dart';
@@ -102,7 +103,13 @@ class VerificationReg extends StatelessWidget {
                   padding: const EdgeInsets.all(30.0),
                   child: CustomButton(
                     text: 'Register',
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => Notifications()),
+                      );
+                    },
                   ),
                 ),
               ]),

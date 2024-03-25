@@ -1,5 +1,6 @@
 import 'package:first/screens/forget_password.dart';
 import 'package:first/screens/user_registration.dart';
+import 'package:first/widgets/bottom_navigation_bar.dart';
 import 'package:first/widgets/s_button.dart';
 import 'package:flutter/material.dart';
 import 'package:first/widgets/style_text.dart';
@@ -97,7 +98,14 @@ class LoginScreen extends StatelessWidget {
                       padding: const EdgeInsets.all(30.0),
                       child: CustomButton(
                         text: 'Login',
-                        onPressed: () {},
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => const Dash(),
+                            ),
+                          );
+                        },
                       ),
                     ),
                   ]),

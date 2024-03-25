@@ -1,3 +1,4 @@
+import 'package:first/screens/login_screen.dart';
 import 'package:flutter/material.dart';
 
 var logo = 'assets/images/foodiegoodie.png';
@@ -5,10 +6,21 @@ var loading = 'assets/images/loading-background.jpg';
 var google = 'assets/images/google.png';
 
 class LoadingScreen extends StatelessWidget {
-  const LoadingScreen({super.key});
+  const LoadingScreen({Key? key}) : super(key: key);
 
   @override
-  Widget build(context) {
+  Widget build(BuildContext context) {
+    void navigateToNextPage() {
+      Navigator.of(context).pushReplacement(
+        MaterialPageRoute(
+          builder: (context) =>
+              LoginScreen(), // Replace NextPage with your actual page
+        ),
+      );
+    }
+
+    Future.delayed(Duration(seconds: 2), navigateToNextPage);
+
     return Scaffold(
       body: Container(
         decoration: BoxDecoration(
@@ -16,18 +28,16 @@ class LoadingScreen extends StatelessWidget {
         ),
         child: Center(
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.start,
             children: [
-              Stack(children: [
-                Positioned(
-                  top: 150,
-                  child: Image.asset(
-                    logo,
-                    width: 250,
-                    height: 250,
-                  ),
+              Padding(
+                padding: const EdgeInsets.only(top: 100),
+                child: Image.asset(
+                  logo,
+                  width: 250,
+                  height: 250,
                 ),
-              ]),
+              ),
             ],
           ),
         ),
