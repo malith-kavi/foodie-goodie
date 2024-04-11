@@ -30,13 +30,12 @@ class LoginScreen extends StatelessWidget {
                       width: 250,
                       height: 250,
                     ),
-                    const StyledText(
-                        'Enter Your Phone Number & password to Log in'),
+                    const StyledText('Enter Your Email & password to Log in'),
                     const SizedBox(height: 40),
                     const TextBox(
-                      labelText: 'Phone Number',
-                      hintText: 'Enter your Phone Number',
-                      keyboardType: TextInputType.phone,
+                      labelText: 'E-mail',
+                      hintText: 'Enter your Email',
+                      keyboardType: TextInputType.text,
                     ),
                     const SizedBox(height: 20),
                     const TextBox(

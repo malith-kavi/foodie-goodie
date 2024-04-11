@@ -1,5 +1,6 @@
 import 'package:first/check/u_p_appbar.dart';
 import 'package:first/screens/dashboard.dart';
+import 'package:first/screens/home_page.dart';
 import 'package:first/widgets/bottom_navigation_bar.dart';
 import 'package:first/widgets/g_text_box.dart';
 import 'package:first/widgets/style_text.dart';
@@ -14,19 +15,19 @@ class UserProfile extends StatelessWidget {
   Widget build(context) {
     return Scaffold(
       appBar: AppBar(
-        leading: IconButton(
-            icon: const Icon(Icons.arrow_back_ios_new),
-            onPressed: () {
-              Navigator.pop(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => Dash(),
-                ),
-              );
-            }),
+        // leading: IconButton(
+        //     icon: const Icon(Icons.arrow_back_ios_new),
+        //     onPressed: () {
+        //       Navigator.pop(
+        //         context,
+        //         MaterialPageRoute(
+        //           builder: (context) => Dash(),
+        //         ),
+        //       );
+        //     }),
         title: const Center(
           child: Text(
-            'Profile',
+            '               Profile',
             style: TextStyle(
               fontSize: 20,
               fontWeight: FontWeight.w600,

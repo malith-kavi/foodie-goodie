@@ -1,5 +1,10 @@
 import 'package:first/screens/about_us.dart';
+import 'package:first/screens/add_breakfast.dart';
+import 'package:first/screens/add_dinner.dart';
+import 'package:first/screens/addlunch.dart';
 import 'package:first/screens/contact.dart';
+import 'package:first/screens/login_screen.dart';
+import 'package:first/screens/settings.dart';
 import 'package:first/screens/user_profile.dart';
 import 'package:flutter/material.dart';
 
@@ -72,7 +77,12 @@ class HomePage extends StatelessWidget {
             ListTile(
               leading: const Icon(Icons.settings),
               title: const Text('Settings'),
-              onTap: () {},
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => SettingsPage()),
+                );
+              },
             ),
             ListTile(
               leading: const Icon(Icons.call),
@@ -95,10 +105,14 @@ class HomePage extends StatelessWidget {
               },
             ),
             ListTile(
-              leading: const Icon(Icons.logout),
-              title: const Text('Log Out'),
-              onTap: () {},
-            ),
+                leading: const Icon(Icons.logout),
+                title: const Text('Log Out'),
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => LoginScreen()),
+                  );
+                }),
           ],
         ),
       ),
@@ -187,7 +201,13 @@ class HomePage extends StatelessWidget {
                               height: 38,
                               width: 38,
                             ),
-                            onPressed: () {},
+                            onPressed: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => Addbreakfast()),
+                              );
+                            },
                           ),
                           const SizedBox(width: 10),
                         ],
@@ -248,7 +268,13 @@ class HomePage extends StatelessWidget {
                               height: 38,
                               width: 38,
                             ),
-                            onPressed: () {},
+                            onPressed: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => Addlunch()),
+                              );
+                            },
                           ),
                           const SizedBox(width: 10),
                         ],
@@ -309,7 +335,13 @@ class HomePage extends StatelessWidget {
                               height: 38,
                               width: 38,
                             ),
-                            onPressed: () {},
+                            onPressed: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => Adddinner()),
+                              );
+                            },
                           ),
                           const SizedBox(width: 10),
                         ],

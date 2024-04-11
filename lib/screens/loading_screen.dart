@@ -13,8 +13,7 @@ class LoadingScreen extends StatelessWidget {
     void navigateToNextPage() {
       Navigator.of(context).pushReplacement(
         MaterialPageRoute(
-          builder: (context) =>
-              LoginScreen(), // Replace NextPage with your actual page
+          builder: (context) => LoginScreen(),
         ),
       );
     }
