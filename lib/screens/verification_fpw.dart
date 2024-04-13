@@ -1,6 +1,7 @@
 import 'dart:math';
 
 import 'package:first/screens/forget_password.dart';
+import 'package:first/screens/home_page.dart';
 import 'package:first/screens/user_registration.dart';
 import 'package:first/widgets/bottom_navigation_bar.dart';
 import 'package:first/widgets/custom_button.dart';
@@ -66,7 +67,7 @@ class VerificationFPW extends StatelessWidget {
                       padding: EdgeInsets.fromLTRB(17, 0, 0, 0),
                     ),
                     StyledText(
-                        'Enter the verification code that we \nare sent to your mobile phone')
+                        'Enter the verification code that we \nare sent to your Email Address')
                   ],
                 ),
                 const SizedBox(height: 30),
@@ -107,7 +108,7 @@ class VerificationFPW extends StatelessWidget {
                     onPressed: () {
                       Navigator.push(
                         context,
-                        MaterialPageRoute(builder: (context) => Dash()),
+                        MaterialPageRoute(builder: (context) => HomePage()),
                       );
                     },
                   ),

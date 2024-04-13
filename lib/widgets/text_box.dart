@@ -40,3 +40,22 @@ class TextBox extends StatelessWidget {
     );
   }
 }
+
+const textInputDecoration = InputDecoration(
+  hintText: "Email",
+  hintStyle: TextStyle(color: Colors.black, fontSize: 15),
+  fillColor: Color.fromARGB(255, 217, 217, 217),
+  filled: true,
+  enabledBorder: OutlineInputBorder(
+    borderSide: BorderSide(color: Color.fromARGB(255, 217, 217, 217)),
+    borderRadius: BorderRadius.all(
+      Radius.circular(8),
+    ),
+  ),
+  focusedBorder: OutlineInputBorder(
+    borderSide: BorderSide(color: Color.fromARGB(255, 0, 187, 24)),
+    borderRadius: BorderRadius.all(
+      Radius.circular(8),
+    ),
+  ),
+);
