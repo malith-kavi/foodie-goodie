@@ -42,6 +42,7 @@ dependencies:
   firebase_auth: ^4.17.8
   provider: ^6.1.2
   cloud_firestore: ^4.15.8
+  dob_input_field: ^2.0.0
 
 dev_dependencies:
   flutter_test:
