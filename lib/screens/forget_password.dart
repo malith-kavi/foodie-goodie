@@ -7,9 +7,16 @@ import 'package:flutter/material.dart';
 
 var forget = 'assets/images/forget_password.png';
 
-class ForgetPassword extends StatelessWidget {
+String email = "";
+
+class ForgetPassword extends StatefulWidget {
   const ForgetPassword({super.key});
 
+  @override
+  State<ForgetPassword> createState() => _ForgetPasswordState();
+}
+
+class _ForgetPasswordState extends State<ForgetPassword> {
   @override
   Widget build(context) {
     return Scaffold(
@@ -61,14 +68,23 @@ class ForgetPassword extends StatelessWidget {
                         padding: EdgeInsets.fromLTRB(17, 0, 0, 0),
                       ),
                       StyledText(
-                          'Enter your registered phone number \nand we’ll send a code to login again'),
+                          'Enter your registered email address \nand we’ll send a code to login again'),
                     ],
                   ),
                   const SizedBox(height: 50),
-                  const TextBox(
-                    labelText: 'Phone Number',
-                    hintText: 'Enter your Phone Number',
-                    keyboardType: TextInputType.phone,
+                  Container(
+                    width: 320,
+                    height: 50,
+                    child: TextFormField(
+                      decoration: textInputDecoration,
+                      validator: (val) =>
+                          val!.isEmpty ? 'Enter an email' : null,
+                      onChanged: (val) {
+                        setState(() {
+                          email = val;
+                        });
+                      },
+                    ),
                   ),
                   const SizedBox(height: 60),
                   Image.asset(

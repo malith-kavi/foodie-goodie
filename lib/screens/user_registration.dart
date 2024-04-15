@@ -162,6 +162,7 @@
 //   }
 // }
 
+import 'package:first/screens/notifications.dart';
 import 'package:flutter/material.dart';
 import 'package:first/widgets/text_box.dart';
 import 'package:first/widgets/custom_button.dart';
@@ -294,21 +295,21 @@ class _UserRegistrationState extends State<UserRegistration> {
                           },
                         ),
                       ),
-                      const SizedBox(height: 15),
-                      Container(
-                        width: 320,
-                        height: 50,
-                        child: TextFormField(
-                          decoration: textInputDecoration.copyWith(
-                              hintText: 'Confirm Password'),
-                          validator: (val) =>
-                              val != password ? 'Passwords do not match' : null,
-                          obscureText: true,
-                          onChanged: (val) {
-                            setState(() => cpassword = val);
-                          },
-                        ),
-                      ),
+                      // const SizedBox(height: 15),
+                      // Container(
+                      //   width: 320,
+                      //   height: 50,
+                      //   child: TextFormField(
+                      //     decoration: textInputDecoration.copyWith(
+                      //         hintText: 'Confirm Password'),
+                      //     validator: (val) =>
+                      //         val != password ? 'Passwords do not match' : null,
+                      //     obscureText: true,
+                      //     onChanged: (val) {
+                      //       setState(() => cpassword = val);
+                      //     },
+                      //   ),
+                      // ),
                       const SizedBox(height: 15),
                       Text(
                         error,
@@ -338,7 +339,7 @@ class _UserRegistrationState extends State<UserRegistration> {
                           Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => const LoadingScreen()),
+                                builder: (context) => const Notifications()),
                           );
                         }
                       }

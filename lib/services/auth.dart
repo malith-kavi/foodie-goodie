@@ -1,6 +1,9 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:first/models/UserModel.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:first/screens/login_screen.dart';
+import 'package:flutter/material.dart';
+import 'package:first/routes.dart';
 
 class AuthServices {
   final FirebaseAuth _auth = FirebaseAuth.instance;
@@ -46,12 +49,13 @@ class AuthServices {
     }
   }
 
-  Future signOut() async {
+  Future<void> signOut(BuildContext context) async {
     try {
-      return await _auth.signOut();
+      await _auth.signOut();
+      Navigator.pushNamedAndRemoveUntil(context, '/login', (route) => false);
     } catch (err) {
       print(err.toString());
-      return null;
+      //return null;
     }
   }
 }

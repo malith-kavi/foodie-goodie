@@ -7,6 +7,8 @@ import 'package:first/screens/login_screen.dart';
 import 'package:first/screens/settings.dart';
 import 'package:first/screens/user_profile.dart';
 import 'package:flutter/material.dart';
+import 'package:first/services/auth.dart';
+import 'package:first/routes.dart';
 
 class HomePage extends StatelessWidget {
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
@@ -105,14 +107,16 @@ class HomePage extends StatelessWidget {
               },
             ),
             ListTile(
-                leading: const Icon(Icons.logout),
-                title: const Text('Log Out'),
-                onTap: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => LoginScreen()),
-                  );
-                }),
+              leading: const Icon(Icons.logout),
+              title: const Text('Log Out'),
+              onTap: () async {
+                await AuthServices().signOut(context);
+                // Navigator.push(
+                //   context,
+                //   MaterialPageRoute(builder: (context) => LoginScreen()),
+                // );
+              },
+            ),
           ],
         ),
       ),

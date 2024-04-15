@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:first/models/UserModel.dart';
+import 'package:first/routes.dart';
 import 'package:first/screens/alergies.dart';
 import 'package:first/screens/change_password.dart';
 import 'package:first/screens/forget_password.dart';
@@ -90,7 +91,9 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Your App',
-      home: LoginScreen(),
+      debugShowCheckedModeBanner: false,
+      routes: AppRoutes.routes,
+      home: Notifications(),
     );
   }
 }

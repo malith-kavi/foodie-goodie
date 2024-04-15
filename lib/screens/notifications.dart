@@ -1,6 +1,7 @@
 import 'package:first/screens/gender_selecter.dart';
 import 'package:flutter/material.dart';
 import 'package:first/widgets/custom_button.dart';
+import 'package:permission_handler/permission_handler.dart';
 
 class Notifications extends StatelessWidget {
   const Notifications({super.key});
@@ -9,17 +10,6 @@ class Notifications extends StatelessWidget {
   Widget build(context) {
     return Scaffold(
       appBar: AppBar(
-        leading: IconButton(
-          icon: Icon(Icons.arrow_back_ios_new),
-          onPressed: () {
-            // Navigator.pop(
-            //   context,
-            //   MaterialPageRoute(
-            //     builder: (context) => const LoadingScreen(),
-            //   ),
-            //);
-          },
-        ),
         actions: <Widget>[
           TextButton(
               style: TextButton.styleFrom(
@@ -81,12 +71,14 @@ class Notifications extends StatelessWidget {
                     padding: const EdgeInsets.all(30.0),
                     child: CustomButton(
                       text: 'Allow',
-                      onPressed: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => GenderSelection()),
-                        );
+                      onPressed: () async {
+                        if (await Permission.notification.request().isGranted) {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => GenderSelection()),
+                          );
+                        }
                       },
                     ),
                   ),
@@ -99,3 +91,47 @@ class Notifications extends StatelessWidget {
     );
   }
 }
+
+
+//Padding(
+//                     padding: const EdgeInsets.all(30.0),
+//                     child: CustomButton(
+//                         text: 'Allow',
+//                         onPressed: () async {
+//                           var status = await Permission.notification.request();
+//                           if (status.isGranted) {
+//                             Navigator.push(
+//                               context,
+//                               MaterialPageRoute(
+//                                 builder: (context) => GenderSelection(),
+//                               ),
+//                             );
+//                           } else {
+//                             showDialog(
+//                                 context: context,
+//                                 builder: (BuildContext context) {
+//                                   return AlertDialog(
+//                                     title: Text('Permission Denied'),
+//                                     content:
+//                                         Text('You have denied the permission'),
+//                                     actions: [
+//                                       TextButton(
+//                                         onPressed: () {
+//                                           Navigator.of(context).pop();
+//                                         },
+//                                         child: Text('Ok'),
+//                                       ),
+//                                     ],
+//                                   );
+//                                 });
+//                             Navigator.push(
+//                               context,
+//                               MaterialPageRoute(
+//                                   builder: (context) => GenderSelection()),
+//                             );
+//                           }
+//                         }),
+//                   ),
+//                 ],
+//               ),
+//             ),
