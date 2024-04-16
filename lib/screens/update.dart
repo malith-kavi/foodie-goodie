@@ -1,10 +1,8 @@
-import 'package:first/screens/contact.dart';
-import 'package:first/screens/dashboard.dart';
-import 'package:first/widgets/bottom_navigation_bar.dart';
 import 'package:flutter/material.dart';
+import 'package:first/widgets/bottom_navigation_bar.dart';
 
-class AboutUs extends StatelessWidget {
-  const AboutUs({super.key});
+class Update extends StatelessWidget {
+  const Update({super.key});
 
   @override
   Widget build(context) {

@@ -93,7 +93,7 @@ class MyApp extends StatelessWidget {
       title: 'Your App',
       debugShowCheckedModeBanner: false,
       routes: AppRoutes.routes,
-      home: Notifications(),
+      home: LoadingScreen(),
     );
   }
 }

@@ -104,6 +104,9 @@ flutter:
     - assets/images/diseases.png
     - assets/images/home_image.png
     - assets/images/profilepic.png
+    - assets/images/about.png
+    - assets/images/update.png
+
 
 
 
