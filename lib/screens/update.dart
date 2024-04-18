@@ -1,3 +1,4 @@
+import 'package:first/widgets/custom_button.dart';
 import 'package:flutter/material.dart';
 import 'package:first/widgets/bottom_navigation_bar.dart';
 
@@ -21,7 +22,7 @@ class Update extends StatelessWidget {
         ),
         title: const Center(
           child: Text(
-            'About Us           ',
+            'Check For Update           ',
             style: TextStyle(
               fontSize: 20,
               fontWeight: FontWeight.w600,
@@ -31,67 +32,35 @@ class Update extends StatelessWidget {
       ),
       body: Center(
         child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
-          const SizedBox(height: 50),
+          const SizedBox(height: 90),
           Image.asset(
-            'assets/images/about.png',
-            width: 360,
-            height: 200,
+            'assets/images/update.png',
+            width: 300,
+            height: 300,
           ),
+          const SizedBox(height: 60),
           const Text(
-            'Healthy Food is an easy-to-use \napplication about eating healthy.',
+            'Application is up to date',
             style: TextStyle(
-              fontSize: 15,
+              fontWeight: FontWeight.w500,
+              fontSize: 20,
             ),
           ),
           const SizedBox(height: 20),
           const Text(
-            'You will find information about\nthings that you should have in \nmind when trying to eat and stay\nhealthy.',
+            'check again later',
             style: TextStyle(
               fontSize: 15,
             ),
           ),
-          const SizedBox(height: 20),
-          const Text(
-            '',
-            style: TextStyle(
-              fontSize: 15,
+          const Spacer(),
+          Padding(
+            padding: const EdgeInsets.all(30.0),
+            child: CustomButton(
+              text: 'Check For Updates',
+              onPressed: () {},
             ),
           ),
-          Row(mainAxisAlignment: MainAxisAlignment.center, children: [
-            Padding(
-              padding: const EdgeInsets.fromLTRB(10, 0, 10, 0),
-              child: Row(
-                children: [
-                  IconButton(
-                    icon: const Icon(Icons.facebook_rounded,
-                        size: 50.0, color: Color.fromARGB(255, 2, 27, 254)),
-                    onPressed: () {},
-                  ),
-                  const SizedBox(width: 25),
-                  IconButton(
-                    icon: ClipRRect(
-                      borderRadius: BorderRadius.circular(8.0),
-                      child: Image.asset(
-                        x,
-                        height: 40.0,
-                        width: 40.0,
-                      ),
-                    ),
-                    onPressed: () {},
-                  ),
-                  const SizedBox(width: 30),
-                  IconButton(
-                    icon: Image.asset(
-                      insta,
-                      height: 40.0,
-                      width: 40.0,
-                    ),
-                    onPressed: () {},
-                  ),
-                ],
-              ),
-            ),
-          ]),
         ]),
       ),
     );

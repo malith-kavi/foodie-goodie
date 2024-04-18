@@ -45,6 +45,7 @@ dependencies:
   dob_input_field: ^2.0.0
   google_sign_in: ^6.2.1
   permission_handler: ^11.3.1
+  js: ^0.6.7
 
 dev_dependencies:
   flutter_test:
@@ -106,6 +107,7 @@ flutter:
     - assets/images/profilepic.png
     - assets/images/about.png
     - assets/images/update.png
+    - assets/images/suggest.png
 
 
 

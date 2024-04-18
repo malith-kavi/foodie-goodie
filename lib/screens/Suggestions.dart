@@ -1,121 +1,329 @@
+import 'package:first/screens/about_us.dart';
+import 'package:first/screens/add_breakfast.dart';
+import 'package:first/screens/add_dinner.dart';
+//import 'package:first/screens/addlunch.dart';
+import 'package:first/screens/contact.dart';
+import 'package:first/screens/login_screen.dart';
+import 'package:first/screens/settings.dart';
+import 'package:first/screens/user_profile.dart';
 import 'package:flutter/material.dart';
+import 'package:first/services/auth.dart';
+import 'package:first/routes.dart';
 
 class Suggestions extends StatelessWidget {
-  const Suggestions({Key? key}) : super(key: key);
+  final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      key: _scaffoldKey,
       appBar: AppBar(
-        // leading: IconButton(
-        //   icon: const Icon(Icons.arrow_back_ios_new),
-        //   onPressed: () {
-        //     Navigator.pop(context); // Navigating back to the previous screen
-        //   },
-        // ),
-        title: Text(
-          '    Suggestions',
-          style: TextStyle(
-            fontSize: 20,
-            fontWeight: FontWeight.w600,
-          ),
+        leading: IconButton(
+          icon: const Icon(Icons.menu_rounded),
+          onPressed: () {
+            _scaffoldKey.currentState?.openDrawer();
+          },
         ),
-        centerTitle: true, // Center align the title
+        actions: <Widget>[
+          // IconButton(
+          //     icon:
+          //         const Icon(Icons.notifications_active, color: Colors.black54),
+          //     onPressed: () {}),
+          IconButton(
+            icon: Image.asset('assets/images/Male.png', width: 35, height: 35),
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => UserProfile()),
+              );
+            },
+          ),
+        ],
+        backgroundColor: Colors.transparent,
+        foregroundColor: const Color.fromARGB(255, 0, 0, 0),
       ),
-      body: Padding(
-        padding: const EdgeInsets.all(20.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-              'Breakfast',
-              style: TextStyle(
-                fontSize: 18,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-            SizedBox(height: 10),
-            SizedBox(
-              height: 120, // Fixed height for the list
-              child: ListView.builder(
-                itemCount: 3, // Change the itemCount as needed
-                itemBuilder: (context, index) {
-                  // Example breakfast items
-                  List<String> breakfastItems = [
-                    'Milk Rice',
-                    'String Hoppers',
-                    'Rotti'
-                  ];
-                  return Container(
-                    margin: EdgeInsets.only(bottom: 10),
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(20),
-                      color: Colors.lightGreen.withOpacity(0.3),
+      drawer: Drawer(
+        child: ListView(
+          padding: EdgeInsets.zero,
+          children: <Widget>[
+            DrawerHeader(
+              child: Center(
+                child: Row(
+                  children: [
+                    IconButton(
+                        icon: Image.asset('assets/images/Male.png',
+                            width: 75, height: 75),
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => UserProfile()),
+                          );
+                        }),
+                    const Text(
+                      'User Name',
+                      style: TextStyle(
+                          color: Color.fromARGB(255, 0, 0, 0),
+                          fontSize: 20,
+                          fontWeight: FontWeight.w600),
                     ),
-                    padding: EdgeInsets.all(10),
-                    child: Text(breakfastItems[index]),
-                  );
-                },
+                  ],
+                ),
               ),
             ),
-            SizedBox(height: 20),
-            Text(
-              'Lunch',
-              style: TextStyle(
-                fontSize: 18,
-                fontWeight: FontWeight.bold,
-              ),
+            ListTile(
+              title: const Text('Check For Updates'),
+              leading: const Icon(Icons.system_update_alt_rounded),
+              onTap: () {},
             ),
-            SizedBox(height: 10),
-            SizedBox(
-              height: 120, // Fixed height for the list
-              child: ListView.builder(
-                itemCount: 3, // Change the itemCount as needed
-                itemBuilder: (context, index) {
-                  // Example lunch items
-                  List<String> lunchItems = ['Rice', 'Vegetable', 'Soup'];
-                  return Container(
-                    margin: EdgeInsets.only(bottom: 10),
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(20),
-                      color: Colors.lightGreen.withOpacity(0.3),
-                    ),
-                    padding: EdgeInsets.all(10),
-                    child: Text(lunchItems[index]),
-                  );
-                },
-              ),
+            ListTile(
+              leading: const Icon(Icons.settings),
+              title: const Text('Settings'),
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => SettingsPage()),
+                );
+              },
             ),
-            SizedBox(height: 20),
-            Text(
-              'Dinner',
-              style: TextStyle(
-                fontSize: 18,
-                fontWeight: FontWeight.bold,
-              ),
+            ListTile(
+              leading: const Icon(Icons.call),
+              title: const Text('Contact Us'),
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => Contact()),
+                );
+              },
             ),
-            SizedBox(height: 10),
-            SizedBox(
-              height: 120, // Fixed height for the list
-              child: ListView.builder(
-                itemCount: 3, // Change the itemCount as needed
-                itemBuilder: (context, index) {
-                  // Example dinner items
-                  List<String> dinnerItems = ['Bread', 'Noodles', 'Soup'];
-                  return Container(
-                    margin: EdgeInsets.only(bottom: 10),
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(20),
-                      color: Colors.lightGreen.withOpacity(0.3),
-                    ),
-                    padding: EdgeInsets.all(10),
-                    child: Text(dinnerItems[index]),
-                  );
-                },
-              ),
+            ListTile(
+              leading: const Icon(Icons.info_outline_rounded),
+              title: const Text('About Us'),
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => AboutUs()),
+                );
+              },
+            ),
+            ListTile(
+              leading: const Icon(Icons.logout),
+              title: const Text('Log Out'),
+              onTap: () async {
+                await AuthServices().signOut(context);
+                // Navigator.push(
+                //   context,
+                //   MaterialPageRoute(builder: (context) => LoginScreen()),
+                // );
+              },
             ),
           ],
         ),
+      ),
+      body: Column(
+        children: [
+          Expanded(
+            flex: 1,
+            child: Container(
+              decoration: const BoxDecoration(
+                image: DecorationImage(
+                  image: AssetImage('assets/images/suggest.png'),
+                  fit: BoxFit.fill,
+                ),
+              ),
+              width: 240,
+              height: 300,
+            ),
+          ),
+          Expanded(
+            flex: 2,
+            child: Container(
+              decoration: const BoxDecoration(
+                borderRadius: BorderRadius.only(
+                  topLeft: Radius.circular(30),
+                  topRight: Radius.circular(30),
+                ),
+                color: Color.fromARGB(255, 211, 236, 217),
+              ),
+              child: Center(
+                child: ListView(
+                  padding: const EdgeInsets.all(20),
+                  children: <Widget>[
+                    const SizedBox(height: 20),
+                    GestureDetector(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => Addbreakfast()),
+                        );
+                      },
+                      child: Container(
+                        margin: const EdgeInsets.only(bottom: 20),
+                        height: 100,
+                        decoration: BoxDecoration(
+                          color: const Color.fromARGB(255, 255, 255, 255),
+                          borderRadius: BorderRadius.circular(20),
+                          boxShadow: const [
+                            BoxShadow(
+                                color: Colors.black12,
+                                spreadRadius: 5,
+                                blurRadius: 7,
+                                offset: Offset(0, 3)),
+                          ],
+                        ),
+                        child: Row(
+                          children: [
+                            const SizedBox(width: 10),
+                            ClipRRect(
+                              borderRadius: BorderRadius.circular(20),
+                              child: Image.asset(
+                                'assets/images/picture1.png',
+                                fit: BoxFit.cover,
+                                height: 80,
+                                width: 100,
+                              ),
+                            ),
+                            const SizedBox(width: 10),
+                            const Expanded(
+                              child: Column(
+                                children: [
+                                  SizedBox(height: 20),
+                                  Text(
+                                    'Suggestions For\n      Breakfast',
+                                    style: TextStyle(
+                                      color: Colors.black,
+                                      fontSize: 19,
+                                      fontWeight: FontWeight.w600,
+                                    ),
+                                  ),
+                                  SizedBox(height: 10),
+                                ],
+                              ),
+                            ),
+                            const SizedBox(width: 10),
+                          ],
+                        ),
+                      ),
+                    ),
+                    GestureDetector(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => Addbreakfast()),
+                        );
+                      },
+                      child: Container(
+                        margin: const EdgeInsets.only(bottom: 20),
+                        height: 100,
+                        decoration: BoxDecoration(
+                          color: const Color.fromARGB(255, 255, 255, 255),
+                          borderRadius: BorderRadius.circular(20),
+                          boxShadow: const [
+                            BoxShadow(
+                                color: Colors.black12,
+                                spreadRadius: 5,
+                                blurRadius: 7,
+                                offset: Offset(0, 3)),
+                          ],
+                        ),
+                        child: Row(
+                          children: [
+                            const SizedBox(width: 10),
+                            ClipRRect(
+                              borderRadius: BorderRadius.circular(20),
+                              child: Image.asset(
+                                'assets/images/picture2.png',
+                                fit: BoxFit.cover,
+                                height: 80,
+                                width: 100,
+                              ),
+                            ),
+                            const SizedBox(width: 10),
+                            const Expanded(
+                              child: Column(
+                                children: [
+                                  SizedBox(height: 20),
+                                  Text(
+                                    'Suggestions For\n          Lunch',
+                                    style: TextStyle(
+                                      color: Colors.black,
+                                      fontSize: 19,
+                                      fontWeight: FontWeight.w600,
+                                    ),
+                                  ),
+                                  SizedBox(height: 10),
+                                ],
+                              ),
+                            ),
+                            const SizedBox(width: 10),
+                          ],
+                        ),
+                      ),
+                    ),
+                    GestureDetector(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => Addbreakfast()),
+                        );
+                      },
+                      child: Container(
+                        margin: const EdgeInsets.only(bottom: 20),
+                        height: 100,
+                        decoration: BoxDecoration(
+                          color: const Color.fromARGB(255, 255, 255, 255),
+                          borderRadius: BorderRadius.circular(20),
+                          boxShadow: const [
+                            BoxShadow(
+                                color: Colors.black12,
+                                spreadRadius: 5,
+                                blurRadius: 7,
+                                offset: Offset(0, 3)),
+                          ],
+                        ),
+                        child: Row(
+                          children: [
+                            const SizedBox(width: 10),
+                            ClipRRect(
+                              borderRadius: BorderRadius.circular(20),
+                              child: Image.asset(
+                                'assets/images/picture3.png',
+                                fit: BoxFit.cover,
+                                height: 80,
+                                width: 100,
+                              ),
+                            ),
+                            const SizedBox(width: 10),
+                            const Expanded(
+                              child: Column(
+                                children: [
+                                  SizedBox(height: 20),
+                                  Text(
+                                    'Suggestions For\n         Dinner',
+                                    style: TextStyle(
+                                      color: Colors.black,
+                                      fontSize: 19,
+                                      fontWeight: FontWeight.w600,
+                                    ),
+                                  ),
+                                  SizedBox(height: 10),
+                                ],
+                              ),
+                            ),
+                            const SizedBox(width: 10),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          ),
+        ],
       ),
     );
   }
