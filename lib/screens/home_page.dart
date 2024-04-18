@@ -5,6 +5,7 @@ import 'package:first/screens/add_dinner.dart';
 import 'package:first/screens/contact.dart';
 import 'package:first/screens/login_screen.dart';
 import 'package:first/screens/settings.dart';
+import 'package:first/screens/update.dart';
 import 'package:first/screens/user_profile.dart';
 import 'package:flutter/material.dart';
 import 'package:first/services/auth.dart';
@@ -25,10 +26,10 @@ class HomePage extends StatelessWidget {
           },
         ),
         actions: <Widget>[
-          IconButton(
-              icon:
-                  const Icon(Icons.notifications_active, color: Colors.black54),
-              onPressed: () {}),
+          // IconButton(
+          //     icon:
+          //         const Icon(Icons.notifications_active, color: Colors.black54),
+          //     onPressed: () {}),
           IconButton(
             icon: Image.asset('assets/images/Male.png', width: 35, height: 35),
             onPressed: () {
@@ -74,7 +75,12 @@ class HomePage extends StatelessWidget {
             ListTile(
               title: const Text('Check For Updates'),
               leading: const Icon(Icons.system_update_alt_rounded),
-              onTap: () {},
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => Update()),
+                );
+              },
             ),
             ListTile(
               leading: const Icon(Icons.settings),

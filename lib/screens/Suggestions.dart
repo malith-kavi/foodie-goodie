@@ -5,6 +5,7 @@ import 'package:first/screens/add_dinner.dart';
 import 'package:first/screens/contact.dart';
 import 'package:first/screens/login_screen.dart';
 import 'package:first/screens/settings.dart';
+import 'package:first/screens/update.dart';
 import 'package:first/screens/user_profile.dart';
 import 'package:flutter/material.dart';
 import 'package:first/services/auth.dart';
@@ -74,7 +75,12 @@ class Suggestions extends StatelessWidget {
             ListTile(
               title: const Text('Check For Updates'),
               leading: const Icon(Icons.system_update_alt_rounded),
-              onTap: () {},
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => Update()),
+                );
+              },
             ),
             ListTile(
               leading: const Icon(Icons.settings),
@@ -127,7 +133,7 @@ class Suggestions extends StatelessWidget {
             child: Container(
               decoration: const BoxDecoration(
                 image: DecorationImage(
-                  image: AssetImage('assets/images/suggest.png'),
+                  image: AssetImage('assets/images/mealnew.png'),
                   fit: BoxFit.fill,
                 ),
               ),

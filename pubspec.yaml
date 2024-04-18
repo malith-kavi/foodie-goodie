@@ -108,6 +108,8 @@ flutter:
     - assets/images/about.png
     - assets/images/update.png
     - assets/images/suggest.png
+    - assets/images/meals_h.png
+    - assets/images/mealnew.png
 
 
 

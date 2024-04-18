@@ -13,7 +13,7 @@ import 'package:flutter/material.dart';
 import 'package:first/services/auth.dart';
 import 'package:first/routes.dart';
 
-class Addbreakfast extends StatelessWidget {
+class BreakfastHistory extends StatelessWidget {
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
@@ -34,7 +34,7 @@ class Addbreakfast extends StatelessWidget {
         ),
         title: const Center(
           child: Text(
-            'Add Your Breakfast           ',
+            'Breakfast Meal History           ',
             style: TextStyle(
               fontSize: 20,
               fontWeight: FontWeight.w600,

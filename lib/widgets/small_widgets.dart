@@ -20,3 +20,25 @@ class DateInputFormatter extends TextInputFormatter {
     );
   }
 }
+
+class SearchBox extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      margin: EdgeInsets.symmetric(horizontal: 20),
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(30),
+        color: Colors.grey[200],
+      ),
+      child: TextField(
+        decoration: InputDecoration(
+          hintText: 'Search...',
+          hintStyle: TextStyle(color: Colors.grey),
+          prefixIcon: Icon(Icons.search, color: Colors.grey),
+          border: InputBorder.none,
+          contentPadding: EdgeInsets.symmetric(horizontal: 20, vertical: 14),
+        ),
+      ),
+    );
+  }
+}
