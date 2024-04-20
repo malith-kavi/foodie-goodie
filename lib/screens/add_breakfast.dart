@@ -44,7 +44,7 @@ class Addbreakfast extends StatelessWidget {
       ),
       body: Column(
         children: [
-          SizedBox(height: 40),
+          SizedBox(height: 20),
           Expanded(
             flex: 1,
             child: Container(
@@ -98,7 +98,7 @@ class Addbreakfast extends StatelessWidget {
                             ClipRRect(
                               borderRadius: BorderRadius.circular(20),
                               child: Image.asset(
-                                'assets/images/picture1.png',
+                                'assets/images/avocado.png',
                                 fit: BoxFit.cover,
                                 height: 80,
                                 width: 100,
@@ -108,9 +108,9 @@ class Addbreakfast extends StatelessWidget {
                             const Expanded(
                               child: Column(
                                 children: [
-                                  SizedBox(height: 20),
+                                  SizedBox(height: 30),
                                   Text(
-                                    'Suggestions For\n      Breakfast',
+                                    'Avocado',
                                     style: TextStyle(
                                       color: Colors.black,
                                       fontSize: 19,
@@ -154,7 +154,7 @@ class Addbreakfast extends StatelessWidget {
                             ClipRRect(
                               borderRadius: BorderRadius.circular(20),
                               child: Image.asset(
-                                'assets/images/picture2.png',
+                                'assets/images/brownRice.png',
                                 fit: BoxFit.cover,
                                 height: 80,
                                 width: 100,
@@ -164,9 +164,9 @@ class Addbreakfast extends StatelessWidget {
                             const Expanded(
                               child: Column(
                                 children: [
-                                  SizedBox(height: 20),
+                                  SizedBox(height: 30),
                                   Text(
-                                    'Suggestions For\n          Lunch',
+                                    'Brown Rice',
                                     style: TextStyle(
                                       color: Colors.black,
                                       fontSize: 19,
@@ -210,7 +210,7 @@ class Addbreakfast extends StatelessWidget {
                             ClipRRect(
                               borderRadius: BorderRadius.circular(20),
                               child: Image.asset(
-                                'assets/images/picture3.png',
+                                'assets/images/banana.png',
                                 fit: BoxFit.cover,
                                 height: 80,
                                 width: 100,
@@ -220,9 +220,9 @@ class Addbreakfast extends StatelessWidget {
                             const Expanded(
                               child: Column(
                                 children: [
-                                  SizedBox(height: 20),
+                                  SizedBox(height: 30),
                                   Text(
-                                    'Suggestions For\n         Dinner',
+                                    'Banana',
                                     style: TextStyle(
                                       color: Colors.black,
                                       fontSize: 19,
@@ -266,7 +266,7 @@ class Addbreakfast extends StatelessWidget {
                             ClipRRect(
                               borderRadius: BorderRadius.circular(20),
                               child: Image.asset(
-                                'assets/images/picture3.png',
+                                'assets/images/chickPeas.png',
                                 fit: BoxFit.cover,
                                 height: 80,
                                 width: 100,
@@ -276,9 +276,9 @@ class Addbreakfast extends StatelessWidget {
                             const Expanded(
                               child: Column(
                                 children: [
-                                  SizedBox(height: 20),
+                                  SizedBox(height: 30),
                                   Text(
-                                    'Suggestions For\n         Dinner',
+                                    'Chick Peas',
                                     style: TextStyle(
                                       color: Colors.black,
                                       fontSize: 19,
@@ -322,7 +322,7 @@ class Addbreakfast extends StatelessWidget {
                             ClipRRect(
                               borderRadius: BorderRadius.circular(20),
                               child: Image.asset(
-                                'assets/images/picture3.png',
+                                'assets/images/chocolate.png',
                                 fit: BoxFit.cover,
                                 height: 80,
                                 width: 100,
@@ -332,9 +332,9 @@ class Addbreakfast extends StatelessWidget {
                             const Expanded(
                               child: Column(
                                 children: [
-                                  SizedBox(height: 20),
+                                  SizedBox(height: 30),
                                   Text(
-                                    'Suggestions For\n         Dinner',
+                                    'Chocolate',
                                     style: TextStyle(
                                       color: Colors.black,
                                       fontSize: 19,
@@ -378,7 +378,7 @@ class Addbreakfast extends StatelessWidget {
                             ClipRRect(
                               borderRadius: BorderRadius.circular(20),
                               child: Image.asset(
-                                'assets/images/picture3.png',
+                                'assets/images/dhal.png',
                                 fit: BoxFit.cover,
                                 height: 80,
                                 width: 100,
@@ -388,9 +388,1017 @@ class Addbreakfast extends StatelessWidget {
                             const Expanded(
                               child: Column(
                                 children: [
-                                  SizedBox(height: 20),
+                                  SizedBox(height: 30),
                                   Text(
-                                    'Suggestions For\n         Dinner',
+                                    'Dhal',
+                                    style: TextStyle(
+                                      color: Colors.black,
+                                      fontSize: 19,
+                                      fontWeight: FontWeight.w600,
+                                    ),
+                                  ),
+                                  SizedBox(height: 10),
+                                ],
+                              ),
+                            ),
+                            const SizedBox(width: 10),
+                          ],
+                        ),
+                      ),
+                    ),
+                    GestureDetector(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => Addbreakfast()),
+                        );
+                      },
+                      child: Container(
+                        margin: const EdgeInsets.only(bottom: 20),
+                        height: 100,
+                        decoration: BoxDecoration(
+                          color: const Color.fromARGB(255, 255, 255, 255),
+                          borderRadius: BorderRadius.circular(20),
+                          boxShadow: const [
+                            BoxShadow(
+                                color: Colors.black12,
+                                spreadRadius: 5,
+                                blurRadius: 7,
+                                offset: Offset(0, 3)),
+                          ],
+                        ),
+                        child: Row(
+                          children: [
+                            const SizedBox(width: 10),
+                            ClipRRect(
+                              borderRadius: BorderRadius.circular(20),
+                              child: Image.asset(
+                                'assets/images/fattyFish.png',
+                                fit: BoxFit.cover,
+                                height: 80,
+                                width: 100,
+                              ),
+                            ),
+                            const SizedBox(width: 10),
+                            const Expanded(
+                              child: Column(
+                                children: [
+                                  SizedBox(height: 30),
+                                  Text(
+                                    'Fatty Fish',
+                                    style: TextStyle(
+                                      color: Colors.black,
+                                      fontSize: 19,
+                                      fontWeight: FontWeight.w600,
+                                    ),
+                                  ),
+                                  SizedBox(height: 10),
+                                ],
+                              ),
+                            ),
+                            const SizedBox(width: 10),
+                          ],
+                        ),
+                      ),
+                    ),
+                    GestureDetector(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => Addbreakfast()),
+                        );
+                      },
+                      child: Container(
+                        margin: const EdgeInsets.only(bottom: 20),
+                        height: 100,
+                        decoration: BoxDecoration(
+                          color: const Color.fromARGB(255, 255, 255, 255),
+                          borderRadius: BorderRadius.circular(20),
+                          boxShadow: const [
+                            BoxShadow(
+                                color: Colors.black12,
+                                spreadRadius: 5,
+                                blurRadius: 7,
+                                offset: Offset(0, 3)),
+                          ],
+                        ),
+                        child: Row(
+                          children: [
+                            const SizedBox(width: 10),
+                            ClipRRect(
+                              borderRadius: BorderRadius.circular(20),
+                              child: Image.asset(
+                                'assets/images/fruits.png',
+                                fit: BoxFit.cover,
+                                height: 80,
+                                width: 100,
+                              ),
+                            ),
+                            const SizedBox(width: 10),
+                            const Expanded(
+                              child: Column(
+                                children: [
+                                  SizedBox(height: 30),
+                                  Text(
+                                    'Fruits',
+                                    style: TextStyle(
+                                      color: Colors.black,
+                                      fontSize: 19,
+                                      fontWeight: FontWeight.w600,
+                                    ),
+                                  ),
+                                  SizedBox(height: 10),
+                                ],
+                              ),
+                            ),
+                            const SizedBox(width: 10),
+                          ],
+                        ),
+                      ),
+                    ),
+                    GestureDetector(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => Addbreakfast()),
+                        );
+                      },
+                      child: Container(
+                        margin: const EdgeInsets.only(bottom: 20),
+                        height: 100,
+                        decoration: BoxDecoration(
+                          color: const Color.fromARGB(255, 255, 255, 255),
+                          borderRadius: BorderRadius.circular(20),
+                          boxShadow: const [
+                            BoxShadow(
+                                color: Colors.black12,
+                                spreadRadius: 5,
+                                blurRadius: 7,
+                                offset: Offset(0, 3)),
+                          ],
+                        ),
+                        child: Row(
+                          children: [
+                            const SizedBox(width: 10),
+                            ClipRRect(
+                              borderRadius: BorderRadius.circular(20),
+                              child: Image.asset(
+                                'assets/images/fruitSalads.png',
+                                fit: BoxFit.cover,
+                                height: 80,
+                                width: 100,
+                              ),
+                            ),
+                            const SizedBox(width: 10),
+                            const Expanded(
+                              child: Column(
+                                children: [
+                                  SizedBox(height: 30),
+                                  Text(
+                                    'Fruit Salads',
+                                    style: TextStyle(
+                                      color: Colors.black,
+                                      fontSize: 19,
+                                      fontWeight: FontWeight.w600,
+                                    ),
+                                  ),
+                                  SizedBox(height: 10),
+                                ],
+                              ),
+                            ),
+                            const SizedBox(width: 10),
+                          ],
+                        ),
+                      ),
+                    ),
+                    GestureDetector(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => Addbreakfast()),
+                        );
+                      },
+                      child: Container(
+                        margin: const EdgeInsets.only(bottom: 20),
+                        height: 100,
+                        decoration: BoxDecoration(
+                          color: const Color.fromARGB(255, 255, 255, 255),
+                          borderRadius: BorderRadius.circular(20),
+                          boxShadow: const [
+                            BoxShadow(
+                                color: Colors.black12,
+                                spreadRadius: 5,
+                                blurRadius: 7,
+                                offset: Offset(0, 3)),
+                          ],
+                        ),
+                        child: Row(
+                          children: [
+                            const SizedBox(width: 10),
+                            ClipRRect(
+                              borderRadius: BorderRadius.circular(20),
+                              child: Image.asset(
+                                'assets/images/gingerTea.png',
+                                fit: BoxFit.cover,
+                                height: 80,
+                                width: 100,
+                              ),
+                            ),
+                            const SizedBox(width: 10),
+                            const Expanded(
+                              child: Column(
+                                children: [
+                                  SizedBox(height: 30),
+                                  Text(
+                                    'Ginger Tea',
+                                    style: TextStyle(
+                                      color: Colors.black,
+                                      fontSize: 19,
+                                      fontWeight: FontWeight.w600,
+                                    ),
+                                  ),
+                                  SizedBox(height: 10),
+                                ],
+                              ),
+                            ),
+                            const SizedBox(width: 10),
+                          ],
+                        ),
+                      ),
+                    ),
+                    GestureDetector(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => Addbreakfast()),
+                        );
+                      },
+                      child: Container(
+                        margin: const EdgeInsets.only(bottom: 20),
+                        height: 100,
+                        decoration: BoxDecoration(
+                          color: const Color.fromARGB(255, 255, 255, 255),
+                          borderRadius: BorderRadius.circular(20),
+                          boxShadow: const [
+                            BoxShadow(
+                                color: Colors.black12,
+                                spreadRadius: 5,
+                                blurRadius: 7,
+                                offset: Offset(0, 3)),
+                          ],
+                        ),
+                        child: Row(
+                          children: [
+                            const SizedBox(width: 10),
+                            ClipRRect(
+                              borderRadius: BorderRadius.circular(20),
+                              child: Image.asset(
+                                'assets/images/grains.png',
+                                fit: BoxFit.cover,
+                                height: 80,
+                                width: 100,
+                              ),
+                            ),
+                            const SizedBox(width: 10),
+                            const Expanded(
+                              child: Column(
+                                children: [
+                                  SizedBox(height: 30),
+                                  Text(
+                                    'Grains',
+                                    style: TextStyle(
+                                      color: Colors.black,
+                                      fontSize: 19,
+                                      fontWeight: FontWeight.w600,
+                                    ),
+                                  ),
+                                  SizedBox(height: 10),
+                                ],
+                              ),
+                            ),
+                            const SizedBox(width: 10),
+                          ],
+                        ),
+                      ),
+                    ),
+                    GestureDetector(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => Addbreakfast()),
+                        );
+                      },
+                      child: Container(
+                        margin: const EdgeInsets.only(bottom: 20),
+                        height: 100,
+                        decoration: BoxDecoration(
+                          color: const Color.fromARGB(255, 255, 255, 255),
+                          borderRadius: BorderRadius.circular(20),
+                          boxShadow: const [
+                            BoxShadow(
+                                color: Colors.black12,
+                                spreadRadius: 5,
+                                blurRadius: 7,
+                                offset: Offset(0, 3)),
+                          ],
+                        ),
+                        child: Row(
+                          children: [
+                            const SizedBox(width: 10),
+                            ClipRRect(
+                              borderRadius: BorderRadius.circular(20),
+                              child: Image.asset(
+                                'assets/images/laefyGreens.png',
+                                fit: BoxFit.cover,
+                                height: 80,
+                                width: 100,
+                              ),
+                            ),
+                            const SizedBox(width: 10),
+                            const Expanded(
+                              child: Column(
+                                children: [
+                                  SizedBox(height: 30),
+                                  Text(
+                                    'Laefy Green',
+                                    style: TextStyle(
+                                      color: Colors.black,
+                                      fontSize: 19,
+                                      fontWeight: FontWeight.w600,
+                                    ),
+                                  ),
+                                  SizedBox(height: 10),
+                                ],
+                              ),
+                            ),
+                            const SizedBox(width: 10),
+                          ],
+                        ),
+                      ),
+                    ),
+                    GestureDetector(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => Addbreakfast()),
+                        );
+                      },
+                      child: Container(
+                        margin: const EdgeInsets.only(bottom: 20),
+                        height: 100,
+                        decoration: BoxDecoration(
+                          color: const Color.fromARGB(255, 255, 255, 255),
+                          borderRadius: BorderRadius.circular(20),
+                          boxShadow: const [
+                            BoxShadow(
+                                color: Colors.black12,
+                                spreadRadius: 5,
+                                blurRadius: 7,
+                                offset: Offset(0, 3)),
+                          ],
+                        ),
+                        child: Row(
+                          children: [
+                            const SizedBox(width: 10),
+                            ClipRRect(
+                              borderRadius: BorderRadius.circular(20),
+                              child: Image.asset(
+                                'assets/images/nuts.png',
+                                fit: BoxFit.cover,
+                                height: 80,
+                                width: 100,
+                              ),
+                            ),
+                            const SizedBox(width: 10),
+                            const Expanded(
+                              child: Column(
+                                children: [
+                                  SizedBox(height: 30),
+                                  Text(
+                                    'Nuts',
+                                    style: TextStyle(
+                                      color: Colors.black,
+                                      fontSize: 19,
+                                      fontWeight: FontWeight.w600,
+                                    ),
+                                  ),
+                                  SizedBox(height: 10),
+                                ],
+                              ),
+                            ),
+                            const SizedBox(width: 10),
+                          ],
+                        ),
+                      ),
+                    ),
+                    GestureDetector(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => Addbreakfast()),
+                        );
+                      },
+                      child: Container(
+                        margin: const EdgeInsets.only(bottom: 20),
+                        height: 100,
+                        decoration: BoxDecoration(
+                          color: const Color.fromARGB(255, 255, 255, 255),
+                          borderRadius: BorderRadius.circular(20),
+                          boxShadow: const [
+                            BoxShadow(
+                                color: Colors.black12,
+                                spreadRadius: 5,
+                                blurRadius: 7,
+                                offset: Offset(0, 3)),
+                          ],
+                        ),
+                        child: Row(
+                          children: [
+                            const SizedBox(width: 10),
+                            ClipRRect(
+                              borderRadius: BorderRadius.circular(20),
+                              child: Image.asset(
+                                'assets/images/oats.png',
+                                fit: BoxFit.cover,
+                                height: 80,
+                                width: 100,
+                              ),
+                            ),
+                            const SizedBox(width: 10),
+                            const Expanded(
+                              child: Column(
+                                children: [
+                                  SizedBox(height: 30),
+                                  Text(
+                                    'Oats',
+                                    style: TextStyle(
+                                      color: Colors.black,
+                                      fontSize: 19,
+                                      fontWeight: FontWeight.w600,
+                                    ),
+                                  ),
+                                  SizedBox(height: 10),
+                                ],
+                              ),
+                            ),
+                            const SizedBox(width: 10),
+                          ],
+                        ),
+                      ),
+                    ),
+                    GestureDetector(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => Addbreakfast()),
+                        );
+                      },
+                      child: Container(
+                        margin: const EdgeInsets.only(bottom: 20),
+                        height: 100,
+                        decoration: BoxDecoration(
+                          color: const Color.fromARGB(255, 255, 255, 255),
+                          borderRadius: BorderRadius.circular(20),
+                          boxShadow: const [
+                            BoxShadow(
+                                color: Colors.black12,
+                                spreadRadius: 5,
+                                blurRadius: 7,
+                                offset: Offset(0, 3)),
+                          ],
+                        ),
+                        child: Row(
+                          children: [
+                            const SizedBox(width: 10),
+                            ClipRRect(
+                              borderRadius: BorderRadius.circular(20),
+                              child: Image.asset(
+                                'assets/images/olives.png',
+                                fit: BoxFit.cover,
+                                height: 80,
+                                width: 100,
+                              ),
+                            ),
+                            const SizedBox(width: 10),
+                            const Expanded(
+                              child: Column(
+                                children: [
+                                  SizedBox(height: 30),
+                                  Text(
+                                    'Olives',
+                                    style: TextStyle(
+                                      color: Colors.black,
+                                      fontSize: 19,
+                                      fontWeight: FontWeight.w600,
+                                    ),
+                                  ),
+                                  SizedBox(height: 10),
+                                ],
+                              ),
+                            ),
+                            const SizedBox(width: 10),
+                          ],
+                        ),
+                      ),
+                    ),
+                    GestureDetector(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => Addbreakfast()),
+                        );
+                      },
+                      child: Container(
+                        margin: const EdgeInsets.only(bottom: 20),
+                        height: 100,
+                        decoration: BoxDecoration(
+                          color: const Color.fromARGB(255, 255, 255, 255),
+                          borderRadius: BorderRadius.circular(20),
+                          boxShadow: const [
+                            BoxShadow(
+                                color: Colors.black12,
+                                spreadRadius: 5,
+                                blurRadius: 7,
+                                offset: Offset(0, 3)),
+                          ],
+                        ),
+                        child: Row(
+                          children: [
+                            const SizedBox(width: 10),
+                            ClipRRect(
+                              borderRadius: BorderRadius.circular(20),
+                              child: Image.asset(
+                                'assets/images/papaya.png',
+                                fit: BoxFit.cover,
+                                height: 80,
+                                width: 100,
+                              ),
+                            ),
+                            const SizedBox(width: 10),
+                            const Expanded(
+                              child: Column(
+                                children: [
+                                  SizedBox(height: 30),
+                                  Text(
+                                    'Papaya',
+                                    style: TextStyle(
+                                      color: Colors.black,
+                                      fontSize: 19,
+                                      fontWeight: FontWeight.w600,
+                                    ),
+                                  ),
+                                  SizedBox(height: 10),
+                                ],
+                              ),
+                            ),
+                            const SizedBox(width: 10),
+                          ],
+                        ),
+                      ),
+                    ),
+                    GestureDetector(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => Addbreakfast()),
+                        );
+                      },
+                      child: Container(
+                        margin: const EdgeInsets.only(bottom: 20),
+                        height: 100,
+                        decoration: BoxDecoration(
+                          color: const Color.fromARGB(255, 255, 255, 255),
+                          borderRadius: BorderRadius.circular(20),
+                          boxShadow: const [
+                            BoxShadow(
+                                color: Colors.black12,
+                                spreadRadius: 5,
+                                blurRadius: 7,
+                                offset: Offset(0, 3)),
+                          ],
+                        ),
+                        child: Row(
+                          children: [
+                            const SizedBox(width: 10),
+                            ClipRRect(
+                              borderRadius: BorderRadius.circular(20),
+                              child: Image.asset(
+                                'assets/images/sambol.png',
+                                fit: BoxFit.cover,
+                                height: 80,
+                                width: 100,
+                              ),
+                            ),
+                            const SizedBox(width: 10),
+                            const Expanded(
+                              child: Column(
+                                children: [
+                                  SizedBox(height: 30),
+                                  Text(
+                                    'Sambol',
+                                    style: TextStyle(
+                                      color: Colors.black,
+                                      fontSize: 19,
+                                      fontWeight: FontWeight.w600,
+                                    ),
+                                  ),
+                                  SizedBox(height: 10),
+                                ],
+                              ),
+                            ),
+                            const SizedBox(width: 10),
+                          ],
+                        ),
+                      ),
+                    ),
+                    GestureDetector(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => Addbreakfast()),
+                        );
+                      },
+                      child: Container(
+                        margin: const EdgeInsets.only(bottom: 20),
+                        height: 100,
+                        decoration: BoxDecoration(
+                          color: const Color.fromARGB(255, 255, 255, 255),
+                          borderRadius: BorderRadius.circular(20),
+                          boxShadow: const [
+                            BoxShadow(
+                                color: Colors.black12,
+                                spreadRadius: 5,
+                                blurRadius: 7,
+                                offset: Offset(0, 3)),
+                          ],
+                        ),
+                        child: Row(
+                          children: [
+                            const SizedBox(width: 10),
+                            ClipRRect(
+                              borderRadius: BorderRadius.circular(20),
+                              child: Image.asset(
+                                'assets/images/tomato.png',
+                                fit: BoxFit.cover,
+                                height: 80,
+                                width: 100,
+                              ),
+                            ),
+                            const SizedBox(width: 10),
+                            const Expanded(
+                              child: Column(
+                                children: [
+                                  SizedBox(height: 30),
+                                  Text(
+                                    'Tomato',
+                                    style: TextStyle(
+                                      color: Colors.black,
+                                      fontSize: 19,
+                                      fontWeight: FontWeight.w600,
+                                    ),
+                                  ),
+                                  SizedBox(height: 10),
+                                ],
+                              ),
+                            ),
+                            const SizedBox(width: 10),
+                          ],
+                        ),
+                      ),
+                    ),
+                    GestureDetector(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => Addbreakfast()),
+                        );
+                      },
+                      child: Container(
+                        margin: const EdgeInsets.only(bottom: 20),
+                        height: 100,
+                        decoration: BoxDecoration(
+                          color: const Color.fromARGB(255, 255, 255, 255),
+                          borderRadius: BorderRadius.circular(20),
+                          boxShadow: const [
+                            BoxShadow(
+                                color: Colors.black12,
+                                spreadRadius: 5,
+                                blurRadius: 7,
+                                offset: Offset(0, 3)),
+                          ],
+                        ),
+                        child: Row(
+                          children: [
+                            const SizedBox(width: 10),
+                            ClipRRect(
+                              borderRadius: BorderRadius.circular(20),
+                              child: Image.asset(
+                                'assets/images/tofu.png',
+                                fit: BoxFit.cover,
+                                height: 80,
+                                width: 100,
+                              ),
+                            ),
+                            const SizedBox(width: 10),
+                            const Expanded(
+                              child: Column(
+                                children: [
+                                  SizedBox(height: 30),
+                                  Text(
+                                    'Tofu',
+                                    style: TextStyle(
+                                      color: Colors.black,
+                                      fontSize: 19,
+                                      fontWeight: FontWeight.w600,
+                                    ),
+                                  ),
+                                  SizedBox(height: 10),
+                                ],
+                              ),
+                            ),
+                            const SizedBox(width: 10),
+                          ],
+                        ),
+                      ),
+                    ),
+                    GestureDetector(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => Addbreakfast()),
+                        );
+                      },
+                      child: Container(
+                        margin: const EdgeInsets.only(bottom: 20),
+                        height: 100,
+                        decoration: BoxDecoration(
+                          color: const Color.fromARGB(255, 255, 255, 255),
+                          borderRadius: BorderRadius.circular(20),
+                          boxShadow: const [
+                            BoxShadow(
+                                color: Colors.black12,
+                                spreadRadius: 5,
+                                blurRadius: 7,
+                                offset: Offset(0, 3)),
+                          ],
+                        ),
+                        child: Row(
+                          children: [
+                            const SizedBox(width: 10),
+                            ClipRRect(
+                              borderRadius: BorderRadius.circular(20),
+                              child: Image.asset(
+                                'assets/images/vegetables.png',
+                                fit: BoxFit.cover,
+                                height: 80,
+                                width: 100,
+                              ),
+                            ),
+                            const SizedBox(width: 10),
+                            const Expanded(
+                              child: Column(
+                                children: [
+                                  SizedBox(height: 30),
+                                  Text(
+                                    'Vegetables',
+                                    style: TextStyle(
+                                      color: Colors.black,
+                                      fontSize: 19,
+                                      fontWeight: FontWeight.w600,
+                                    ),
+                                  ),
+                                  SizedBox(height: 10),
+                                ],
+                              ),
+                            ),
+                            const SizedBox(width: 10),
+                          ],
+                        ),
+                      ),
+                    ),
+                    GestureDetector(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => Addbreakfast()),
+                        );
+                      },
+                      child: Container(
+                        margin: const EdgeInsets.only(bottom: 20),
+                        height: 100,
+                        decoration: BoxDecoration(
+                          color: const Color.fromARGB(255, 255, 255, 255),
+                          borderRadius: BorderRadius.circular(20),
+                          boxShadow: const [
+                            BoxShadow(
+                                color: Colors.black12,
+                                spreadRadius: 5,
+                                blurRadius: 7,
+                                offset: Offset(0, 3)),
+                          ],
+                        ),
+                        child: Row(
+                          children: [
+                            const SizedBox(width: 10),
+                            ClipRRect(
+                              borderRadius: BorderRadius.circular(20),
+                              child: Image.asset(
+                                'assets/images/vegetableSoup.png',
+                                fit: BoxFit.cover,
+                                height: 80,
+                                width: 100,
+                              ),
+                            ),
+                            const SizedBox(width: 10),
+                            const Expanded(
+                              child: Column(
+                                children: [
+                                  SizedBox(height: 30),
+                                  Text(
+                                    'Vegetable Soup',
+                                    style: TextStyle(
+                                      color: Colors.black,
+                                      fontSize: 19,
+                                      fontWeight: FontWeight.w600,
+                                    ),
+                                  ),
+                                  SizedBox(height: 10),
+                                ],
+                              ),
+                            ),
+                            const SizedBox(width: 10),
+                          ],
+                        ),
+                      ),
+                    ),
+                    GestureDetector(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => Addbreakfast()),
+                        );
+                      },
+                      child: Container(
+                        margin: const EdgeInsets.only(bottom: 20),
+                        height: 100,
+                        decoration: BoxDecoration(
+                          color: const Color.fromARGB(255, 255, 255, 255),
+                          borderRadius: BorderRadius.circular(20),
+                          boxShadow: const [
+                            BoxShadow(
+                                color: Colors.black12,
+                                spreadRadius: 5,
+                                blurRadius: 7,
+                                offset: Offset(0, 3)),
+                          ],
+                        ),
+                        child: Row(
+                          children: [
+                            const SizedBox(width: 10),
+                            ClipRRect(
+                              borderRadius: BorderRadius.circular(20),
+                              child: Image.asset(
+                                'assets/images/wheatRoti.png',
+                                fit: BoxFit.cover,
+                                height: 80,
+                                width: 100,
+                              ),
+                            ),
+                            const SizedBox(width: 10),
+                            const Expanded(
+                              child: Column(
+                                children: [
+                                  SizedBox(height: 30),
+                                  Text(
+                                    'Wheat Roti',
+                                    style: TextStyle(
+                                      color: Colors.black,
+                                      fontSize: 19,
+                                      fontWeight: FontWeight.w600,
+                                    ),
+                                  ),
+                                  SizedBox(height: 10),
+                                ],
+                              ),
+                            ),
+                            const SizedBox(width: 10),
+                          ],
+                        ),
+                      ),
+                    ),
+                    GestureDetector(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => Addbreakfast()),
+                        );
+                      },
+                      child: Container(
+                        margin: const EdgeInsets.only(bottom: 20),
+                        height: 100,
+                        decoration: BoxDecoration(
+                          color: const Color.fromARGB(255, 255, 255, 255),
+                          borderRadius: BorderRadius.circular(20),
+                          boxShadow: const [
+                            BoxShadow(
+                                color: Colors.black12,
+                                spreadRadius: 5,
+                                blurRadius: 7,
+                                offset: Offset(0, 3)),
+                          ],
+                        ),
+                        child: Row(
+                          children: [
+                            const SizedBox(width: 10),
+                            ClipRRect(
+                              borderRadius: BorderRadius.circular(20),
+                              child: Image.asset(
+                                'assets/images/youghurt 2.png',
+                                fit: BoxFit.cover,
+                                height: 80,
+                                width: 100,
+                              ),
+                            ),
+                            const SizedBox(width: 10),
+                            const Expanded(
+                              child: Column(
+                                children: [
+                                  SizedBox(height: 30),
+                                  Text(
+                                    'Youghurt',
+                                    style: TextStyle(
+                                      color: Colors.black,
+                                      fontSize: 19,
+                                      fontWeight: FontWeight.w600,
+                                    ),
+                                  ),
+                                  SizedBox(height: 10),
+                                ],
+                              ),
+                            ),
+                            const SizedBox(width: 10),
+                          ],
+                        ),
+                      ),
+                    ),
+                    GestureDetector(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => Addbreakfast()),
+                        );
+                      },
+                      child: Container(
+                        margin: const EdgeInsets.only(bottom: 20),
+                        height: 100,
+                        decoration: BoxDecoration(
+                          color: const Color.fromARGB(255, 255, 255, 255),
+                          borderRadius: BorderRadius.circular(20),
+                          boxShadow: const [
+                            BoxShadow(
+                                color: Colors.black12,
+                                spreadRadius: 5,
+                                blurRadius: 7,
+                                offset: Offset(0, 3)),
+                          ],
+                        ),
+                        child: Row(
+                          children: [
+                            const SizedBox(width: 10),
+                            ClipRRect(
+                              borderRadius: BorderRadius.circular(20),
+                              child: Image.asset(
+                                'assets/images/youghurt.png',
+                                fit: BoxFit.cover,
+                                height: 80,
+                                width: 100,
+                              ),
+                            ),
+                            const SizedBox(width: 10),
+                            const Expanded(
+                              child: Column(
+                                children: [
+                                  SizedBox(height: 30),
+                                  Text(
+                                    'Youghurt Non-fat',
                                     style: TextStyle(
                                       color: Colors.black,
                                       fontSize: 19,

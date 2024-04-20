@@ -208,145 +208,151 @@ class _UserRegistrationState extends State<UserRegistration> {
           child: Center(
             child: Padding(
               padding: const EdgeInsets.all(20.0),
-              child:
-                  Column(mainAxisAlignment: MainAxisAlignment.start, children: [
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  children: [
-                    const Text(
-                      'Register',
-                      style: TextStyle(
-                        color: Colors.black,
-                        fontWeight: FontWeight.w600,
-                        fontSize: 25,
-                      ),
-                    ),
-                  ],
-                ),
-                const SizedBox(height: 20),
-                Form(
-                  key: _formKey,
-                  child: ListView(
-                    shrinkWrap: true,
+              child: SingleChildScrollView(
+                child: Column(
+                    mainAxisAlignment: MainAxisAlignment.start,
                     children: [
-                      Container(
-                        width: 320,
-                        height: 50,
-                        child: TextFormField(
-                          decoration:
-                              textInputDecoration.copyWith(hintText: 'Email'),
-                          validator: (val) =>
-                              val!.isEmpty ? 'Enter an email' : null,
-                          onChanged: (val) {
-                            setState(() => email = val);
-                          },
-                        ),
-                      ),
-                      const SizedBox(height: 15),
-                      Container(
-                        width: 320,
-                        height: 50,
-                        child: TextFormField(
-                          decoration: textInputDecoration.copyWith(
-                              hintText: 'User Name'),
-                          validator: (val) =>
-                              val!.isEmpty ? 'Enter a username' : null,
-                          onChanged: (val) {
-                            setState(() => username = val);
-                          },
-                        ),
-                      ),
-                      const SizedBox(height: 15),
-                      Container(
-                        width: 320,
-                        height: 50,
-                        child: TextFormField(
-                          keyboardType: TextInputType.datetime,
-                          inputFormatters: [
-                            FilteringTextInputFormatter.digitsOnly,
-                            LengthLimitingTextInputFormatter(
-                                8), // Adjust the length as needed
-                            DateInputFormatter() // Custom formatter for YYYY/MM/DD format
-                          ],
-                          decoration: textInputDecoration.copyWith(
-                            hintText:
-                                'Birthday YYYY/MM/DD', // Hint text reflects desired format
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: [
+                          const Text(
+                            'Register',
+                            style: TextStyle(
+                              color: Colors.black,
+                              fontWeight: FontWeight.w600,
+                              fontSize: 25,
+                            ),
                           ),
-                          validator: (val) =>
-                              val!.isEmpty ? 'Enter your birthday' : null,
-                          onChanged: (val) {
-                            setState(() => birthday = val);
+                        ],
+                      ),
+                      const SizedBox(height: 20),
+                      Form(
+                        key: _formKey,
+                        child: ListView(
+                          shrinkWrap: true,
+                          children: [
+                            Container(
+                              width: 320,
+                              height: 50,
+                              child: TextFormField(
+                                decoration: textInputDecoration.copyWith(
+                                    hintText: 'Email'),
+                                validator: (val) =>
+                                    val!.isEmpty ? 'Enter an email' : null,
+                                onChanged: (val) {
+                                  setState(() => email = val);
+                                },
+                              ),
+                            ),
+                            const SizedBox(height: 15),
+                            Container(
+                              width: 320,
+                              height: 50,
+                              child: TextFormField(
+                                decoration: textInputDecoration.copyWith(
+                                    hintText: 'User Name'),
+                                validator: (val) =>
+                                    val!.isEmpty ? 'Enter a username' : null,
+                                onChanged: (val) {
+                                  setState(() => username = val);
+                                },
+                              ),
+                            ),
+                            const SizedBox(height: 15),
+                            Container(
+                              width: 320,
+                              height: 50,
+                              child: TextFormField(
+                                keyboardType: TextInputType.datetime,
+                                inputFormatters: [
+                                  FilteringTextInputFormatter.digitsOnly,
+                                  LengthLimitingTextInputFormatter(
+                                      8), // Adjust the length as needed
+                                  DateInputFormatter() // Custom formatter for YYYY/MM/DD format
+                                ],
+                                decoration: textInputDecoration.copyWith(
+                                  hintText:
+                                      'Birthday YYYY/MM/DD', // Hint text reflects desired format
+                                ),
+                                validator: (val) =>
+                                    val!.isEmpty ? 'Enter your birthday' : null,
+                                onChanged: (val) {
+                                  setState(() => birthday = val);
+                                },
+                              ),
+                            ),
+                            const SizedBox(height: 15),
+                            Container(
+                              width: 320,
+                              height: 50,
+                              child: TextFormField(
+                                decoration: textInputDecoration.copyWith(
+                                    hintText: 'Password'),
+                                validator: (val) => val!.length < 6
+                                    ? 'Enter a password 6+ characters long'
+                                    : null,
+                                obscureText: true,
+                                onChanged: (val) {
+                                  setState(() => password = val);
+                                },
+                              ),
+                            ),
+                            // const SizedBox(height: 15),
+                            // Container(
+                            //   width: 320,
+                            //   height: 50,
+                            //   child: TextFormField(
+                            //     decoration: textInputDecoration.copyWith(
+                            //         hintText: 'Confirm Password'),
+                            //     validator: (val) =>
+                            //         val != password ? 'Passwords do not match' : null,
+                            //     obscureText: true,
+                            //     onChanged: (val) {
+                            //       setState(() => cpassword = val);
+                            //     },
+                            //   ),
+                            // ),
+                            const SizedBox(height: 15),
+                            Text(
+                              error,
+                              style: const TextStyle(
+                                  color: Colors.red, fontSize: 14.0),
+                            ),
+                          ],
+                        ),
+                      ),
+                      //const Spacer(),
+                      SizedBox(height: 205),
+                      Padding(
+                        padding: const EdgeInsets.all(30.0),
+                        child: CustomButton(
+                          text: 'Register',
+                          onPressed: () async {
+                            if (_formKey.currentState!.validate()) {
+                              dynamic result =
+                                  await _auth.registerWithEmailAndPassword(
+                                email,
+                                password,
+                                username,
+                                birthday,
+                              );
+                              if (result == null) {
+                                setState(() =>
+                                    error = 'Please supply a valid email');
+                              } else {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) =>
+                                          const Notifications()),
+                                );
+                              }
+                            }
                           },
                         ),
                       ),
-                      const SizedBox(height: 15),
-                      Container(
-                        width: 320,
-                        height: 50,
-                        child: TextFormField(
-                          decoration: textInputDecoration.copyWith(
-                              hintText: 'Password'),
-                          validator: (val) => val!.length < 6
-                              ? 'Enter a password 6+ characters long'
-                              : null,
-                          obscureText: true,
-                          onChanged: (val) {
-                            setState(() => password = val);
-                          },
-                        ),
-                      ),
-                      // const SizedBox(height: 15),
-                      // Container(
-                      //   width: 320,
-                      //   height: 50,
-                      //   child: TextFormField(
-                      //     decoration: textInputDecoration.copyWith(
-                      //         hintText: 'Confirm Password'),
-                      //     validator: (val) =>
-                      //         val != password ? 'Passwords do not match' : null,
-                      //     obscureText: true,
-                      //     onChanged: (val) {
-                      //       setState(() => cpassword = val);
-                      //     },
-                      //   ),
-                      // ),
-                      const SizedBox(height: 15),
-                      Text(
-                        error,
-                        style:
-                            const TextStyle(color: Colors.red, fontSize: 14.0),
-                      ),
-                    ],
-                  ),
-                ),
-                const Spacer(),
-                Padding(
-                  padding: const EdgeInsets.all(30.0),
-                  child: CustomButton(
-                    text: 'Register',
-                    onPressed: () async {
-                      if (_formKey.currentState!.validate()) {
-                        dynamic result =
-                            await _auth.registerWithEmailAndPassword(
-                          email,
-                          password,
-                          username,
-                          birthday,
-                        );
-                        if (result == null) {
-                          setState(() => error = 'Please supply a valid email');
-                        } else {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => const Notifications()),
-                          );
-                        }
-                      }
-                    },
-                  ),
-                ),
-              ]),
+                    ]),
+              ),
             ),
           ),
         ),

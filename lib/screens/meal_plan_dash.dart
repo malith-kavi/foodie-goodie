@@ -4,6 +4,9 @@ import 'package:first/screens/add_dinner.dart';
 //import 'package:first/screens/addlunch.dart';
 import 'package:first/screens/contact.dart';
 import 'package:first/screens/login_screen.dart';
+import 'package:first/screens/meal_breakfast_history.dart';
+import 'package:first/screens/meal_dinner_history.dart';
+import 'package:first/screens/meal_lunch_history.dart';
 import 'package:first/screens/settings.dart';
 import 'package:first/screens/update.dart';
 import 'package:first/screens/user_profile.dart';
@@ -161,7 +164,7 @@ class Mealhistory extends StatelessWidget {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => Addbreakfast()),
+                              builder: (context) => BreakfastHistory()),
                         );
                       },
                       child: Container(
@@ -223,7 +226,7 @@ class Mealhistory extends StatelessWidget {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => Addbreakfast()),
+                              builder: (context) => LunchHistory()),
                         );
                       },
                       child: Container(
@@ -285,7 +288,7 @@ class Mealhistory extends StatelessWidget {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => Addbreakfast()),
+                              builder: (context) => DinnerHistory()),
                         );
                       },
                       child: Container(

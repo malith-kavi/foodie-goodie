@@ -4,8 +4,10 @@ import 'package:first/routes.dart';
 import 'package:first/screens/Suggestions.dart';
 import 'package:first/screens/about_us.dart';
 import 'package:first/screens/add_breakfast.dart';
+import 'package:first/screens/add_dinner.dart';
+import 'package:first/screens/add_lunch.dart';
 import 'package:first/screens/alergies.dart';
-import 'package:first/screens/breakfast_history.dart';
+
 import 'package:first/screens/change_password.dart';
 import 'package:first/screens/forget_password.dart';
 import 'package:first/screens/gender_selecter.dart';
@@ -16,6 +18,8 @@ import 'package:first/screens/login_screen.dart';
 import 'package:first/screens/notifications.dart';
 import 'package:first/screens/profile_picture.dart';
 import 'package:first/screens/suggest_breakfast.dart';
+import 'package:first/screens/suggest_dinner.dart';
+import 'package:first/screens/suggest_lunch.dart';
 import 'package:first/screens/update.dart';
 import 'package:first/screens/user_profile.dart';
 import 'package:first/screens/user_registration.dart';
@@ -98,6 +102,6 @@ class MyApp extends StatelessWidget {
         title: 'Your App',
         debugShowCheckedModeBanner: false,
         routes: AppRoutes.routes,
-        home: LoadingScreen());
+        home: Dash());
   }
 }

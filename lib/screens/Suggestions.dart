@@ -5,6 +5,9 @@ import 'package:first/screens/add_dinner.dart';
 import 'package:first/screens/contact.dart';
 import 'package:first/screens/login_screen.dart';
 import 'package:first/screens/settings.dart';
+import 'package:first/screens/suggest_breakfast.dart';
+import 'package:first/screens/suggest_dinner.dart';
+import 'package:first/screens/suggest_lunch.dart';
 import 'package:first/screens/update.dart';
 import 'package:first/screens/user_profile.dart';
 import 'package:flutter/material.dart';
@@ -161,7 +164,7 @@ class Suggestions extends StatelessWidget {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => Addbreakfast()),
+                              builder: (context) => Suggestbreakfast()),
                         );
                       },
                       child: Container(
@@ -217,7 +220,7 @@ class Suggestions extends StatelessWidget {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => Addbreakfast()),
+                              builder: (context) => Suggestlunch()),
                         );
                       },
                       child: Container(
@@ -273,7 +276,7 @@ class Suggestions extends StatelessWidget {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => Addbreakfast()),
+                              builder: (context) => Suggestdinner()),
                         );
                       },
                       child: Container(

@@ -69,343 +69,343 @@ class Suggestbreakfast extends StatelessWidget {
                 child: ListView(
                   padding: const EdgeInsets.all(20),
                   children: <Widget>[
-                    const SizedBox(height: 20),
-                    GestureDetector(
-                      onTap: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => Addbreakfast()),
-                        );
-                      },
-                      child: Container(
-                        margin: const EdgeInsets.only(bottom: 20),
-                        height: 100,
-                        decoration: BoxDecoration(
-                          color: const Color.fromARGB(255, 255, 255, 255),
-                          borderRadius: BorderRadius.circular(20),
-                          boxShadow: const [
-                            BoxShadow(
-                                color: Colors.black12,
-                                spreadRadius: 5,
-                                blurRadius: 7,
-                                offset: Offset(0, 3)),
-                          ],
-                        ),
-                        child: Row(
-                          children: [
-                            const SizedBox(width: 10),
-                            ClipRRect(
-                              borderRadius: BorderRadius.circular(20),
-                              child: Image.asset(
-                                'assets/images/picture1.png',
-                                fit: BoxFit.cover,
-                                height: 80,
-                                width: 100,
-                              ),
-                            ),
-                            const SizedBox(width: 10),
-                            const Expanded(
-                              child: Column(
-                                children: [
-                                  SizedBox(height: 20),
-                                  Text(
-                                    'Suggestions For\n      Breakfast',
-                                    style: TextStyle(
-                                      color: Colors.black,
-                                      fontSize: 19,
-                                      fontWeight: FontWeight.w600,
-                                    ),
-                                  ),
-                                  SizedBox(height: 10),
-                                ],
-                              ),
-                            ),
-                            const SizedBox(width: 10),
-                          ],
-                        ),
-                      ),
-                    ),
-                    GestureDetector(
-                      onTap: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => Addbreakfast()),
-                        );
-                      },
-                      child: Container(
-                        margin: const EdgeInsets.only(bottom: 20),
-                        height: 100,
-                        decoration: BoxDecoration(
-                          color: const Color.fromARGB(255, 255, 255, 255),
-                          borderRadius: BorderRadius.circular(20),
-                          boxShadow: const [
-                            BoxShadow(
-                                color: Colors.black12,
-                                spreadRadius: 5,
-                                blurRadius: 7,
-                                offset: Offset(0, 3)),
-                          ],
-                        ),
-                        child: Row(
-                          children: [
-                            const SizedBox(width: 10),
-                            ClipRRect(
-                              borderRadius: BorderRadius.circular(20),
-                              child: Image.asset(
-                                'assets/images/picture2.png',
-                                fit: BoxFit.cover,
-                                height: 80,
-                                width: 100,
-                              ),
-                            ),
-                            const SizedBox(width: 10),
-                            const Expanded(
-                              child: Column(
-                                children: [
-                                  SizedBox(height: 20),
-                                  Text(
-                                    'Suggestions For\n          Lunch',
-                                    style: TextStyle(
-                                      color: Colors.black,
-                                      fontSize: 19,
-                                      fontWeight: FontWeight.w600,
-                                    ),
-                                  ),
-                                  SizedBox(height: 10),
-                                ],
-                              ),
-                            ),
-                            const SizedBox(width: 10),
-                          ],
-                        ),
-                      ),
-                    ),
-                    GestureDetector(
-                      onTap: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => Addbreakfast()),
-                        );
-                      },
-                      child: Container(
-                        margin: const EdgeInsets.only(bottom: 20),
-                        height: 100,
-                        decoration: BoxDecoration(
-                          color: const Color.fromARGB(255, 255, 255, 255),
-                          borderRadius: BorderRadius.circular(20),
-                          boxShadow: const [
-                            BoxShadow(
-                                color: Colors.black12,
-                                spreadRadius: 5,
-                                blurRadius: 7,
-                                offset: Offset(0, 3)),
-                          ],
-                        ),
-                        child: Row(
-                          children: [
-                            const SizedBox(width: 10),
-                            ClipRRect(
-                              borderRadius: BorderRadius.circular(20),
-                              child: Image.asset(
-                                'assets/images/picture3.png',
-                                fit: BoxFit.cover,
-                                height: 80,
-                                width: 100,
-                              ),
-                            ),
-                            const SizedBox(width: 10),
-                            const Expanded(
-                              child: Column(
-                                children: [
-                                  SizedBox(height: 20),
-                                  Text(
-                                    'Suggestions For\n         Dinner',
-                                    style: TextStyle(
-                                      color: Colors.black,
-                                      fontSize: 19,
-                                      fontWeight: FontWeight.w600,
-                                    ),
-                                  ),
-                                  SizedBox(height: 10),
-                                ],
-                              ),
-                            ),
-                            const SizedBox(width: 10),
-                          ],
-                        ),
-                      ),
-                    ),
-                    GestureDetector(
-                      onTap: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => Addbreakfast()),
-                        );
-                      },
-                      child: Container(
-                        margin: const EdgeInsets.only(bottom: 20),
-                        height: 100,
-                        decoration: BoxDecoration(
-                          color: const Color.fromARGB(255, 255, 255, 255),
-                          borderRadius: BorderRadius.circular(20),
-                          boxShadow: const [
-                            BoxShadow(
-                                color: Colors.black12,
-                                spreadRadius: 5,
-                                blurRadius: 7,
-                                offset: Offset(0, 3)),
-                          ],
-                        ),
-                        child: Row(
-                          children: [
-                            const SizedBox(width: 10),
-                            ClipRRect(
-                              borderRadius: BorderRadius.circular(20),
-                              child: Image.asset(
-                                'assets/images/picture3.png',
-                                fit: BoxFit.cover,
-                                height: 80,
-                                width: 100,
-                              ),
-                            ),
-                            const SizedBox(width: 10),
-                            const Expanded(
-                              child: Column(
-                                children: [
-                                  SizedBox(height: 20),
-                                  Text(
-                                    'Suggestions For\n         Dinner',
-                                    style: TextStyle(
-                                      color: Colors.black,
-                                      fontSize: 19,
-                                      fontWeight: FontWeight.w600,
-                                    ),
-                                  ),
-                                  SizedBox(height: 10),
-                                ],
-                              ),
-                            ),
-                            const SizedBox(width: 10),
-                          ],
-                        ),
-                      ),
-                    ),
-                    GestureDetector(
-                      onTap: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => Addbreakfast()),
-                        );
-                      },
-                      child: Container(
-                        margin: const EdgeInsets.only(bottom: 20),
-                        height: 100,
-                        decoration: BoxDecoration(
-                          color: const Color.fromARGB(255, 255, 255, 255),
-                          borderRadius: BorderRadius.circular(20),
-                          boxShadow: const [
-                            BoxShadow(
-                                color: Colors.black12,
-                                spreadRadius: 5,
-                                blurRadius: 7,
-                                offset: Offset(0, 3)),
-                          ],
-                        ),
-                        child: Row(
-                          children: [
-                            const SizedBox(width: 10),
-                            ClipRRect(
-                              borderRadius: BorderRadius.circular(20),
-                              child: Image.asset(
-                                'assets/images/picture3.png',
-                                fit: BoxFit.cover,
-                                height: 80,
-                                width: 100,
-                              ),
-                            ),
-                            const SizedBox(width: 10),
-                            const Expanded(
-                              child: Column(
-                                children: [
-                                  SizedBox(height: 20),
-                                  Text(
-                                    'Suggestions For\n         Dinner',
-                                    style: TextStyle(
-                                      color: Colors.black,
-                                      fontSize: 19,
-                                      fontWeight: FontWeight.w600,
-                                    ),
-                                  ),
-                                  SizedBox(height: 10),
-                                ],
-                              ),
-                            ),
-                            const SizedBox(width: 10),
-                          ],
-                        ),
-                      ),
-                    ),
-                    GestureDetector(
-                      onTap: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => Addbreakfast()),
-                        );
-                      },
-                      child: Container(
-                        margin: const EdgeInsets.only(bottom: 20),
-                        height: 100,
-                        decoration: BoxDecoration(
-                          color: const Color.fromARGB(255, 255, 255, 255),
-                          borderRadius: BorderRadius.circular(20),
-                          boxShadow: const [
-                            BoxShadow(
-                                color: Colors.black12,
-                                spreadRadius: 5,
-                                blurRadius: 7,
-                                offset: Offset(0, 3)),
-                          ],
-                        ),
-                        child: Row(
-                          children: [
-                            const SizedBox(width: 10),
-                            ClipRRect(
-                              borderRadius: BorderRadius.circular(20),
-                              child: Image.asset(
-                                'assets/images/picture3.png',
-                                fit: BoxFit.cover,
-                                height: 80,
-                                width: 100,
-                              ),
-                            ),
-                            const SizedBox(width: 10),
-                            const Expanded(
-                              child: Column(
-                                children: [
-                                  SizedBox(height: 20),
-                                  Text(
-                                    'Suggestions For\n         Dinner',
-                                    style: TextStyle(
-                                      color: Colors.black,
-                                      fontSize: 19,
-                                      fontWeight: FontWeight.w600,
-                                    ),
-                                  ),
-                                  SizedBox(height: 10),
-                                ],
-                              ),
-                            ),
-                            const SizedBox(width: 10),
-                          ],
-                        ),
-                      ),
-                    ),
+                    // const SizedBox(height: 20),
+                    // GestureDetector(
+                    //   onTap: () {
+                    //     Navigator.push(
+                    //       context,
+                    //       MaterialPageRoute(
+                    //           builder: (context) => Addbreakfast()),
+                    //     );
+                    //   },
+                    //   child: Container(
+                    //     margin: const EdgeInsets.only(bottom: 20),
+                    //     height: 100,
+                    //     decoration: BoxDecoration(
+                    //       color: const Color.fromARGB(255, 255, 255, 255),
+                    //       borderRadius: BorderRadius.circular(20),
+                    //       boxShadow: const [
+                    //         BoxShadow(
+                    //             color: Colors.black12,
+                    //             spreadRadius: 5,
+                    //             blurRadius: 7,
+                    //             offset: Offset(0, 3)),
+                    //       ],
+                    //     ),
+                    //     child: Row(
+                    //       children: [
+                    //         const SizedBox(width: 10),
+                    //         ClipRRect(
+                    //           borderRadius: BorderRadius.circular(20),
+                    //           child: Image.asset(
+                    //             'assets/images/picture1.png',
+                    //             fit: BoxFit.cover,
+                    //             height: 80,
+                    //             width: 100,
+                    //           ),
+                    //         ),
+                    //         const SizedBox(width: 10),
+                    //         const Expanded(
+                    //           child: Column(
+                    //             children: [
+                    //               SizedBox(height: 20),
+                    //               Text(
+                    //                 'Suggestions For\n      Breakfast',
+                    //                 style: TextStyle(
+                    //                   color: Colors.black,
+                    //                   fontSize: 19,
+                    //                   fontWeight: FontWeight.w600,
+                    //                 ),
+                    //               ),
+                    //               SizedBox(height: 10),
+                    //             ],
+                    //           ),
+                    //         ),
+                    //         const SizedBox(width: 10),
+                    //       ],
+                    //     ),
+                    //   ),
+                    // ),
+                    // GestureDetector(
+                    //   onTap: () {
+                    //     Navigator.push(
+                    //       context,
+                    //       MaterialPageRoute(
+                    //           builder: (context) => Addbreakfast()),
+                    //     );
+                    //   },
+                    //   child: Container(
+                    //     margin: const EdgeInsets.only(bottom: 20),
+                    //     height: 100,
+                    //     decoration: BoxDecoration(
+                    //       color: const Color.fromARGB(255, 255, 255, 255),
+                    //       borderRadius: BorderRadius.circular(20),
+                    //       boxShadow: const [
+                    //         BoxShadow(
+                    //             color: Colors.black12,
+                    //             spreadRadius: 5,
+                    //             blurRadius: 7,
+                    //             offset: Offset(0, 3)),
+                    //       ],
+                    //     ),
+                    //     child: Row(
+                    //       children: [
+                    //         const SizedBox(width: 10),
+                    //         ClipRRect(
+                    //           borderRadius: BorderRadius.circular(20),
+                    //           child: Image.asset(
+                    //             'assets/images/picture2.png',
+                    //             fit: BoxFit.cover,
+                    //             height: 80,
+                    //             width: 100,
+                    //           ),
+                    //         ),
+                    //         const SizedBox(width: 10),
+                    //         const Expanded(
+                    //           child: Column(
+                    //             children: [
+                    //               SizedBox(height: 20),
+                    //               Text(
+                    //                 'Suggestions For\n          Lunch',
+                    //                 style: TextStyle(
+                    //                   color: Colors.black,
+                    //                   fontSize: 19,
+                    //                   fontWeight: FontWeight.w600,
+                    //                 ),
+                    //               ),
+                    //               SizedBox(height: 10),
+                    //             ],
+                    //           ),
+                    //         ),
+                    //         const SizedBox(width: 10),
+                    //       ],
+                    //     ),
+                    //   ),
+                    // ),
+                    // GestureDetector(
+                    //   onTap: () {
+                    //     Navigator.push(
+                    //       context,
+                    //       MaterialPageRoute(
+                    //           builder: (context) => Addbreakfast()),
+                    //     );
+                    //   },
+                    //   child: Container(
+                    //     margin: const EdgeInsets.only(bottom: 20),
+                    //     height: 100,
+                    //     decoration: BoxDecoration(
+                    //       color: const Color.fromARGB(255, 255, 255, 255),
+                    //       borderRadius: BorderRadius.circular(20),
+                    //       boxShadow: const [
+                    //         BoxShadow(
+                    //             color: Colors.black12,
+                    //             spreadRadius: 5,
+                    //             blurRadius: 7,
+                    //             offset: Offset(0, 3)),
+                    //       ],
+                    //     ),
+                    //     child: Row(
+                    //       children: [
+                    //         const SizedBox(width: 10),
+                    //         ClipRRect(
+                    //           borderRadius: BorderRadius.circular(20),
+                    //           child: Image.asset(
+                    //             'assets/images/picture3.png',
+                    //             fit: BoxFit.cover,
+                    //             height: 80,
+                    //             width: 100,
+                    //           ),
+                    //         ),
+                    //         const SizedBox(width: 10),
+                    //         const Expanded(
+                    //           child: Column(
+                    //             children: [
+                    //               SizedBox(height: 20),
+                    //               Text(
+                    //                 'Suggestions For\n         Dinner',
+                    //                 style: TextStyle(
+                    //                   color: Colors.black,
+                    //                   fontSize: 19,
+                    //                   fontWeight: FontWeight.w600,
+                    //                 ),
+                    //               ),
+                    //               SizedBox(height: 10),
+                    //             ],
+                    //           ),
+                    //         ),
+                    //         const SizedBox(width: 10),
+                    //       ],
+                    //     ),
+                    //   ),
+                    // ),
+                    // GestureDetector(
+                    //   onTap: () {
+                    //     Navigator.push(
+                    //       context,
+                    //       MaterialPageRoute(
+                    //           builder: (context) => Addbreakfast()),
+                    //     );
+                    //   },
+                    //   child: Container(
+                    //     margin: const EdgeInsets.only(bottom: 20),
+                    //     height: 100,
+                    //     decoration: BoxDecoration(
+                    //       color: const Color.fromARGB(255, 255, 255, 255),
+                    //       borderRadius: BorderRadius.circular(20),
+                    //       boxShadow: const [
+                    //         BoxShadow(
+                    //             color: Colors.black12,
+                    //             spreadRadius: 5,
+                    //             blurRadius: 7,
+                    //             offset: Offset(0, 3)),
+                    //       ],
+                    //     ),
+                    //     child: Row(
+                    //       children: [
+                    //         const SizedBox(width: 10),
+                    //         ClipRRect(
+                    //           borderRadius: BorderRadius.circular(20),
+                    //           child: Image.asset(
+                    //             'assets/images/picture3.png',
+                    //             fit: BoxFit.cover,
+                    //             height: 80,
+                    //             width: 100,
+                    //           ),
+                    //         ),
+                    //         const SizedBox(width: 10),
+                    //         const Expanded(
+                    //           child: Column(
+                    //             children: [
+                    //               SizedBox(height: 20),
+                    //               Text(
+                    //                 'Suggestions For\n         Dinner',
+                    //                 style: TextStyle(
+                    //                   color: Colors.black,
+                    //                   fontSize: 19,
+                    //                   fontWeight: FontWeight.w600,
+                    //                 ),
+                    //               ),
+                    //               SizedBox(height: 10),
+                    //             ],
+                    //           ),
+                    //         ),
+                    //         const SizedBox(width: 10),
+                    //       ],
+                    //     ),
+                    //   ),
+                    // ),
+                    // GestureDetector(
+                    //   onTap: () {
+                    //     Navigator.push(
+                    //       context,
+                    //       MaterialPageRoute(
+                    //           builder: (context) => Addbreakfast()),
+                    //     );
+                    //   },
+                    //   child: Container(
+                    //     margin: const EdgeInsets.only(bottom: 20),
+                    //     height: 100,
+                    //     decoration: BoxDecoration(
+                    //       color: const Color.fromARGB(255, 255, 255, 255),
+                    //       borderRadius: BorderRadius.circular(20),
+                    //       boxShadow: const [
+                    //         BoxShadow(
+                    //             color: Colors.black12,
+                    //             spreadRadius: 5,
+                    //             blurRadius: 7,
+                    //             offset: Offset(0, 3)),
+                    //       ],
+                    //     ),
+                    //     child: Row(
+                    //       children: [
+                    //         const SizedBox(width: 10),
+                    //         ClipRRect(
+                    //           borderRadius: BorderRadius.circular(20),
+                    //           child: Image.asset(
+                    //             'assets/images/picture3.png',
+                    //             fit: BoxFit.cover,
+                    //             height: 80,
+                    //             width: 100,
+                    //           ),
+                    //         ),
+                    //         const SizedBox(width: 10),
+                    //         const Expanded(
+                    //           child: Column(
+                    //             children: [
+                    //               SizedBox(height: 20),
+                    //               Text(
+                    //                 'Suggestions For\n         Dinner',
+                    //                 style: TextStyle(
+                    //                   color: Colors.black,
+                    //                   fontSize: 19,
+                    //                   fontWeight: FontWeight.w600,
+                    //                 ),
+                    //               ),
+                    //               SizedBox(height: 10),
+                    //             ],
+                    //           ),
+                    //         ),
+                    //         const SizedBox(width: 10),
+                    //       ],
+                    //     ),
+                    //   ),
+                    // ),
+                    // GestureDetector(
+                    //   onTap: () {
+                    //     Navigator.push(
+                    //       context,
+                    //       MaterialPageRoute(
+                    //           builder: (context) => Addbreakfast()),
+                    //     );
+                    //   },
+                    //   child: Container(
+                    //     margin: const EdgeInsets.only(bottom: 20),
+                    //     height: 100,
+                    //     decoration: BoxDecoration(
+                    //       color: const Color.fromARGB(255, 255, 255, 255),
+                    //       borderRadius: BorderRadius.circular(20),
+                    //       boxShadow: const [
+                    //         BoxShadow(
+                    //             color: Colors.black12,
+                    //             spreadRadius: 5,
+                    //             blurRadius: 7,
+                    //             offset: Offset(0, 3)),
+                    //       ],
+                    //     ),
+                    //     child: Row(
+                    //       children: [
+                    //         const SizedBox(width: 10),
+                    //         ClipRRect(
+                    //           borderRadius: BorderRadius.circular(20),
+                    //           child: Image.asset(
+                    //             'assets/images/picture3.png',
+                    //             fit: BoxFit.cover,
+                    //             height: 80,
+                    //             width: 100,
+                    //           ),
+                    //         ),
+                    //         const SizedBox(width: 10),
+                    //         const Expanded(
+                    //           child: Column(
+                    //             children: [
+                    //               SizedBox(height: 20),
+                    //               Text(
+                    //                 'Suggestions For\n         Dinner',
+                    //                 style: TextStyle(
+                    //                   color: Colors.black,
+                    //                   fontSize: 19,
+                    //                   fontWeight: FontWeight.w600,
+                    //                 ),
+                    //               ),
+                    //               SizedBox(height: 10),
+                    //             ],
+                    //           ),
+                    //         ),
+                    //         const SizedBox(width: 10),
+                    //       ],
+                    //     ),
+                    //   ),
+                    // ),
                   ],
                 ),
               ),
