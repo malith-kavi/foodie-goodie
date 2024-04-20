@@ -38,142 +38,145 @@ class _LoginScreenState extends State<LoginScreen> {
             child: Center(
               child: Padding(
                 padding: const EdgeInsets.all(20.0),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Image.asset(
-                      logo,
-                      width: 250,
-                      height: 250,
-                    ),
-                    const StyledText('Enter Your Email & password to Log in'),
-                    const SizedBox(height: 30),
-                    Container(
-                      width: 320,
-                      height: 50,
-                      child: TextFormField(
-                        decoration: textInputDecoration,
-                        validator: (val) =>
-                            val!.isEmpty ? 'Enter an email' : null,
-                        onChanged: (val) {
-                          setState(() {
-                            email = val;
-                          });
-                        },
+                child: SingleChildScrollView(
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Image.asset(
+                        logo,
+                        width: 250,
+                        height: 250,
                       ),
-                    ),
-                    const SizedBox(height: 15),
-                    Container(
-                      width: 320,
-                      height: 50,
-                      child: TextFormField(
-                        decoration: textInputDecoration.copyWith(
-                          hintText: "password",
-                        ),
-                        validator: (val) => val?.isEmpty == true
-                            ? "Enter a valid password"
-                            : null,
-                        obscureText: true,
-                        onChanged: (val) {
-                          setState(() {
-                            password = val;
-                          });
-                        },
-                      ),
-                    ),
-                    const SizedBox(height: 15),
-                    if (errorMessage.isNotEmpty)
-                      Text(
-                        errorMessage,
-                        style: TextStyle(
-                          color: Colors.red,
+                      const StyledText('Enter Your Email & password to Log in'),
+                      const SizedBox(height: 30),
+                      Container(
+                        width: 320,
+                        height: 50,
+                        child: TextFormField(
+                          decoration: textInputDecoration,
+                          validator: (val) =>
+                              val!.isEmpty ? 'Enter an email' : null,
+                          onChanged: (val) {
+                            setState(() {
+                              email = val;
+                            });
+                          },
                         ),
                       ),
-                    Row(
-                      children: [
-                        Padding(
-                          padding: const EdgeInsets.only(left: 8),
-                          child: SButton(
-                            text: 'Forgot Password',
+                      const SizedBox(height: 15),
+                      Container(
+                        width: 320,
+                        height: 50,
+                        child: TextFormField(
+                          decoration: textInputDecoration.copyWith(
+                            hintText: "password",
+                          ),
+                          validator: (val) => val?.isEmpty == true
+                              ? "Enter a valid password"
+                              : null,
+                          obscureText: true,
+                          onChanged: (val) {
+                            setState(() {
+                              password = val;
+                            });
+                          },
+                        ),
+                      ),
+                      const SizedBox(height: 15),
+                      if (errorMessage.isNotEmpty)
+                        Text(
+                          errorMessage,
+                          style: TextStyle(
+                            color: Colors.red,
+                          ),
+                        ),
+                      Row(
+                        children: [
+                          Padding(
+                            padding: const EdgeInsets.only(left: 8),
+                            child: SButton(
+                              text: 'Forgot Password',
+                              onPressed: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) =>
+                                        const ForgetPassword(),
+                                  ),
+                                );
+                              },
+                            ),
+                          ),
+                        ],
+                      ),
+                      const StyledText('Or login with'),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          IconButton(
+                            icon: const Icon(Icons.facebook_rounded,
+                                size: 30.0,
+                                color: Color.fromARGB(255, 2, 27, 254)),
+                            onPressed: () {},
+                          ),
+                          const SizedBox(width: 10),
+                          IconButton(
+                            icon: Image.asset(
+                              google,
+                              height: 30,
+                              width: 30,
+                            ),
+                            onPressed: () {},
+                          ),
+                        ],
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          const StyledText('Do not have an account ?'),
+                          SButton(
+                            text: 'Register Now',
                             onPressed: () {
                               Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                  builder: (context) => const ForgetPassword(),
+                                  builder: (context) => UserRegistration(),
                                 ),
                               );
                             },
                           ),
-                        ),
-                      ],
-                    ),
-                    const StyledText('Or login with'),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        IconButton(
-                          icon: const Icon(Icons.facebook_rounded,
-                              size: 30.0,
-                              color: Color.fromARGB(255, 2, 27, 254)),
-                          onPressed: () {},
-                        ),
-                        const SizedBox(width: 10),
-                        IconButton(
-                          icon: Image.asset(
-                            google,
-                            height: 30,
-                            width: 30,
-                          ),
-                          onPressed: () {},
-                        ),
-                      ],
-                    ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        const StyledText('Do not have an account ?'),
-                        SButton(
-                          text: 'Register Now',
-                          onPressed: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => UserRegistration(),
-                              ),
-                            );
+                        ],
+                      ),
+                      //const Spacer(),
+                      Padding(
+                        padding: const EdgeInsets.all(30.0),
+                        child: CustomButton(
+                          text: 'Login',
+                          onPressed: () async {
+                            if (_formKey.currentState!.validate()) {
+                              dynamic result =
+                                  await _auth.signInWithEmailAndPassword(
+                                email,
+                                password,
+                              );
+                              if (result == null) {
+                                setState(() {
+                                  errorMessage = 'Invalid email or password';
+                                });
+                              } else {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) => HomePage(),
+                                  ),
+                                );
+                              }
+                            }
                           },
                         ),
-                      ],
-                    ),
-                    const Spacer(),
-                    Padding(
-                      padding: const EdgeInsets.all(30.0),
-                      child: CustomButton(
-                        text: 'Login',
-                        onPressed: () async {
-                          if (_formKey.currentState!.validate()) {
-                            dynamic result =
-                                await _auth.signInWithEmailAndPassword(
-                              email,
-                              password,
-                            );
-                            if (result == null) {
-                              setState(() {
-                                errorMessage = 'Invalid email or password';
-                              });
-                            } else {
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                  builder: (context) => HomePage(),
-                                ),
-                              );
-                            }
-                          }
-                        },
                       ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
               ),
             ),
