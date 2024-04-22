@@ -33,64 +33,66 @@ class Height extends StatelessWidget {
           child: Center(
             child: Padding(
               padding: const EdgeInsets.all(20.0),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.start,
-                children: [
-                  const Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Padding(
-                        padding: EdgeInsets.fromLTRB(17, 60, 0, 0),
-                      ),
-                      Center(
-                        child: Text(
-                          'Enter Your Height',
-                          style: TextStyle(
-                            color: Colors.black,
-                            fontWeight: FontWeight.w600,
-                            fontSize: 22,
+              child: SingleChildScrollView(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: [
+                    const Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Padding(
+                          padding: EdgeInsets.fromLTRB(17, 60, 0, 0),
+                        ),
+                        Center(
+                          child: Text(
+                            'Enter Your Height',
+                            style: TextStyle(
+                              color: Colors.black,
+                              fontWeight: FontWeight.w600,
+                              fontSize: 22,
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                    const SizedBox(height: 30),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: List.generate(
+                        7,
+                        (index) => Padding(
+                          padding: const EdgeInsets.symmetric(horizontal: 5.0),
+                          child: GrayBar(
+                            isBlue: index == 0 || index == 1 || index == 2,
                           ),
                         ),
                       ),
-                    ],
-                  ),
-                  const SizedBox(height: 30),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: List.generate(
-                      7,
-                      (index) => Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 5.0),
-                        child: GrayBar(
-                          isBlue: index == 0 || index == 1 || index == 2,
-                        ),
+                    ),
+                    const SizedBox(height: 5),
+                    Image.asset(
+                      'assets/images/Height_meter.png',
+                      width: 320,
+                      height: 260,
+                    ),
+                    const SizedBox(height: 5),
+                    const HeightButton(),
+                    // const SizedBox(height: 50),
+                    CustomNumberPicker(),
+                    //const Spacer(),
+                    Padding(
+                      padding: const EdgeInsets.all(30.0),
+                      child: CustomButton(
+                        text: 'Continue',
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => Weight()),
+                          );
+                        },
                       ),
                     ),
-                  ),
-                  const SizedBox(height: 20),
-                  Image.asset(
-                    'assets/images/Height_meter.png',
-                    width: 320,
-                    height: 260,
-                  ),
-                  const SizedBox(height: 20),
-                  const HeightButton(),
-                  // const SizedBox(height: 50),
-                  CustomNumberPicker(),
-                  const Spacer(),
-                  Padding(
-                    padding: const EdgeInsets.all(30.0),
-                    child: CustomButton(
-                      text: 'Continue',
-                      onPressed: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(builder: (context) => Weight()),
-                        );
-                      },
-                    ),
-                  ),
-                ],
+                  ],
+                ),
               ),
             ),
           ),

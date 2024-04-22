@@ -7,7 +7,6 @@ import 'package:first/screens/add_breakfast.dart';
 import 'package:first/screens/add_dinner.dart';
 import 'package:first/screens/add_lunch.dart';
 import 'package:first/screens/alergies.dart';
-
 import 'package:first/screens/change_password.dart';
 import 'package:first/screens/forget_password.dart';
 import 'package:first/screens/gender_selecter.dart';
@@ -102,6 +101,6 @@ class MyApp extends StatelessWidget {
         title: 'Your App',
         debugShowCheckedModeBanner: false,
         routes: AppRoutes.routes,
-        home: Dash());
+        home: LoadingScreen());
   }
 }

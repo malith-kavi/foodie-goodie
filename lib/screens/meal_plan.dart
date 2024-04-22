@@ -74,91 +74,93 @@ class MealPlan extends StatelessWidget {
           child: Center(
             child: Padding(
               padding: const EdgeInsets.all(20.0),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.start,
-                children: [
-                  const Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Padding(
-                        padding: EdgeInsets.fromLTRB(17, 60, 0, 0),
-                      ),
-                      Center(
-                        child: Text(
-                          'Let us know how we can help you',
-                          style: TextStyle(
-                            color: Colors.black,
-                            fontWeight: FontWeight.w600,
-                            fontSize: 22,
+              child: SingleChildScrollView(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: [
+                    const Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Padding(
+                          padding: EdgeInsets.fromLTRB(17, 60, 0, 0),
+                        ),
+                        Center(
+                          child: Text(
+                            'Let us know how we can help you',
+                            style: TextStyle(
+                              color: Colors.black,
+                              fontWeight: FontWeight.w600,
+                              fontSize: 22,
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                    const SizedBox(height: 30),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: List.generate(
+                        7,
+                        (index) => Padding(
+                          padding: const EdgeInsets.symmetric(horizontal: 5.0),
+                          child: GrayBar(
+                            isBlue: index == 0 ||
+                                index == 1 ||
+                                index == 2 ||
+                                index == 3 ||
+                                index == 4,
                           ),
                         ),
                       ),
-                    ],
-                  ),
-                  const SizedBox(height: 30),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: List.generate(
-                      7,
-                      (index) => Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 5.0),
-                        child: GrayBar(
-                          isBlue: index == 0 ||
-                              index == 1 ||
-                              index == 2 ||
-                              index == 3 ||
-                              index == 4,
-                        ),
+                    ),
+                    const SizedBox(height: 30),
+                    SizedBox(
+                      height: 50,
+                      width: 300,
+                      child: SelectButton(
+                        text: 'Weight loss',
+                        onPressed: (isSelected) {},
                       ),
                     ),
-                  ),
-                  const SizedBox(height: 70),
-                  SizedBox(
-                    height: 50,
-                    width: 300,
-                    child: SelectButton(
-                      text: 'Weight loss',
-                      onPressed: (isSelected) {},
+                    SizedBox(height: 20),
+                    SizedBox(
+                      height: 50,
+                      width: 300,
+                      child: SelectButton(
+                        text: 'Track my nutrition',
+                        onPressed: (isSelected) {},
+                      ),
                     ),
-                  ),
-                  SizedBox(height: 20),
-                  SizedBox(
-                    height: 50,
-                    width: 300,
-                    child: SelectButton(
-                      text: 'Track my nutrition',
-                      onPressed: (isSelected) {},
+                    SizedBox(height: 10),
+                    SizedBox(
+                      height: 50,
+                      width: 300,
+                      child: SelectButton(
+                        text: 'Improve overall fitness',
+                        onPressed: (isSelected) {},
+                      ),
                     ),
-                  ),
-                  SizedBox(height: 20),
-                  SizedBox(
-                    height: 50,
-                    width: 300,
-                    child: SelectButton(
-                      text: 'Improve overall fitness',
-                      onPressed: (isSelected) {},
+                    SizedBox(height: 10),
+                    Image.asset(
+                      'assets/images/meal_plan.png',
+                      width: 280,
+                      height: 240,
                     ),
-                  ),
-                  SizedBox(height: 20),
-                  Image.asset(
-                    'assets/images/meal_plan.png',
-                    width: 280,
-                    height: 240,
-                  ),
-                  const Spacer(),
-                  Padding(
-                    padding: const EdgeInsets.all(30.0),
-                    child: CustomButton(
-                      text: 'Continue',
-                      onPressed: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(builder: (context) => Alergies()),
-                        );
-                      },
+                    // const Spacer(),
+                    Padding(
+                      padding: const EdgeInsets.all(30.0),
+                      child: CustomButton(
+                        text: 'Continue',
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => Alergies()),
+                          );
+                        },
+                      ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
             ),
           ),
