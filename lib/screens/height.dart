@@ -1,3 +1,5 @@
+import 'dart:ffi';
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:first/screens/profile_picture.dart';
 import 'package:first/screens/weight.dart';
@@ -9,7 +11,13 @@ import 'package:first/widgets/custom_button.dart';
 
 class Height extends StatelessWidget {
   final String docId;
-  const Height({super.key, required this.docId});
+  int currentNumber = 0;
+
+  Height({super.key, required this.docId, this.currentNumber = 150});
+
+  // void handleNumberChange(int newValue){
+  //   currentNumber = newValue;
+  // }
 
   @override
   Widget build(context) {
@@ -81,25 +89,29 @@ class Height extends StatelessWidget {
                     const SizedBox(height: 20),
                     const HeightButton(),
                     // const SizedBox(height: 50),
-                    CustomNumberPicker(),
+                    CustomNumberPicker(
+                        initialValue: currentNumber,
+                        onValueChanged: (value) {
+                          currentNumber = value;
+                        }),
                     //const Spacer(),
                     Padding(
                       padding: const EdgeInsets.all(30.0),
                       child: CustomButton(
                         text: 'Continue',
                         onPressed: () {
-                          CustomNumberPicker customNumberPicker =
-                              CustomNumberPicker();
+                          // CustomNumberPicker customNumberPicker =
+                          //     CustomNumberPicker();
                           final _firestore = FirebaseFirestore.instance;
                           _firestore
                               .collection('user_details')
                               .doc(docId)
                               .update({
-                                "Height": customNumberPicker.currentValue,
+                                "Height": currentNumber,
                               })
                               .then((result) {})
-                              .catchError((onError) {
-                                print("onError");
+                              .catchError((error) {
+                                print("Error updating height: $error");
                               });
                           Navigator.push(
                             context,

@@ -75,23 +75,31 @@ class Notifications extends StatelessWidget {
                       text: 'Allow',
                       onPressed: () async {
                         final _firestore = FirebaseFirestore.instance;
-                        if (await Permission.notification.request().isGranted) {
-                          _firestore
-                              .collection('user_details')
-                              .doc(docId)
-                              .update({
-                                "Notification": "Allow",
-                              })
-                              .then((result) {})
-                              .catchError((onError) {
-                                print("onError");
-                              });
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
+                        final status = await Permission.notification.request();
+                        if (status.isGranted) {
+                          try {
+                            await _firestore
+                                .collection('user_details')
+                                .doc(docId)
+                                .update({
+                              'Notification': 'Allow',
+                            });
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
                                 builder: (context) =>
-                                    GenderSelection(docId: docId)),
-                          );
+                                    GenderSelection(docId: docId),
+                              ),
+                            );
+                          } catch (error) {
+                            // Handle Firestore update error
+                            ScaffoldMessenger.of(context).showSnackBar(
+                              SnackBar(
+                                content: Text(
+                                    'Failed to update notification settings'),
+                              ),
+                            );
+                          }
                         }
                       },
                     ),

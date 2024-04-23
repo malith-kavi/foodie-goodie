@@ -48,15 +48,15 @@ class _HomePageState extends State<HomePage> {
           //     icon:
           //         const Icon(Icons.notifications_active, color: Colors.black54),
           //     onPressed: () {}),
-          IconButton(
-            icon: Image.network(userDetails[0], width: 35, height: 35),
-            onPressed: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => UserProfile()),
-              );
-            },
-          ),
+          // IconButton(
+          //   icon: Image.network(userDetails[0], width: 35, height: 35),
+          //   onPressed: () {
+          //     Navigator.push(
+          //       context,
+          //       MaterialPageRoute(builder: (context) => UserProfile()),
+          //     );
+          //   },
+          // ),
         ],
         backgroundColor: Colors.transparent,
         foregroundColor: const Color.fromARGB(255, 0, 0, 0),
@@ -69,16 +69,16 @@ class _HomePageState extends State<HomePage> {
               child: Center(
                 child: Row(
                   children: [
-                    IconButton(
-                        icon: Image.network(userDetails[0],
-                            width: 75, height: 75),
-                        onPressed: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => UserProfile()),
-                          );
-                        }),
+                    // IconButton(
+                    //     // icon: Image.network(userDetails[0],
+                    //     //     width: 75, height: 75),
+                    //     onPressed: () {
+                    //       Navigator.push(
+                    //         context,
+                    //         MaterialPageRoute(
+                    //             builder: (context) => UserProfile()),
+                    //       );
+                    //     }),
                     Text('TestFive'
                         // userDetails[1],
                         // style: const TextStyle(

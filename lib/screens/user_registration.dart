@@ -1,170 +1,5 @@
-// import 'package:first/screens/loading_screen.dart';
-// import 'package:first/screens/verification_reg.dart';
-// import 'package:first/services/auth.dart';
-// import 'package:flutter/material.dart';
-// import 'package:first/widgets/text_box.dart';
-// import 'package:first/widgets/custom_button.dart';
-
-// class UserRegistration extends StatefulWidget {
-//   final Function toggle;
-//   const UserRegistration({super.key, required this.toggle});
-
-//   @override
-//   State<UserRegistration> createState() => _UserRegistrationState();
-// }
-
-// class _UserRegistrationState extends State<UserRegistration> {
-//   final AuthServices _auth = AuthServices();
-
-//   final _formKey = GlobalKey<FormState>();
-
-//   String email = "";
-
-//   String password = "";
-
-//   String username = "";
-
-//   String birthday = "";
-
-//   String cpassword = "";
-
-//   @override
-//   Widget build(context) {
-//     return Scaffold(
-//       appBar: AppBar(
-//         leading: IconButton(
-//           icon: Icon(Icons.arrow_back_ios_new),
-//           onPressed: () {
-//             Navigator.pop(
-//               context,
-//               MaterialPageRoute(
-//                 builder: (context) => const LoadingScreen(),
-//               ),
-//             );
-//           },
-//         ),
-//       ),
-//       body: Container(
-//         decoration: const BoxDecoration(
-//           color: Colors.white,
-//         ),
-//         child: SafeArea(
-//           child: Center(
-//             child: Padding(
-//               padding: const EdgeInsets.all(20.0),
-//               child: Column(
-//                 mainAxisAlignment: MainAxisAlignment.start,
-//                 children: [
-//                   const Row(
-//                     mainAxisAlignment: MainAxisAlignment.start,
-//                     children: [
-//                       Padding(
-//                         padding: EdgeInsets.fromLTRB(17, 60, 0, 0),
-//                       ),
-//                       Text(
-//                         'Register',
-//                         style: TextStyle(
-//                           color: Colors.black,
-//                           fontWeight: FontWeight.w600,
-//                           fontSize: 25,
-//                         ),
-//                       ),
-//                     ],
-//                   ),
-//                   const SizedBox(height: 20),
-//                   TextFormField(
-//                       decoration: textInputDecoration,
-//                       validator: (val) =>
-//                           val!.length < 6 ? "Enter a valid email" : null,
-//                       onChanged: (val) {
-//                         setState(() {
-//                           email = val;
-//                         });
-//                       }),
-//                   const SizedBox(height: 15),
-//                   TextFormField(
-//                       decoration:
-//                           textInputDecoration.copyWith(hintText: "User Name"),
-//                       validator: (val) =>
-//                           val!.length < 6 ? "Enter a valid User Name" : null,
-//                       onChanged: (val) {
-//                         setState(() {
-//                           username = val;
-//                         });
-//                       }),
-//                   const SizedBox(height: 15),
-//                   TextFormField(
-//                       keyboardType: TextInputType.datetime,
-//                       decoration:
-//                           textInputDecoration.copyWith(hintText: "Birthday"),
-//                       validator: (val) =>
-//                           val!.length < 6 ? "Enter your Birth Date" : null,
-//                       onChanged: (val) {
-//                         setState(() {
-//                           birthday = val;
-//                         });
-//                       }),
-//                   const SizedBox(height: 15),
-//                   TextFormField(
-//                       decoration:
-//                           textInputDecoration.copyWith(hintText: "password"),
-//                       validator: (val) => val?.isEmpty == true
-//                           ? "Enter a valid password"
-//                           : null,
-//                       onChanged: (val) {
-//                         setState(() {
-//                           password = val;
-//                         });
-//                       }),
-//                   const SizedBox(height: 15),
-//                   TextFormField(
-//                       decoration:
-//                           textInputDecoration.copyWith(hintText: " confirm password"),
-//                       validator: (val) => val?.isEmpty == true
-//                           ? "Enter a valid password"
-//                           : null,
-//                       onChanged: (val) {
-//                         setState(() {
-//                           cpassword = val;
-//                         });
-//                       }),
-//                   Row(
-//                     mainAxisAlignment: MainAxisAlignment.end,
-//                     children: [
-//                       Image.asset(
-//                         'assets/images/Prototyping.jpg',
-//                         width: 220,
-//                         height: 160,
-//                       ),
-//                     ],
-//                   ),
-//                   const Spacer(),
-//                   Padding(
-//                     padding: const EdgeInsets.all(30.0),
-//                     child: CustomButton(
-//                       text: 'Register',
-//                       onPressed: () {
-//                         Navigator.push(
-//                           context,
-//                           MaterialPageRoute(
-//                               builder: (context) => VerificationReg()),
-//                         );
-//                       },
-//                     ),
-//                   ),
-//                 ],
-//               ),
-//             ),
-//           ),
-//         ),
-//       ),
-//     );
-//   }
-// }
-
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:first/models/UserModel.dart';
-import 'package:first/screens/forget_password.dart';
 import 'package:first/screens/notifications.dart';
 import 'package:flutter/material.dart';
 import 'package:first/widgets/text_box.dart';
@@ -232,7 +67,7 @@ class _UserRegistrationState extends State<UserRegistration> {
                           ),
                         ],
                       ),
-                      const SizedBox(height: 20),
+                      const SizedBox(height: 40),
                       Form(
                         key: _formKey,
                         child: ListView(
@@ -244,14 +79,26 @@ class _UserRegistrationState extends State<UserRegistration> {
                               child: TextFormField(
                                 decoration: textInputDecoration.copyWith(
                                     hintText: 'Email'),
-                                validator: (val) =>
-                                    val!.isEmpty ? 'Enter an email' : null,
+                                validator: (val) {
+                                  if (val == null || val.isEmpty) {
+                                    return "Enter an email";
+                                  } else {
+                                    RegExp emailPattern = RegExp(
+                                      r'^[^\s@]+@[^\s@]+\.[^\s@]+$',
+                                    );
+
+                                    if (!emailPattern.hasMatch(val)) {
+                                      return "Enter a valid email address";
+                                    }
+                                    return null; //no errors in the validation
+                                  }
+                                },
                                 onChanged: (val) {
                                   setState(() => email = val);
                                 },
                               ),
                             ),
-                            const SizedBox(height: 15),
+                            const SizedBox(height: 25),
                             Container(
                               width: 320,
                               height: 50,
@@ -265,7 +112,7 @@ class _UserRegistrationState extends State<UserRegistration> {
                                 },
                               ),
                             ),
-                            const SizedBox(height: 15),
+                            const SizedBox(height: 25),
                             Container(
                               width: 320,
                               height: 50,
@@ -273,13 +120,11 @@ class _UserRegistrationState extends State<UserRegistration> {
                                 keyboardType: TextInputType.datetime,
                                 inputFormatters: [
                                   FilteringTextInputFormatter.digitsOnly,
-                                  LengthLimitingTextInputFormatter(
-                                      8), // Adjust the length as needed
-                                  DateInputFormatter() // Custom formatter for YYYY/MM/DD format
+                                  LengthLimitingTextInputFormatter(8),
+                                  DateInputFormatter()
                                 ],
                                 decoration: textInputDecoration.copyWith(
-                                  hintText:
-                                      'Birthday YYYY/MM/DD', // Hint text reflects desired format
+                                  hintText: 'Birthday',
                                 ),
                                 validator: (val) =>
                                     val!.isEmpty ? 'Enter your birthday' : null,
@@ -288,7 +133,7 @@ class _UserRegistrationState extends State<UserRegistration> {
                                 },
                               ),
                             ),
-                            const SizedBox(height: 15),
+                            const SizedBox(height: 25),
                             Container(
                               width: 320,
                               height: 50,
@@ -304,22 +149,7 @@ class _UserRegistrationState extends State<UserRegistration> {
                                 },
                               ),
                             ),
-                            // const SizedBox(height: 15),
-                            // Container(
-                            //   width: 320,
-                            //   height: 50,
-                            //   child: TextFormField(
-                            //     decoration: textInputDecoration.copyWith(
-                            //         hintText: 'Confirm Password'),
-                            //     validator: (val) =>
-                            //         val != password ? 'Passwords do not match' : null,
-                            //     obscureText: true,
-                            //     onChanged: (val) {
-                            //       setState(() => cpassword = val);
-                            //     },
-                            //   ),
-                            // ),
-                            const SizedBox(height: 15),
+                            const SizedBox(height: 25),
                             Text(
                               error,
                               style: const TextStyle(
@@ -328,7 +158,7 @@ class _UserRegistrationState extends State<UserRegistration> {
                           ],
                         ),
                       ),
-                      //const Spacer(),
+                      SizedBox(height: 250),
                       Padding(
                         padding: const EdgeInsets.all(30.0),
                         child: CustomButton(
@@ -340,14 +170,14 @@ class _UserRegistrationState extends State<UserRegistration> {
                                 email,
                                 password,
                               );
-                              //save user data from firestore
-                              // _auth.storeData(
-                              //     result.uid, username, birthday, email);
+                              // save user data from firestore
 
                               if (result == null) {
-                                setState(() =>
-                                    error = 'Please supply a valid email');
+                                setState(
+                                    () => error = 'User Already Registered');
                               } else {
+                                await _auth.storeData(
+                                    result.uid, username, birthday, email);
                                 Navigator.push(
                                   context,
                                   MaterialPageRoute(
