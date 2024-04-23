@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:first/screens/notifications.dart';
 import 'package:first/screens/profile_picture.dart';
 import 'package:first/widgets/custom_button.dart';
@@ -6,6 +7,8 @@ import 'package:first/widgets/style_text.dart';
 import 'package:flutter/material.dart';
 
 class GenderSelection extends StatefulWidget {
+  final String docId;
+  const GenderSelection({super.key, required this.docId});
   @override
   _GenderSelectionState createState() => _GenderSelectionState();
 }
@@ -29,14 +32,16 @@ class _GenderSelectionState extends State<GenderSelection> {
             Navigator.pop(
               context,
               MaterialPageRoute(
-                builder: (context) => const Notifications(),
+                builder: (context) => const Notifications(
+                  docId: "null",
+                ),
               ),
             );
           },
         ),
       ),
       body: Container(
-        decoration: BoxDecoration(
+        decoration: const BoxDecoration(
           color: Colors.white,
         ),
         child: SafeArea(
@@ -105,10 +110,23 @@ class _GenderSelectionState extends State<GenderSelection> {
                     child: CustomButton(
                       text: 'Allow',
                       onPressed: () {
+                        final _firestore = FirebaseFirestore.instance;
+                        _firestore
+                            .collection('user_details')
+                            .doc(widget.docId)
+                            .update({
+                              "Gender": selectedGender,
+                            })
+                            .then((result) {})
+                            .catchError((onError) {
+                              print("onError");
+                            });
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => ProfilePictureSelection()),
+                              builder: (context) => ProfilePictureSelection(
+                                    docId: widget.docId,
+                                  )),
                         );
                       },
                     ),

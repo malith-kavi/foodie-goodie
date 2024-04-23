@@ -11,7 +11,7 @@ class SettingsPage extends StatelessWidget {
       appBar: AppBar(
         title: Text('Settings'),
         leading: IconButton(
-          icon: Icon(Icons.arrow_back_ios_new),
+          icon: Icon(Icons.arrow_back),
           onPressed: () {
             Navigator.pop(context);
           },

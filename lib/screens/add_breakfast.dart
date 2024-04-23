@@ -1,23 +1,21 @@
-import 'package:first/screens/about_us.dart';
-import 'package:first/screens/add_breakfast.dart';
-import 'package:first/screens/add_dinner.dart';
 //import 'package:first/screens/addlunch.dart';
-import 'package:first/screens/contact.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:first/screens/home_page.dart';
-import 'package:first/screens/login_screen.dart';
-import 'package:first/screens/settings.dart';
-import 'package:first/screens/update.dart';
-import 'package:first/screens/user_profile.dart';
 import 'package:first/widgets/small_widgets.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:first/services/auth.dart';
-import 'package:first/routes.dart';
+import 'package:flutter/widgets.dart';
 
 class Addbreakfast extends StatelessWidget {
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
   Widget build(BuildContext context) {
+    List<String> foodImage = [
+      "https://firebasestorage.googleapis.com/v0/b/foodiegoodie-22262.appspot.com/o/food_image%2Favocado.png?alt=media&token=7dfb3e96-9e6a-404f-a4b8-909413830f27",
+      "https://firebasestorage.googleapis.com/v0/b/foodiegoodie-22262.appspot.com/o/food_image%2FbrownRice.png?alt=media&token=56fe6610-8f3c-4a6b-b0c3-1c0da0b001e7",
+      "https://firebasestorage.googleapis.com/v0/b/foodiegoodie-22262.appspot.com/o/food_image%2Fbanana.png?alt=media&token=c324bd18-365b-4da9-a653-bd8269b5d099"
+    ];
     return Scaffold(
       key: _scaffoldKey,
       appBar: AppBar(
@@ -105,16 +103,24 @@ class Addbreakfast extends StatelessWidget {
                               ),
                             ),
                             const SizedBox(width: 10),
-                            const Expanded(
+                            Expanded(
                               child: Column(
                                 children: [
                                   SizedBox(height: 30),
-                                  Text(
-                                    'Avocado',
-                                    style: TextStyle(
-                                      color: Colors.black,
-                                      fontSize: 19,
-                                      fontWeight: FontWeight.w600,
+                                  GestureDetector(
+                                    onTap: () {
+                                      savedataFromDatabase(
+                                          "SReVL6SDUMYb5C20LgH70kcHRRs2",
+                                          "Avacado",
+                                          foodImage[0]);
+                                    },
+                                    child: const Text(
+                                      'Avocado',
+                                      style: TextStyle(
+                                        color: Colors.black,
+                                        fontSize: 19,
+                                        fontWeight: FontWeight.w600,
+                                      ),
                                     ),
                                   ),
                                   SizedBox(height: 10),
@@ -161,16 +167,24 @@ class Addbreakfast extends StatelessWidget {
                               ),
                             ),
                             const SizedBox(width: 10),
-                            const Expanded(
+                            Expanded(
                               child: Column(
                                 children: [
-                                  SizedBox(height: 30),
-                                  Text(
-                                    'Brown Rice',
-                                    style: TextStyle(
-                                      color: Colors.black,
-                                      fontSize: 19,
-                                      fontWeight: FontWeight.w600,
+                                  const SizedBox(height: 30),
+                                  GestureDetector(
+                                    onTap: () {
+                                      savedataFromDatabase(
+                                          "SReVL6SDUMYb5C20LgH70kcHRRs2",
+                                          "Brown Rice",
+                                          foodImage[1]);
+                                    },
+                                    child: const Text(
+                                      'Brown Rice',
+                                      style: TextStyle(
+                                        color: Colors.black,
+                                        fontSize: 19,
+                                        fontWeight: FontWeight.w600,
+                                      ),
                                     ),
                                   ),
                                   SizedBox(height: 10),
@@ -217,16 +231,24 @@ class Addbreakfast extends StatelessWidget {
                               ),
                             ),
                             const SizedBox(width: 10),
-                            const Expanded(
+                            Expanded(
                               child: Column(
                                 children: [
-                                  SizedBox(height: 30),
-                                  Text(
-                                    'Banana',
-                                    style: TextStyle(
-                                      color: Colors.black,
-                                      fontSize: 19,
-                                      fontWeight: FontWeight.w600,
+                                  const SizedBox(height: 30),
+                                  GestureDetector(
+                                    onTap: () {
+                                      savedataFromDatabase(
+                                          "SReVL6SDUMYb5C20LgH70kcHRRs2",
+                                          "Banana",
+                                          foodImage[2]);
+                                    },
+                                    child: const Text(
+                                      'Banana',
+                                      style: TextStyle(
+                                        color: Colors.black,
+                                        fontSize: 19,
+                                        fontWeight: FontWeight.w600,
+                                      ),
                                     ),
                                   ),
                                   SizedBox(height: 10),
@@ -1422,5 +1444,23 @@ class Addbreakfast extends StatelessWidget {
         ],
       ),
     );
+  }
+
+  void savedataFromDatabase(
+      String userId, String foodName, String foodImg) async {
+    final _firestore = FirebaseFirestore.instance;
+    await _firestore
+        .collection('user_selection')
+        .doc(userId)
+        .collection('/Breakfast')
+        .doc()
+        .set({
+      "foodImage": foodImg,
+      "foodName": foodName,
+    }).then((onValue) {
+      print('Created it in sub collection');
+    }).catchError((e) {
+      print('======Error======== ' + e);
+    });
   }
 }

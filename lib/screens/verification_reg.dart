@@ -205,7 +205,7 @@ class VerificationReg extends StatelessWidget {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: [
-                      Padding(
+                      const Padding(
                         padding: EdgeInsets.fromLTRB(17, 0, 0, 0),
                       ),
                       const StyledText("Don't receive SMS?"),
@@ -231,7 +231,9 @@ class VerificationReg extends StatelessWidget {
                           Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => Notifications()),
+                                builder: (context) => const Notifications(
+                                      docId: "null",
+                                    )),
                           );
                         } catch (e) {
                           print('Failed to verify code: $e');

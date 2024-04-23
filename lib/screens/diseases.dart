@@ -73,59 +73,61 @@ class Diseases extends StatelessWidget {
                         ),
                       ),
                     ),
-                    const SizedBox(height: 20),
+                    const SizedBox(height: 30),
                     Padding(
                       padding: const EdgeInsets.only(left: 40),
-                      child: Column(
-                        children: [
-                          CustomCheckBox(
-                            name: 'None',
-                            onChanged: (isChecked) {
-                              // print('Checkbox checked: $isChecked');
-                            },
-                          ),
-                          SizedBox(height: 10),
-                          CustomCheckBox(
-                            name: 'Diabetes',
-                            onChanged: (isChecked) {},
-                          ),
-                          SizedBox(height: 10),
-                          CustomCheckBox(
-                            name: 'High Blood Pressure ',
-                            onChanged: (isChecked) {},
-                          ),
-                          SizedBox(height: 10),
-                          CustomCheckBox(
-                            name: 'Low Blood Pressure ',
-                            onChanged: (isChecked) {},
-                          ),
-                          SizedBox(height: 10),
-                          CustomCheckBox(
-                            name: 'Cholesterol',
-                            onChanged: (isChecked) {},
-                          ),
-                          SizedBox(height: 10),
-                          CustomCheckBox(
-                            name: 'Heart Attack ',
-                            onChanged: (isChecked) {},
-                          ),
-                          SizedBox(height: 10),
-                          CustomCheckBox(
-                            name: 'Arthritis',
-                            onChanged: (isChecked) {},
-                          ),
-                          SizedBox(height: 10),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.end,
-                            children: [
-                              Image.asset(
-                                'assets/images/diseases.png',
-                                height: 200,
-                                width: 200,
-                              ),
-                            ],
-                          )
-                        ],
+                      child: SingleChildScrollView(
+                        child: Column(
+                          children: [
+                            CustomCheckBox(
+                              name: 'None',
+                              onChanged: (isChecked) {
+                                // print('Checkbox checked: $isChecked');
+                              },
+                            ),
+                            SizedBox(height: 12),
+                            CustomCheckBox(
+                              name: 'Diabetes',
+                              onChanged: (isChecked) {},
+                            ),
+                            SizedBox(height: 12),
+                            CustomCheckBox(
+                              name: 'High Blood Pressure ',
+                              onChanged: (isChecked) {},
+                            ),
+                            SizedBox(height: 12),
+                            CustomCheckBox(
+                              name: 'Low Blood Pressure ',
+                              onChanged: (isChecked) {},
+                            ),
+                            SizedBox(height: 12),
+                            CustomCheckBox(
+                              name: 'Cholesterol',
+                              onChanged: (isChecked) {},
+                            ),
+                            SizedBox(height: 12),
+                            CustomCheckBox(
+                              name: 'Heart Attack ',
+                              onChanged: (isChecked) {},
+                            ),
+                            SizedBox(height: 12),
+                            CustomCheckBox(
+                              name: 'Arthritis',
+                              onChanged: (isChecked) {},
+                            ),
+                            SizedBox(height: 12),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.end,
+                              children: [
+                                Image.asset(
+                                  'assets/images/diseases.png',
+                                  height: 160,
+                                  width: 160,
+                                ),
+                              ],
+                            )
+                          ],
+                        ),
                       ),
                     ),
                     //const Spacer(),

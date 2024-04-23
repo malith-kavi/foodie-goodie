@@ -72,74 +72,76 @@ class Alergies extends StatelessWidget {
                         ),
                       ),
                     ),
-                    const SizedBox(height: 20),
+                    const SizedBox(height: 30),
                     Padding(
                       padding: const EdgeInsets.only(left: 40),
-                      child: Column(
-                        children: [
-                          CustomCheckBox(
-                            name: 'None',
-                            onChanged: (isChecked) {
-                              // print('Checkbox checked: $isChecked');
-                            },
-                          ),
-                          SizedBox(height: 10),
-                          CustomCheckBox(
-                            name: 'Cereals containing gluten',
-                            onChanged: (isChecked) {},
-                          ),
-                          SizedBox(height: 10),
-                          // CustomCheckBox(
-                          //   name: 'Crustaceans',
-                          //   onChanged: (isChecked) {},
-                          // ),
-                          // SizedBox(height: 12),
-                          CustomCheckBox(
-                            name: 'Eggs',
-                            onChanged: (isChecked) {},
-                          ),
-                          SizedBox(height: 10),
-                          CustomCheckBox(
-                            name: 'Fishes',
-                            onChanged: (isChecked) {},
-                          ),
-                          // SizedBox(height: 12),
-                          // CustomCheckBox(
-                          //   name: 'Groundnut',
-                          //   onChanged: (isChecked) {},
-                          // ),
-                          SizedBox(height: 10),
-                          CustomCheckBox(
-                            name: 'Milk',
-                            onChanged: (isChecked) {},
-                          ),
-                          SizedBox(height: 10),
-                          CustomCheckBox(
-                            name: 'Soy',
-                            onChanged: (isChecked) {},
-                          ),
-                          SizedBox(height: 10),
-                          CustomCheckBox(
-                            name: 'Nuts',
-                            onChanged: (isChecked) {},
-                          ),
-                          SizedBox(height: 10),
-                          CustomCheckBox(
-                            name: 'Milk',
-                            onChanged: (isChecked) {},
-                          ),
-                          SizedBox(height: 10),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.end,
-                            children: [
-                              Image.asset(
-                                'assets/images/alergies.png',
-                                height: 180,
-                                width: 200,
-                              ),
-                            ],
-                          )
-                        ],
+                      child: SingleChildScrollView(
+                        child: Column(
+                          children: [
+                            CustomCheckBox(
+                              name: 'None',
+                              onChanged: (isChecked) {
+                                // print('Checkbox checked: $isChecked');
+                              },
+                            ),
+                            SizedBox(height: 12),
+                            CustomCheckBox(
+                              name: 'Cereals containing gluten',
+                              onChanged: (isChecked) {},
+                            ),
+                            SizedBox(height: 12),
+                            // CustomCheckBox(
+                            //   name: 'Crustaceans',
+                            //   onChanged: (isChecked) {},
+                            // ),
+                            // SizedBox(height: 12),
+                            CustomCheckBox(
+                              name: 'Eggs',
+                              onChanged: (isChecked) {},
+                            ),
+                            SizedBox(height: 12),
+                            CustomCheckBox(
+                              name: 'Fishes',
+                              onChanged: (isChecked) {},
+                            ),
+                            // SizedBox(height: 12),
+                            // CustomCheckBox(
+                            //   name: 'Groundnut',
+                            //   onChanged: (isChecked) {},
+                            // ),
+                            SizedBox(height: 12),
+                            CustomCheckBox(
+                              name: 'Milk',
+                              onChanged: (isChecked) {},
+                            ),
+                            SizedBox(height: 12),
+                            CustomCheckBox(
+                              name: 'Soy',
+                              onChanged: (isChecked) {},
+                            ),
+                            SizedBox(height: 12),
+                            CustomCheckBox(
+                              name: 'Nuts',
+                              onChanged: (isChecked) {},
+                            ),
+                            SizedBox(height: 12),
+                            CustomCheckBox(
+                              name: 'Milk',
+                              onChanged: (isChecked) {},
+                            ),
+                            SizedBox(height: 12),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.end,
+                              children: [
+                                Image.asset(
+                                  'assets/images/alergies.png',
+                                  height: 150,
+                                  width: 180,
+                                ),
+                              ],
+                            )
+                          ],
+                        ),
                       ),
                     ),
                     //const Spacer(),

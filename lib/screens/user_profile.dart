@@ -1,18 +1,32 @@
-import 'package:first/check/u_p_appbar.dart';
-import 'package:first/screens/dashboard.dart';
-import 'package:first/screens/home_page.dart';
-import 'package:first/widgets/bottom_navigation_bar.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:first/widgets/g_text_box.dart';
 import 'package:first/widgets/style_text.dart';
-import 'package:first/widgets/text_box.dart';
 import 'package:flutter/material.dart';
-import 'package:first/widgets/custom_button.dart';
 
-class UserProfile extends StatelessWidget {
+class UserProfile extends StatefulWidget {
   const UserProfile({super.key});
 
   @override
-  Widget build(context) {
+  State<UserProfile> createState() => _UserProfileState();
+}
+
+class _UserProfileState extends State<UserProfile> {
+  List<String> userDetails = [];
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    displayData();
+    //super.initState();
+  }
+
+  void displayData() async {
+    await fetchUsersAndRedirectSellerInterface("SReVL6SDUMYb5C20LgH70kcHRRs2");
+    setState(() {});
+  }
+
+  @override
+  Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         // leading: IconButton(
@@ -69,8 +83,8 @@ class UserProfile extends StatelessWidget {
                   ),
                   child: ClipRRect(
                     borderRadius: BorderRadius.circular(80),
-                    child: Image.asset(
-                      'assets/images/profilepic.png',
+                    child: Image.network(
+                      userDetails[0],
                       width: 110,
                       height: 110,
                     ),
@@ -82,22 +96,22 @@ class UserProfile extends StatelessWidget {
                 height: 10,
               ),
               const StyledText(
-                'Name                                                                   ',
+                'Name                                                                 ',
               ),
               const SizedBox(
                 height: 5,
               ),
-              const GTextBox(labelText: 'Name', hintText: 'Name'),
+              GTextBox(labelText: userDetails[1], hintText: 'Name'),
               const SizedBox(
                 height: 10,
               ),
               const StyledText(
-                'Age                                                                    ',
+                '     Birth Day                                                                   ',
               ),
               const SizedBox(
                 height: 5,
               ),
-              const GTextBox(labelText: 'Age', hintText: 'Age'),
+              GTextBox(labelText: userDetails[2], hintText: 'Age'),
               const SizedBox(
                 height: 10,
               ),
@@ -107,7 +121,7 @@ class UserProfile extends StatelessWidget {
               const SizedBox(
                 height: 5,
               ),
-              const GTextBox(labelText: 'Height', hintText: 'Height'),
+              GTextBox(labelText: userDetails[3], hintText: 'Height'),
               const SizedBox(
                 height: 10,
               ),
@@ -117,7 +131,7 @@ class UserProfile extends StatelessWidget {
               const SizedBox(
                 height: 5,
               ),
-              const GTextBox(labelText: 'Weight', hintText: 'Weight'),
+              GTextBox(labelText: userDetails[4], hintText: 'Weight'),
               const SizedBox(
                 height: 10,
               ),
@@ -128,7 +142,7 @@ class UserProfile extends StatelessWidget {
                 height: 5,
               ),
               const GTextBox(
-                  labelText: 'Health Conditions',
+                  labelText: 'Health Conditions is good',
                   hintText: 'Health Conditions'),
               const SizedBox(
                 height: 10,
@@ -146,5 +160,26 @@ class UserProfile extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  Future fetchUsersAndRedirectSellerInterface(String docID) async {
+    try {
+      var user =
+          FirebaseFirestore.instance.collection('user_details').doc(docID);
+      user.get().then((value) {
+        String pic = value['Profic'].toString();
+        userDetails.add(pic);
+        String name = value['UserName'].toString();
+        userDetails.add(name);
+        String birthday = value['BirthDay'].toString();
+        userDetails.add(birthday);
+        String height = value['Height'].toString();
+        userDetails.add(height);
+        String weight = value['Weight'].toString();
+        userDetails.add(weight);
+      });
+    } catch (e) {
+      print(e.toString());
+    }
   }
 }

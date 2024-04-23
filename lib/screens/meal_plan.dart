@@ -113,7 +113,7 @@ class MealPlan extends StatelessWidget {
                         ),
                       ),
                     ),
-                    const SizedBox(height: 30),
+                    const SizedBox(height: 70),
                     SizedBox(
                       height: 50,
                       width: 300,
@@ -131,7 +131,7 @@ class MealPlan extends StatelessWidget {
                         onPressed: (isSelected) {},
                       ),
                     ),
-                    SizedBox(height: 10),
+                    SizedBox(height: 20),
                     SizedBox(
                       height: 50,
                       width: 300,
@@ -140,13 +140,13 @@ class MealPlan extends StatelessWidget {
                         onPressed: (isSelected) {},
                       ),
                     ),
-                    SizedBox(height: 10),
+                    SizedBox(height: 20),
                     Image.asset(
                       'assets/images/meal_plan.png',
-                      width: 280,
-                      height: 240,
+                      width: 200,
+                      height: 200,
                     ),
-                    // const Spacer(),
+                    //const Spacer(),
                     Padding(
                       padding: const EdgeInsets.all(30.0),
                       child: CustomButton(

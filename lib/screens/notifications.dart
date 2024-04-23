@@ -1,10 +1,12 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:first/screens/gender_selecter.dart';
 import 'package:flutter/material.dart';
 import 'package:first/widgets/custom_button.dart';
 import 'package:permission_handler/permission_handler.dart';
 
 class Notifications extends StatelessWidget {
-  const Notifications({super.key});
+  final String docId;
+  const Notifications({super.key, required this.docId});
 
   @override
   Widget build(context) {
@@ -23,7 +25,7 @@ class Notifications extends StatelessWidget {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => GenderSelection(),
+                    builder: (context) => GenderSelection(docId: docId),
                   ),
                 );
               },
@@ -66,17 +68,29 @@ class Notifications extends StatelessWidget {
                     width: 360,
                     height: 200,
                   ),
-                  const Spacer(),
+                  //const Spacer(),
                   Padding(
                     padding: const EdgeInsets.all(30.0),
                     child: CustomButton(
                       text: 'Allow',
                       onPressed: () async {
+                        final _firestore = FirebaseFirestore.instance;
                         if (await Permission.notification.request().isGranted) {
+                          _firestore
+                              .collection('user_details')
+                              .doc(docId)
+                              .update({
+                                "Notification": "Allow",
+                              })
+                              .then((result) {})
+                              .catchError((onError) {
+                                print("onError");
+                              });
                           Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => GenderSelection()),
+                                builder: (context) =>
+                                    GenderSelection(docId: docId)),
                           );
                         }
                       },

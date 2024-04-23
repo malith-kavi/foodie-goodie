@@ -162,12 +162,14 @@
 //   }
 // }
 
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:first/models/UserModel.dart';
+import 'package:first/screens/forget_password.dart';
 import 'package:first/screens/notifications.dart';
 import 'package:flutter/material.dart';
 import 'package:first/widgets/text_box.dart';
 import 'package:first/widgets/custom_button.dart';
 import 'package:first/services/auth.dart';
-import 'package:first/screens/loading_screen.dart';
 import 'package:first/widgets/small_widgets.dart';
 import 'package:flutter/services.dart';
 
@@ -181,6 +183,11 @@ class UserRegistration extends StatefulWidget {
 class _UserRegistrationState extends State<UserRegistration> {
   final AuthServices _auth = AuthServices();
   final _formKey = GlobalKey<FormState>();
+
+  //Model for registration User
+  UserModel? _modelWithFirebaseUserId(User? user) {
+    return user != null ? UserModel(uid: user.uid) : null;
+  }
 
   String email = '';
   String password = '';
@@ -204,18 +211,18 @@ class _UserRegistrationState extends State<UserRegistration> {
         decoration: const BoxDecoration(
           color: Colors.white,
         ),
-        child: SafeArea(
-          child: Center(
-            child: Padding(
-              padding: const EdgeInsets.all(20.0),
-              child: SingleChildScrollView(
+        child: SingleChildScrollView(
+          child: SafeArea(
+            child: Center(
+              child: Padding(
+                padding: const EdgeInsets.all(20.0),
                 child: Column(
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: [
-                      Row(
+                      const Row(
                         mainAxisAlignment: MainAxisAlignment.start,
                         children: [
-                          const Text(
+                          Text(
                             'Register',
                             style: TextStyle(
                               color: Colors.black,
@@ -322,7 +329,6 @@ class _UserRegistrationState extends State<UserRegistration> {
                         ),
                       ),
                       //const Spacer(),
-                      SizedBox(height: 205),
                       Padding(
                         padding: const EdgeInsets.all(30.0),
                         child: CustomButton(
@@ -333,9 +339,11 @@ class _UserRegistrationState extends State<UserRegistration> {
                                   await _auth.registerWithEmailAndPassword(
                                 email,
                                 password,
-                                username,
-                                birthday,
                               );
+                              //save user data from firestore
+                              // _auth.storeData(
+                              //     result.uid, username, birthday, email);
+
                               if (result == null) {
                                 setState(() =>
                                     error = 'Please supply a valid email');
@@ -343,8 +351,9 @@ class _UserRegistrationState extends State<UserRegistration> {
                                 Navigator.push(
                                   context,
                                   MaterialPageRoute(
-                                      builder: (context) =>
-                                          const Notifications()),
+                                      builder: (context) => Notifications(
+                                            docId: result.uid,
+                                          )),
                                 );
                               }
                             }

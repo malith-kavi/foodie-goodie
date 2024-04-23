@@ -1,20 +1,30 @@
-import 'package:first/screens/about_us.dart';
-import 'package:first/screens/add_breakfast.dart';
-import 'package:first/screens/add_dinner.dart';
-//import 'package:first/screens/addlunch.dart';
-import 'package:first/screens/contact.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:first/screens/home_page.dart';
-import 'package:first/screens/login_screen.dart';
-import 'package:first/screens/settings.dart';
-import 'package:first/screens/update.dart';
-import 'package:first/screens/user_profile.dart';
 import 'package:first/widgets/small_widgets.dart';
 import 'package:flutter/material.dart';
-import 'package:first/services/auth.dart';
-import 'package:first/routes.dart';
 
-class BreakfastHistory extends StatelessWidget {
+class BreakfastHistory extends StatefulWidget {
+  const BreakfastHistory({super.key});
+
+  @override
+  State<BreakfastHistory> createState() => _BreakfastHistoryState();
+}
+
+//SReVL6SDUMYb5C20LgH70kcHRRs2
+class _BreakfastHistoryState extends State<BreakfastHistory> {
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
+  List<String> foodName = [];
+  List<String> foodImage = [];
+
+  @override
+  void initState() {
+    super.initState();
+    getData();
+  }
+
+  void getData() async {
+    await getDataFromSubcollection("SReVL6SDUMYb5C20LgH70kcHRRs2");
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -65,10 +75,62 @@ class BreakfastHistory extends StatelessWidget {
                 ),
                 color: Color.fromARGB(255, 211, 236, 217),
               ),
-              child: Center(
-                child: ListView(
-                  padding: const EdgeInsets.all(20),
-                  children: <Widget>[],
+              child: SizedBox(
+                height: 100,
+                child: ListView.builder(
+                  itemCount: foodName.length,
+                  itemBuilder: (BuildContext context, int index) {
+                    return Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Container(
+                        margin: const EdgeInsets.only(top: 5),
+                        height: 100,
+                        decoration: BoxDecoration(
+                          color: const Color.fromARGB(255, 255, 255, 255),
+                          borderRadius: BorderRadius.circular(20),
+                          boxShadow: const [
+                            BoxShadow(
+                                color: Colors.black12,
+                                spreadRadius: 5,
+                                blurRadius: 7,
+                                offset: Offset(0, 3)),
+                          ],
+                        ),
+                        child: Row(
+                          children: [
+                            const SizedBox(width: 10),
+                            ClipRRect(
+                              borderRadius: BorderRadius.circular(20),
+                              child: Image.network(
+                                foodImage[index],
+                                fit: BoxFit.cover,
+                                height: 80,
+                                width: 100,
+                              ),
+                            ),
+                            const SizedBox(width: 10),
+                            Expanded(
+                              child: Column(
+                                children: [
+                                  const SizedBox(height: 30),
+                                  Text(
+                                    foodName[index],
+                                    style: const TextStyle(
+                                      color: Colors.black,
+                                      fontSize: 19,
+                                      fontWeight: FontWeight.w600,
+                                    ),
+                                  ),
+                                  SizedBox(height: 10),
+                                ],
+                              ),
+                            ),
+                            const SizedBox(width: 10),
+                          ],
+                        ),
+                      ),
+                    );
+                  },
                 ),
               ),
             ),
@@ -76,5 +138,29 @@ class BreakfastHistory extends StatelessWidget {
         ],
       ),
     );
+  }
+
+  Future<void> getDataFromSubcollection(String uid) async {
+    // Get a reference to the collection
+    CollectionReference mainCollection =
+        FirebaseFirestore.instance.collection('user_selection');
+
+    // Get a reference to the document
+    DocumentReference docRef = mainCollection.doc(uid);
+
+    // Get a reference to the subcollection
+    CollectionReference subCollection = docRef.collection('/Breakfast');
+
+    // Get the documents from the subcollection
+    QuerySnapshot subCollectionSnapshot = await subCollection.get();
+
+    // Iterate through the documents and retrieve data
+    subCollectionSnapshot.docs.forEach((DocumentSnapshot document) {
+      // Access the data of each document
+      Map<String, dynamic> data = document.data() as Map<String, dynamic>;
+      // You can now use the data retrieved as needed
+      foodName.add(data['foodName']);
+      foodImage.add(data['foodImage']);
+    });
   }
 }
