@@ -28,10 +28,10 @@ class BlacklistPage extends StatelessWidget {
             icon: Icon(Icons.add),
             onPressed: () {
               // Action to navigate to the Add Blacklist Item page
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => Alergies()),
-              );
+              // Navigator.push(
+              //   context,
+              //      MaterialPageRoute(builder: (context) => Alergies()),
+              // );
             },
           ),
         ],

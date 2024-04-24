@@ -52,7 +52,7 @@ class AuthServices {
   Future<void> storeData(
       String docId, String userName, String birthday, String email) async {
     final _firestore = FirebaseFirestore.instance;
-    List<String> alergies = ["Eggs", "Fishes", "Milk"];
+    List<String> alergies = [];
     List<String> symptoms = ["Dabetes", "Arthritis"];
 
     DocumentReference<Map<String, dynamic>> users =
@@ -61,17 +61,17 @@ class AuthServices {
       "UserName": userName,
       "Email": email,
       "BirthDay": birthday,
-      "Notification": "null",
+      //"Notification": "denided",
       "Gender": "null",
       "Profic": "null",
       "Height": "null",
       "Weight": "null",
-      "Alergies": alergies,
-      "Symptoms": symptoms,
+      //"Alergies": "null",
+      "Symptoms": "null",
     };
     users
         .set(myJSONObj)
-        .then((value) => print("user data add database"))
+        .then((value) => print("user data add to the database"))
         .catchError((error) => print("Failed to add user: $error"));
   }
 

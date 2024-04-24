@@ -110,6 +110,7 @@ flutter:
     - assets/images/suggest.png
     - assets/images/meals_h.png
     - assets/images/mealnew.png
+    - assets/images/register.png
 
     - assets/images/avocado.png
     - assets/images/brownRice.png

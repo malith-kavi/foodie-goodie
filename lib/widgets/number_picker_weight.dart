@@ -2,32 +2,49 @@ import 'package:flutter/material.dart';
 import 'package:numberpicker/numberpicker.dart';
 
 class HorizontalNumberPicker extends StatefulWidget {
-  int currentValue = 50;
+  final int initialValue;
+  final Function(int) onValueChanged;
+
+  HorizontalNumberPicker({
+    required this.initialValue,
+    required this.onValueChanged,
+  });
+
   @override
   _HorizontalNumberPickerState createState() => _HorizontalNumberPickerState();
 }
 
 class _HorizontalNumberPickerState extends State<HorizontalNumberPicker> {
+  late int _currentValue;
+
+  @override
+  void initState() {
+    super.initState();
+    _currentValue = widget.initialValue;
+  }
+
   @override
   Widget build(BuildContext context) {
-    return Container(
-      height: 100,
-      child: NumberPicker(
-        value: widget.currentValue,
-        minValue: 0,
-        maxValue: 150,
-        step: 1,
-        itemHeight: 80,
-        axis: Axis.horizontal,
-        onChanged: (value) => setState(() => widget.currentValue = value),
-        textStyle: const TextStyle(
-          fontWeight: FontWeight.bold,
-          fontSize: 20,
-        ),
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(16),
-          border: Border.all(color: Colors.green),
-        ),
+    return NumberPicker(
+      value: _currentValue,
+      minValue: 0,
+      maxValue: 150,
+      step: 1,
+      itemHeight: 80,
+      textStyle: const TextStyle(
+        fontWeight: FontWeight.bold,
+        fontSize: 20,
+      ),
+      axis: Axis.horizontal,
+      onChanged: (newValue) {
+        setState(() {
+          _currentValue = newValue;
+        });
+        widget.onValueChanged(newValue);
+      },
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(16),
+        border: Border.all(color: Colors.green),
       ),
     );
   }

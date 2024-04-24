@@ -15,10 +15,6 @@ class Height extends StatelessWidget {
 
   Height({super.key, required this.docId, this.currentNumber = 150});
 
-  // void handleNumberChange(int newValue){
-  //   currentNumber = newValue;
-  // }
-
   @override
   Widget build(context) {
     return Scaffold(

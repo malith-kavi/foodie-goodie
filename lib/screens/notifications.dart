@@ -74,9 +74,18 @@ class Notifications extends StatelessWidget {
                     child: CustomButton(
                       text: 'Allow',
                       onPressed: () async {
-                        final _firestore = FirebaseFirestore.instance;
+                        if (docId.isEmpty) {
+                          ScaffoldMessenger.of(context).showSnackBar(
+                            SnackBar(
+                              content: Text('Invalid document ID'),
+                            ),
+                          );
+                          return;
+                        }
+
                         final status = await Permission.notification.request();
                         if (status.isGranted) {
+                          final _firestore = FirebaseFirestore.instance;
                           try {
                             await _firestore
                                 .collection('user_details')
@@ -93,6 +102,7 @@ class Notifications extends StatelessWidget {
                             );
                           } catch (error) {
                             // Handle Firestore update error
+                            print('Error updating firestore: $error');
                             ScaffoldMessenger.of(context).showSnackBar(
                               SnackBar(
                                 content: Text(
@@ -100,6 +110,12 @@ class Notifications extends StatelessWidget {
                               ),
                             );
                           }
+                        } else {
+                          ScaffoldMessenger.of(context).showSnackBar(
+                            SnackBar(
+                              content: Text('Permission denieded'),
+                            ),
+                          );
                         }
                       },
                     ),

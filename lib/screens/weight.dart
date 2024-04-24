@@ -11,7 +11,9 @@ var weight = 'assets/images/weight.png';
 
 class Weight extends StatelessWidget {
   final String docId;
-  const Weight({super.key, required this.docId});
+  int currentNumber = 0;
+
+  Weight({super.key, required this.docId, this.currentNumber = 60});
 
   @override
   Widget build(context) {
@@ -86,30 +88,34 @@ class Weight extends StatelessWidget {
                       const SizedBox(height: 20),
                       const WeightButton(),
                       const SizedBox(height: 50),
-                      HorizontalNumberPicker(),
+                      HorizontalNumberPicker(
+                          initialValue: currentNumber,
+                          onValueChanged: (value) {
+                            currentNumber = value;
+                          }),
                       //const Spacer(),
                       Padding(
                         padding: const EdgeInsets.all(30.0),
                         child: CustomButton(
                           text: 'Continue',
                           onPressed: () {
-                            HorizontalNumberPicker horizontalNumberPicker =
-                                HorizontalNumberPicker();
+                            // HorizontalNumberPicker horizontalNumberPicker =
+                            //     HorizontalNumberPicker();
                             final _firestore = FirebaseFirestore.instance;
                             _firestore
                                 .collection('user_details')
                                 .doc(docId)
                                 .update({
-                                  "Weight": horizontalNumberPicker.currentValue,
+                                  "Weight": currentNumber,
                                 })
                                 .then((result) {})
-                                .catchError((onError) {
-                                  print("onError");
+                                .catchError((error) {
+                                  print("Error updating height: $error");
                                 });
                             Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (context) => MealPlan()),
+                                  builder: (context) => MealPlan(docId: docId)),
                             );
                           },
                         ),

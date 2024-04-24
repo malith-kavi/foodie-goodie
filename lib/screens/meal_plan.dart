@@ -53,7 +53,8 @@ class _SelectButtonState extends State<SelectButton> {
 }
 
 class MealPlan extends StatelessWidget {
-  const MealPlan({Key? key}) : super(key: key);
+  final String docId;
+  MealPlan({super.key, required this.docId});
 
   @override
   Widget build(BuildContext context) {
@@ -154,7 +155,10 @@ class MealPlan extends StatelessWidget {
                         onPressed: () {
                           Navigator.push(
                             context,
-                            MaterialPageRoute(builder: (context) => Alergies()),
+                            MaterialPageRoute(
+                                builder: (context) => Alergies(
+                                      docId: docId,
+                                    )),
                           );
                         },
                       ),

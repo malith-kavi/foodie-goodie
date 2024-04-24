@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:first/screens/alergies.dart';
 import 'package:first/widgets/bottom_navigation_bar.dart';
 import 'package:first/widgets/check_box.dart';
@@ -5,8 +6,40 @@ import 'package:first/widgets/gray_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:first/widgets/custom_button.dart';
 
-class Diseases extends StatelessWidget {
-  const Diseases({super.key});
+class Diseases extends StatefulWidget {
+  final String docId;
+
+  Diseases({super.key, required this.docId});
+
+  @override
+  State<Diseases> createState() => _DiseasesState();
+}
+
+class _DiseasesState extends State<Diseases> {
+  List<String> diseases = [];
+
+  @override
+  void initState() {
+    super.initState();
+    final _firestore = FirebaseFirestore.instance;
+    _firestore.collection('user_details').doc(widget.docId).get().then((doc) {
+      if (doc.exists && doc.data() != null) {
+        setState(() {
+          diseases = List<String>.from(doc.data()!['Diseases'] ?? []);
+        });
+      }
+    });
+  }
+
+  void toggleAlergy(String disease, bool isChecked) {
+    setState(() {
+      if (isChecked) {
+        diseases.add(disease);
+      } else {
+        diseases.remove(disease);
+      }
+    });
+  }
 
   @override
   Widget build(context) {
@@ -18,7 +51,7 @@ class Diseases extends StatelessWidget {
             Navigator.pop(
               context,
               MaterialPageRoute(
-                builder: (context) => Alergies(),
+                builder: (context) => Alergies(docId: "null"),
               ),
             );
           },
@@ -81,39 +114,60 @@ class Diseases extends StatelessWidget {
                           children: [
                             CustomCheckBox(
                               name: 'None',
+                              isChecked: diseases.contains('None'),
                               onChanged: (isChecked) {
-                                // print('Checkbox checked: $isChecked');
+                                toggleAlergy('None', isChecked);
                               },
                             ),
                             SizedBox(height: 12),
                             CustomCheckBox(
+                              isChecked: diseases.contains('Diabetes'),
                               name: 'Diabetes',
-                              onChanged: (isChecked) {},
+                              onChanged: (isChecked) {
+                                toggleAlergy('Diabetes', isChecked);
+                              },
                             ),
                             SizedBox(height: 12),
                             CustomCheckBox(
+                              isChecked:
+                                  diseases.contains('High Blood Pressure'),
                               name: 'High Blood Pressure ',
-                              onChanged: (isChecked) {},
+                              onChanged: (isChecked) {
+                                toggleAlergy('High Blood Pressure', isChecked);
+                              },
                             ),
                             SizedBox(height: 12),
                             CustomCheckBox(
                               name: 'Low Blood Pressure ',
-                              onChanged: (isChecked) {},
+                              isChecked:
+                                  diseases.contains('Low Blood Pressure'),
+                              onChanged: (isChecked) {
+                                toggleAlergy('Low Blood Pressure', isChecked);
+                              },
                             ),
                             SizedBox(height: 12),
                             CustomCheckBox(
                               name: 'Cholesterol',
-                              onChanged: (isChecked) {},
+                              isChecked: diseases.contains('Cholesterol'),
+                              onChanged: (isChecked) {
+                                toggleAlergy('Cholesterol', isChecked);
+                              },
                             ),
                             SizedBox(height: 12),
                             CustomCheckBox(
                               name: 'Heart Attack ',
-                              onChanged: (isChecked) {},
+                              isChecked: diseases.contains('Heart Attack'),
+                              onChanged: (isChecked) {
+                                toggleAlergy('Heart Attack', isChecked);
+                              },
                             ),
                             SizedBox(height: 12),
                             CustomCheckBox(
                               name: 'Arthritis',
-                              onChanged: (isChecked) {},
+                              isChecked: diseases.contains('Arthritis'),
+                              onChanged: (isChecked) {
+                                toggleAlergy('Arthritis', isChecked);
+                              },
                             ),
                             SizedBox(height: 12),
                             Row(
@@ -136,10 +190,21 @@ class Diseases extends StatelessWidget {
                       child: CustomButton(
                         text: 'Continue',
                         onPressed: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(builder: (context) => Dash()),
-                          );
+                          final _firestore = FirebaseFirestore.instance;
+                          _firestore
+                              .collection('user_details')
+                              .doc(widget.docId)
+                              .update({
+                                "Diseases": diseases,
+                              })
+                              .then((result) {})
+                              .catchError((error) {
+                                print("Error updating diseases: $error");
+                              });
+                          // Navigator.push(
+                          //   context,
+                          //   MaterialPageRoute(builder: (context) => Dash()),
+                          //);
                         },
                       ),
                     ),

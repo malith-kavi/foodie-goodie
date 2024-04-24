@@ -28,7 +28,6 @@ class _UserRegistrationState extends State<UserRegistration> {
   String password = '';
   String username = '';
   String birthday = '';
-  String cpassword = '';
   String error = '';
 
   @override
@@ -158,7 +157,17 @@ class _UserRegistrationState extends State<UserRegistration> {
                           ],
                         ),
                       ),
-                      SizedBox(height: 250),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.end,
+                        children: [
+                          Image.asset(
+                            'assets/images/register.png',
+                            width: 250,
+                            height: 250,
+                          ),
+                        ],
+                      ),
+                      //SizedBox(height: 250),
                       Padding(
                         padding: const EdgeInsets.all(30.0),
                         child: CustomButton(

@@ -1,3 +1,5 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:first/check/check.dart';
 import 'package:first/screens/meal_plan.dart';
 import 'package:first/widgets/check_box.dart';
 import 'package:first/widgets/gray_bar.dart';
@@ -5,8 +7,40 @@ import 'package:flutter/material.dart';
 import 'package:first/widgets/custom_button.dart';
 import 'package:first/screens/diseases.dart';
 
-class Alergies extends StatelessWidget {
-  const Alergies({super.key});
+class Alergies extends StatefulWidget {
+  final String docId;
+
+  Alergies({super.key, required this.docId});
+
+  @override
+  State<Alergies> createState() => _AlergiesState();
+}
+
+class _AlergiesState extends State<Alergies> {
+  List<String> alergies = [];
+
+  @override
+  void initState() {
+    super.initState();
+    final _firestore = FirebaseFirestore.instance;
+    _firestore.collection('user_details').doc(widget.docId).get().then((doc) {
+      if (doc.exists && doc.data() != null) {
+        setState(() {
+          alergies = List<String>.from(doc.data()!['Allergies'] ?? []);
+        });
+      }
+    });
+  }
+
+  void toggleAlergy(String alergy, bool isChecked) {
+    setState(() {
+      if (isChecked) {
+        alergies.add(alergy);
+      } else {
+        alergies.remove(alergy);
+      }
+    });
+  }
 
   @override
   Widget build(context) {
@@ -18,7 +52,7 @@ class Alergies extends StatelessWidget {
             Navigator.pop(
               context,
               MaterialPageRoute(
-                builder: (context) => MealPlan(),
+                builder: (context) => MealPlan(docId: "null"),
               ),
             );
           },
@@ -80,54 +114,60 @@ class Alergies extends StatelessWidget {
                           children: [
                             CustomCheckBox(
                               name: 'None',
+                              isChecked: alergies.contains('None'),
                               onChanged: (isChecked) {
-                                // print('Checkbox checked: $isChecked');
+                                toggleAlergy('None', isChecked);
                               },
                             ),
                             SizedBox(height: 12),
                             CustomCheckBox(
                               name: 'Cereals containing gluten',
-                              onChanged: (isChecked) {},
+                              isChecked: alergies
+                                  .contains('Cereals containing gluten'),
+                              onChanged: (isChecked) {
+                                toggleAlergy(
+                                    'Cereals containing gluten', isChecked);
+                              },
                             ),
                             SizedBox(height: 12),
-                            // CustomCheckBox(
-                            //   name: 'Crustaceans',
-                            //   onChanged: (isChecked) {},
-                            // ),
-                            // SizedBox(height: 12),
                             CustomCheckBox(
                               name: 'Eggs',
-                              onChanged: (isChecked) {},
+                              isChecked: alergies.contains('Eggs'),
+                              onChanged: (isChecked) {
+                                toggleAlergy('Eggs', isChecked);
+                              },
                             ),
                             SizedBox(height: 12),
                             CustomCheckBox(
-                              name: 'Fishes',
-                              onChanged: (isChecked) {},
+                              name: 'Fish',
+                              isChecked: alergies.contains('Fish'),
+                              onChanged: (isChecked) {
+                                toggleAlergy('Fish', isChecked);
+                              },
                             ),
-                            // SizedBox(height: 12),
-                            // CustomCheckBox(
-                            //   name: 'Groundnut',
-                            //   onChanged: (isChecked) {},
-                            // ),
                             SizedBox(height: 12),
                             CustomCheckBox(
                               name: 'Milk',
-                              onChanged: (isChecked) {},
+                              isChecked: alergies.contains('Milk'),
+                              onChanged: (isChecked) {
+                                toggleAlergy('Milk', isChecked);
+                              },
                             ),
                             SizedBox(height: 12),
                             CustomCheckBox(
                               name: 'Soy',
-                              onChanged: (isChecked) {},
+                              isChecked: alergies.contains('Soy'),
+                              onChanged: (isChecked) {
+                                toggleAlergy('Soy', isChecked);
+                              },
                             ),
                             SizedBox(height: 12),
                             CustomCheckBox(
+                              isChecked: alergies.contains('Nuts'),
                               name: 'Nuts',
-                              onChanged: (isChecked) {},
-                            ),
-                            SizedBox(height: 12),
-                            CustomCheckBox(
-                              name: 'Milk',
-                              onChanged: (isChecked) {},
+                              onChanged: (isChecked) {
+                                toggleAlergy('Nuts', isChecked);
+                              },
                             ),
                             SizedBox(height: 12),
                             Row(
@@ -150,9 +190,23 @@ class Alergies extends StatelessWidget {
                       child: CustomButton(
                         text: 'Continue',
                         onPressed: () {
+                          final _firestore = FirebaseFirestore.instance;
+                          _firestore
+                              .collection('user_details')
+                              .doc(widget.docId)
+                              .update({
+                                "Allergies": alergies,
+                              })
+                              .then((result) {})
+                              .catchError((error) {
+                                print("Error updating alergies: $error");
+                              });
                           Navigator.push(
                             context,
-                            MaterialPageRoute(builder: (context) => Diseases()),
+                            MaterialPageRoute(
+                                builder: (context) => Diseases(
+                                      docId: widget.docId,
+                                    )),
                           );
                         },
                       ),

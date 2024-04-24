@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 class CustomCheckBox extends StatefulWidget {
   final String name;
+  final bool initialChecked;
   final Function(bool isChecked) onChanged;
   final double checkBoxSize;
   final double textSize;
@@ -10,10 +11,12 @@ class CustomCheckBox extends StatefulWidget {
   const CustomCheckBox({
     required this.name,
     required this.onChanged,
+    this.initialChecked = false,
     this.checkBoxSize = 20,
     this.textSize = 16,
     this.checkBoxPadding = 10,
     Key? key,
+    required bool isChecked,
   }) : super(key: key);
 
   @override
@@ -21,7 +24,13 @@ class CustomCheckBox extends StatefulWidget {
 }
 
 class _CustomCheckBoxState extends State<CustomCheckBox> {
-  bool isChecked = false;
+  late bool isChecked;
+
+  @override
+  void initState() {
+    super.initState();
+    isChecked = widget.initialChecked;
+  }
 
   @override
   Widget build(BuildContext context) {
