@@ -1,6 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:first/models/UserModel.dart';
 import 'package:first/widgets/g_text_box.dart';
+import 'package:first/widgets/gu_text_box.dart';
 import 'package:first/widgets/style_text.dart';
 import 'package:flutter/material.dart';
 
@@ -22,16 +23,16 @@ class _UserProfileState extends State<UserProfile> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        leading: IconButton(
-            icon: const Icon(Icons.arrow_back_ios_new),
-            onPressed: () {
-              // Navigator.pop(
-              //   context,
-              //   MaterialPageRoute(
-              //     builder: (context) => Dash(),
-              //   ),
-              // );
-            }),
+        //leading: //IconButton(
+        // icon: const Icon(Icons.arrow_back_ios_new),
+        // onPressed: () {
+        // Navigator.pop(
+        //   context,
+        //   MaterialPageRoute(
+        //     builder: (context) => Dash(),
+        //   ),
+        // );
+        //}),
         title: const Center(
           child: Text(
             'Profile',
@@ -41,18 +42,18 @@ class _UserProfileState extends State<UserProfile> {
             ),
           ),
         ),
-        actions: <Widget>[
-          TextButton(
-              style: TextButton.styleFrom(
-                textStyle: const TextStyle(
-                  fontSize: 15,
-                  color: Color.fromARGB(255, 216, 18, 4),
-                  fontWeight: FontWeight.w600,
-                ),
-              ),
-              onPressed: () {},
-              child: const Text('Update')),
-        ],
+        // actions: <Widget>[
+        //   TextButton(
+        //       style: TextButton.styleFrom(
+        //         textStyle: const TextStyle(
+        //           fontSize: 15,
+        //           color: Color.fromARGB(255, 216, 18, 4),
+        //           fontWeight: FontWeight.w600,
+        //         ),
+        //       ),
+        //       onPressed: () {},
+        //       child: const Text('Update')),
+        // ],
       ),
       body: Container(
         decoration: const BoxDecoration(
@@ -94,52 +95,57 @@ class _UserProfileState extends State<UserProfile> {
               const SizedBox(
                 height: 5,
               ),
-              GTextBox(
-                  labelText: widget.responseObject.userName, hintText: 'Name'),
+              GUTextBox(
+                labelText: widget.responseObject.userName,
+              ),
               const SizedBox(
                 height: 10,
               ),
               const StyledText(
-                '     Birth Day                                                                   ',
+                '     Birth Day                                                                ',
               ),
               const SizedBox(
                 height: 5,
               ),
-              GTextBox(labelText: widget.responseObject.age, hintText: 'Age'),
+              GUTextBox(
+                labelText: widget.responseObject.age,
+              ),
               const SizedBox(
                 height: 10,
               ),
               const StyledText(
-                'Height                                                                 ',
+                'Height (CM)                                                      ',
               ),
               const SizedBox(
                 height: 5,
               ),
-              GTextBox(
-                  labelText: widget.responseObject.hight, hintText: 'Height'),
+              GUTextBox(
+                labelText: widget.responseObject.hight,
+              ),
               const SizedBox(
                 height: 10,
               ),
               const StyledText(
-                'Weight                                                                 ',
+                'Weight (KG)                                                       ',
               ),
               const SizedBox(
                 height: 5,
               ),
-              GTextBox(
-                  labelText: widget.responseObject.weight, hintText: 'Weight'),
+              GUTextBox(
+                labelText: widget.responseObject.weight,
+              ),
               const SizedBox(
                 height: 10,
               ),
               const StyledText(
-                'Health Conditions                                              ',
+                'Health Conditions                                            ',
               ),
               const SizedBox(
                 height: 5,
               ),
-              const GTextBox(
-                  labelText: 'Health Conditions is good',
-                  hintText: 'Health Conditions'),
+              const GUTextBox(
+                labelText: 'Health Conditions is good',
+              ),
               const SizedBox(
                 height: 10,
               ),
