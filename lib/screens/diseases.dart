@@ -203,7 +203,7 @@ class _DiseasesState extends State<Diseases> {
                               });
                           // Navigator.push(
                           //   context,
-                          //   MaterialPageRoute(builder: (context) => Dash()),
+                          //   MaterialPageRoute(builder: (context) => Dash(docId:widget.docId)),
                           //);
                         },
                       ),

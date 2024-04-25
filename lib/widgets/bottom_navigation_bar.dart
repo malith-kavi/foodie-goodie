@@ -11,7 +11,7 @@ late PersistentTabController _controller;
 
 class Dash extends StatelessWidget {
   final GetUserDetails responseObject;
-  const Dash({super.key, required this.responseObject});
+  const Dash({super.key, required this.responseObject, required String docId});
 
   @override
   Widget build(BuildContext context) {

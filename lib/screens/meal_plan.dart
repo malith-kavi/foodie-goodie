@@ -141,11 +141,11 @@ class MealPlan extends StatelessWidget {
                         onPressed: (isSelected) {},
                       ),
                     ),
-                    SizedBox(height: 20),
+                    SizedBox(height: 50),
                     Image.asset(
                       'assets/images/meal_plan.png',
-                      width: 200,
-                      height: 200,
+                      width: 250,
+                      height: 250,
                     ),
                     //const Spacer(),
                     Padding(

@@ -101,6 +101,6 @@ class MyApp extends StatelessWidget {
         title: 'Your App',
         debugShowCheckedModeBanner: false,
         routes: AppRoutes.routes,
-        home: Wrapper());
+        home: LoadingScreen());
   }
 }

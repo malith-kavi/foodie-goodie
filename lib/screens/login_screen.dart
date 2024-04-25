@@ -204,7 +204,8 @@ class _LoginScreenState extends State<LoginScreen> {
         Navigator.push(
           context,
           MaterialPageRoute(
-            builder: (context) => Dash(responseObject: getUserDetails),
+            builder: (context) =>
+                Dash(docId: docID, responseObject: getUserDetails),
           ),
         );
       });

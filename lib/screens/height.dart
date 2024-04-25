@@ -91,6 +91,7 @@ class Height extends StatelessWidget {
                           currentNumber = value;
                         }),
                     //const Spacer(),
+                    SizedBox(height: 80),
                     Padding(
                       padding: const EdgeInsets.all(30.0),
                       child: CustomButton(

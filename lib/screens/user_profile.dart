@@ -90,7 +90,7 @@ class _UserProfileState extends State<UserProfile> {
                 height: 10,
               ),
               const StyledText(
-                'Name                                                                 ',
+                'User Name                                                       ',
               ),
               const SizedBox(
                 height: 5,
