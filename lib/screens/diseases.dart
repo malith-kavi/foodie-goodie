@@ -5,6 +5,7 @@ import 'package:first/widgets/check_box.dart';
 import 'package:first/widgets/gray_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:first/widgets/custom_button.dart';
+import 'login_screen.dart';
 
 class Diseases extends StatefulWidget {
   final String docId;
@@ -197,14 +198,15 @@ class _DiseasesState extends State<Diseases> {
                               .update({
                                 "Diseases": diseases,
                               })
-                              .then((result) {})
+                              .then((result) {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(builder: (context) => LoginScreen()),
+                            );
+                          })
                               .catchError((error) {
                                 print("Error updating diseases: $error");
                               });
-                          // Navigator.push(
-                          //   context,
-                          //   MaterialPageRoute(builder: (context) => Dash(docId:widget.docId)),
-                          //);
                         },
                       ),
                     ),
