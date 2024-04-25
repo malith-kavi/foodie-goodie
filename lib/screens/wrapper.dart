@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:first/models/UserModel.dart';
 import 'package:first/screens/home_page.dart';
@@ -16,7 +17,32 @@ class Wrapper extends StatelessWidget {
     if (user == null) {
       return LoginScreen();
     } else {
-      return HomePage();
+      dynamic response = fetchUsersDetails(user.uid);
+      return HomePage(responseObject: response);
     }
+  }
+
+  Future<GetUserDetails?> fetchUsersDetails(String docID) async {
+    try {
+      var user =
+          FirebaseFirestore.instance.collection('user_details').doc(docID);
+      user.get().then((value) {
+        String pic = value['Profic'].toString();
+        String name = value['UserName'].toString();
+        String age = value['BirthDay'].toString();
+        String height = value['Height'].toString();
+        String weight = value['Weight'].toString();
+        GetUserDetails getUserDetails = GetUserDetails(
+            userName: name,
+            profilePicture: pic,
+            age: age,
+            hight: height,
+            weight: weight);
+        return getUserDetails;
+      });
+    } catch (e) {
+      print(e.toString());
+    }
+    return null;
   }
 }

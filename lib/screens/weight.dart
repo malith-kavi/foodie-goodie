@@ -93,7 +93,8 @@ class Weight extends StatelessWidget {
                           onValueChanged: (value) {
                             currentNumber = value;
                           }),
-                      //const Spacer(),
+                      //const Spacer(),\
+                      SizedBox(height: 100),
                       Padding(
                         padding: const EdgeInsets.all(30.0),
                         child: CustomButton(

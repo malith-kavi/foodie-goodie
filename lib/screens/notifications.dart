@@ -69,6 +69,7 @@ class Notifications extends StatelessWidget {
                     height: 200,
                   ),
                   //const Spacer(),
+                  SizedBox(height: 250),
                   Padding(
                     padding: const EdgeInsets.all(30.0),
                     child: CustomButton(

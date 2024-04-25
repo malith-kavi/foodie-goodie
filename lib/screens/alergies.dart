@@ -175,7 +175,7 @@ class _AlergiesState extends State<Alergies> {
                               children: [
                                 Image.asset(
                                   'assets/images/alergies.png',
-                                  height: 150,
+                                  height: 280,
                                   width: 180,
                                 ),
                               ],

@@ -67,7 +67,7 @@ class AuthServices {
       "Height": "null",
       "Weight": "null",
       //"Alergies": "null",
-      "Symptoms": "null",
+      //"Symptoms": "null",
     };
     users
         .set(myJSONObj)

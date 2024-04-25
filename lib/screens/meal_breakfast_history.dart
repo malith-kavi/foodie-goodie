@@ -19,11 +19,6 @@ class _BreakfastHistoryState extends State<BreakfastHistory> {
   @override
   void initState() {
     super.initState();
-    getData();
-  }
-
-  void getData() async {
-    await getDataFromSubcollection("SReVL6SDUMYb5C20LgH70kcHRRs2");
   }
 
   @override
@@ -34,12 +29,12 @@ class _BreakfastHistoryState extends State<BreakfastHistory> {
         leading: IconButton(
           icon: const Icon(Icons.arrow_back_ios_new),
           onPressed: () {
-            Navigator.pop(
-              context,
-              MaterialPageRoute(
-                builder: (context) => HomePage(),
-              ),
-            );
+            // Navigator.pop(
+            //   context,
+            //   MaterialPageRoute(
+            //     // builder: (context) => HomePage(responseObject: ,),
+            //   ),
+            // );
           },
         ),
         title: const Center(

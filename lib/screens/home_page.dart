@@ -1,9 +1,11 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:first/models/UserModel.dart';
 import 'package:first/screens/about_us.dart';
 import 'package:first/screens/add_breakfast.dart';
 import 'package:first/screens/add_dinner.dart';
 import 'package:first/screens/add_lunch.dart';
 import 'package:first/screens/contact.dart';
+import 'package:first/screens/login_screen.dart';
 import 'package:first/screens/settings.dart';
 import 'package:first/screens/update.dart';
 import 'package:first/screens/user_profile.dart';
@@ -11,7 +13,8 @@ import 'package:first/services/auth.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatefulWidget {
-  const HomePage({super.key});
+  final GetUserDetails responseObject;
+  const HomePage({super.key, required this.responseObject});
 
   @override
   State<HomePage> createState() => _HomePageState();
@@ -19,17 +22,11 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
-  List<String> userDetails = ["", ""];
 
   @override
   void initState() {
     // TODO: implement initState
     super.initState();
-    displayData();
-  }
-
-  void displayData() async {
-    await fetchUsersAndRedirectSellerInterface("SReVL6SDUMYb5C20LgH70kcHRRs2");
   }
 
   @override
@@ -44,19 +41,16 @@ class _HomePageState extends State<HomePage> {
           },
         ),
         actions: <Widget>[
-          // IconButton(
-          //     icon:
-          //         const Icon(Icons.notifications_active, color: Colors.black54),
-          //     onPressed: () {}),
-          // IconButton(
-          //   icon: Image.network(userDetails[0], width: 35, height: 35),
-          //   onPressed: () {
-          //     Navigator.push(
-          //       context,
-          //       MaterialPageRoute(builder: (context) => UserProfile()),
-          //     );
-          //   },
-          // ),
+          IconButton(
+            icon: Image.network(widget.responseObject.profilePicture,
+                width: 35, height: 35),
+            onPressed: () {
+              // Navigator.push(
+              //   context,
+              //   MaterialPageRoute(builder: (context) => UserProfile()),
+              // );
+            },
+          ),
         ],
         backgroundColor: Colors.transparent,
         foregroundColor: const Color.fromARGB(255, 0, 0, 0),
@@ -69,23 +63,25 @@ class _HomePageState extends State<HomePage> {
               child: Center(
                 child: Row(
                   children: [
-                    // IconButton(
-                    //     // icon: Image.network(userDetails[0],
-                    //     //     width: 75, height: 75),
-                    //     onPressed: () {
-                    //       Navigator.push(
-                    //         context,
-                    //         MaterialPageRoute(
-                    //             builder: (context) => UserProfile()),
-                    //       );
-                    //     }),
-                    Text('TestFive'
-                        // userDetails[1],
-                        // style: const TextStyle(
-                        //     color: Color.fromARGB(255, 0, 0, 0),
-                        //     fontSize: 20,
-                        //     fontWeight: FontWeight.w600),
-                        ),
+                    IconButton(
+                        icon: Image.network(
+                            widget.responseObject.profilePicture,
+                            width: 75,
+                            height: 75),
+                        onPressed: () {
+                          // Navigator.push(
+                          //   context,
+                          //   MaterialPageRoute(
+                          //       builder: (context) => UserProfile()),
+                          // );
+                        }),
+                    Text(
+                      widget.responseObject.userName,
+                      style: const TextStyle(
+                          color: Color.fromARGB(255, 0, 0, 0),
+                          fontSize: 20,
+                          fontWeight: FontWeight.w600),
+                    ),
                   ],
                 ),
               ),
@@ -134,11 +130,12 @@ class _HomePageState extends State<HomePage> {
               leading: const Icon(Icons.logout),
               title: const Text('Log Out'),
               onTap: () async {
-                await AuthServices().signOut(context);
-                // Navigator.push(
-                //   context,
-                //   MaterialPageRoute(builder: (context) => LoginScreen()),
-                // );
+                await AuthServices().signOut(context).then((value) {
+                  Navigator.pushReplacement(
+                    context,
+                    MaterialPageRoute(builder: (context) => LoginScreen()),
+                  );
+                });
               },
             ),
           ],
@@ -383,20 +380,5 @@ class _HomePageState extends State<HomePage> {
         ],
       ),
     );
-  }
-
-  Future fetchUsersAndRedirectSellerInterface(String docID) async {
-    try {
-      var user =
-          FirebaseFirestore.instance.collection('user_details').doc(docID);
-      user.get().then((value) {
-        String pic = value['Profic'].toString();
-        userDetails.add(pic);
-        String name = value['UserName'].toString();
-        userDetails.add(name);
-      });
-    } catch (e) {
-      print(e.toString());
-    }
   }
 }

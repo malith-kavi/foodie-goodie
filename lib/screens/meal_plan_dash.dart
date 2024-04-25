@@ -36,10 +36,10 @@ class Mealhistory extends StatelessWidget {
           IconButton(
             icon: Image.asset('assets/images/Male.png', width: 35, height: 35),
             onPressed: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => UserProfile()),
-              );
+              // Navigator.push(
+              //   context,
+              //   MaterialPageRoute(builder: (context) => UserProfile()),
+              // );
             },
           ),
         ],
@@ -58,11 +58,11 @@ class Mealhistory extends StatelessWidget {
                         icon: Image.asset('assets/images/Male.png',
                             width: 75, height: 75),
                         onPressed: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => UserProfile()),
-                          );
+                          // Navigator.push(
+                          //   context,
+                          //   MaterialPageRoute(
+                          //       builder: (context) => UserProfile()),
+                          // );
                         }),
                     const Text(
                       'User Name',
