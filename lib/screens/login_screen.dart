@@ -1,3 +1,7 @@
+import 'dart:async';
+
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:first/models/UserModel.dart';
 import 'package:first/screens/forget_password.dart';
 import 'package:first/screens/home_page.dart';
 import 'package:first/screens/user_registration.dart';
@@ -164,12 +168,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                   errorMessage = 'Invalid email or password';
                                 });
                               } else {
-                                Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                    builder: (context) => HomePage(),
-                                  ),
-                                );
+                                fetchUsersDetails(result.uid);
                               }
                             }
                           },
@@ -184,5 +183,33 @@ class _LoginScreenState extends State<LoginScreen> {
         ),
       ),
     );
+  }
+
+  Future<void> fetchUsersDetails(String docID) async {
+    try {
+      var user =
+          FirebaseFirestore.instance.collection('user_details').doc(docID);
+      user.get().then((value) {
+        String pic = value['Profic'].toString();
+        String name = value['UserName'].toString();
+        String age = value['BirthDay'].toString();
+        String height = value['Height'].toString();
+        String weight = value['Weight'].toString();
+        GetUserDetails getUserDetails = GetUserDetails(
+            userName: name,
+            profilePicture: pic,
+            age: age,
+            hight: height,
+            weight: weight);
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => Dash(responseObject: getUserDetails),
+          ),
+        );
+      });
+    } catch (e) {
+      print(e.toString());
+    }
   }
 }

@@ -12,12 +12,12 @@ class Update extends StatelessWidget {
         leading: IconButton(
           icon: const Icon(Icons.arrow_back_ios_new),
           onPressed: () {
-            Navigator.pop(
-              context,
-              MaterialPageRoute(
-                builder: (context) => Dash(),
-              ),
-            );
+            // Navigator.pop(
+            //   context,
+            //   MaterialPageRoute(
+            //     builder: (context) => Dash(),
+            //   ),
+            // );
           },
         ),
         title: const Center(

@@ -1,47 +1,40 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:first/models/UserModel.dart';
 import 'package:first/widgets/g_text_box.dart';
 import 'package:first/widgets/style_text.dart';
 import 'package:flutter/material.dart';
 
 class UserProfile extends StatefulWidget {
-  const UserProfile({super.key});
+  final GetUserDetails responseObject;
+  const UserProfile({super.key, required this.responseObject});
 
   @override
   State<UserProfile> createState() => _UserProfileState();
 }
 
 class _UserProfileState extends State<UserProfile> {
-  List<String> userDetails = [];
-
   @override
   void initState() {
     // TODO: implement initState
-    displayData();
-    //super.initState();
-  }
-
-  void displayData() async {
-    await fetchUsersAndRedirectSellerInterface("SReVL6SDUMYb5C20LgH70kcHRRs2");
-    setState(() {});
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        // leading: IconButton(
-        //     icon: const Icon(Icons.arrow_back_ios_new),
-        //     onPressed: () {
-        //       Navigator.pop(
-        //         context,
-        //         MaterialPageRoute(
-        //           builder: (context) => Dash(),
-        //         ),
-        //       );
-        //     }),
+        leading: IconButton(
+            icon: const Icon(Icons.arrow_back_ios_new),
+            onPressed: () {
+              // Navigator.pop(
+              //   context,
+              //   MaterialPageRoute(
+              //     builder: (context) => Dash(),
+              //   ),
+              // );
+            }),
         title: const Center(
           child: Text(
-            '               Profile',
+            'Profile',
             style: TextStyle(
               fontSize: 20,
               fontWeight: FontWeight.w600,
@@ -84,7 +77,7 @@ class _UserProfileState extends State<UserProfile> {
                   child: ClipRRect(
                     borderRadius: BorderRadius.circular(80),
                     child: Image.network(
-                      userDetails[0],
+                      widget.responseObject.profilePicture,
                       width: 110,
                       height: 110,
                     ),
@@ -101,7 +94,8 @@ class _UserProfileState extends State<UserProfile> {
               const SizedBox(
                 height: 5,
               ),
-              GTextBox(labelText: userDetails[1], hintText: 'Name'),
+              GTextBox(
+                  labelText: widget.responseObject.userName, hintText: 'Name'),
               const SizedBox(
                 height: 10,
               ),
@@ -111,7 +105,7 @@ class _UserProfileState extends State<UserProfile> {
               const SizedBox(
                 height: 5,
               ),
-              GTextBox(labelText: userDetails[2], hintText: 'Age'),
+              GTextBox(labelText: widget.responseObject.age, hintText: 'Age'),
               const SizedBox(
                 height: 10,
               ),
@@ -121,7 +115,8 @@ class _UserProfileState extends State<UserProfile> {
               const SizedBox(
                 height: 5,
               ),
-              GTextBox(labelText: userDetails[3], hintText: 'Height'),
+              GTextBox(
+                  labelText: widget.responseObject.hight, hintText: 'Height'),
               const SizedBox(
                 height: 10,
               ),
@@ -131,7 +126,8 @@ class _UserProfileState extends State<UserProfile> {
               const SizedBox(
                 height: 5,
               ),
-              GTextBox(labelText: userDetails[4], hintText: 'Weight'),
+              GTextBox(
+                  labelText: widget.responseObject.weight, hintText: 'Weight'),
               const SizedBox(
                 height: 10,
               ),
@@ -160,26 +156,5 @@ class _UserProfileState extends State<UserProfile> {
         ),
       ),
     );
-  }
-
-  Future fetchUsersAndRedirectSellerInterface(String docID) async {
-    try {
-      var user =
-          FirebaseFirestore.instance.collection('user_details').doc(docID);
-      user.get().then((value) {
-        String pic = value['Profic'].toString();
-        userDetails.add(pic);
-        String name = value['UserName'].toString();
-        userDetails.add(name);
-        String birthday = value['BirthDay'].toString();
-        userDetails.add(birthday);
-        String height = value['Height'].toString();
-        userDetails.add(height);
-        String weight = value['Weight'].toString();
-        userDetails.add(weight);
-      });
-    } catch (e) {
-      print(e.toString());
-    }
   }
 }

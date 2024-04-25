@@ -1,3 +1,4 @@
+import 'package:first/models/UserModel.dart';
 import 'package:first/screens/Suggestions.dart';
 import 'package:first/screens/home_page.dart';
 import 'package:first/screens/meal_plan.dart';
@@ -9,14 +10,20 @@ import 'package:persistent_bottom_nav_bar/persistent_tab_view.dart';
 late PersistentTabController _controller;
 
 class Dash extends StatelessWidget {
-  const Dash({super.key});
+  final GetUserDetails responseObject;
+  const Dash({super.key, required this.responseObject});
 
   @override
   Widget build(BuildContext context) {
     _controller = PersistentTabController(initialIndex: 0);
 
     List<Widget> _buildScreens() {
-      return [HomePage(), Suggestions(), Mealhistory(), UserProfile()];
+      return [
+        HomePage(responseObject: responseObject),
+        Suggestions(),
+        Mealhistory(),
+        UserProfile(responseObject: responseObject)
+      ];
     }
 
     List<PersistentBottomNavBarItem> _navBarsItems() {
