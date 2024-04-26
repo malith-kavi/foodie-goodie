@@ -4,7 +4,7 @@ import 'package:first/widgets/small_widgets.dart';
 import 'package:flutter/material.dart';
 
 class BreakfastHistory extends StatefulWidget {
-  const BreakfastHistory({super.key});
+  
 
   @override
   State<BreakfastHistory> createState() => _BreakfastHistoryState();
