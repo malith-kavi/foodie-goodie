@@ -1,6 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:first/models/UserModel.dart';
 import 'package:first/screens/alergies.dart';
+import 'package:first/screens/login_screen.dart';
 import 'package:first/widgets/bottom_navigation_bar.dart';
 import 'package:first/widgets/check_box.dart';
 import 'package:first/widgets/gray_bar.dart';
@@ -176,7 +177,7 @@ class _DiseasesState extends State<Diseases> {
                               children: [
                                 Image.asset(
                                   'assets/images/diseases.png',
-                                  height: 160,
+                                  height: 280,
                                   width: 160,
                                 ),
                               ],

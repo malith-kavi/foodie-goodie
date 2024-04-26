@@ -52,8 +52,6 @@ class AuthServices {
   Future<void> storeData(
       String docId, String userName, String birthday, String email) async {
     final _firestore = FirebaseFirestore.instance;
-    List<String> alergies = [];
-    List<String> symptoms = ["Dabetes", "Arthritis"];
 
     DocumentReference<Map<String, dynamic>> users =
         _firestore.collection("user_details").doc(docId);
@@ -81,7 +79,7 @@ class AuthServices {
       Navigator.pushNamedAndRemoveUntil(context, '/login', (route) => false);
     } catch (err) {
       print(err.toString());
-      //return null;
+      return null;
     }
   }
 }
