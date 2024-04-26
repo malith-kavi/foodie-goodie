@@ -201,10 +201,10 @@ class _DiseasesState extends State<Diseases> {
                               .catchError((error) {
                                 print("Error updating diseases: $error");
                               });
-                          // Navigator.push(
-                          //   context,
-                          //   MaterialPageRoute(builder: (context) => Dash()),
-                          //);
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => Dash()),
+                          );
                         },
                       ),
                     ),

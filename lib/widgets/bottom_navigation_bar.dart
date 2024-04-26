@@ -9,7 +9,7 @@ import 'package:persistent_bottom_nav_bar/persistent_tab_view.dart';
 late PersistentTabController _controller;
 
 class Dash extends StatelessWidget {
-  const Dash({super.key});
+  
 
   @override
   Widget build(BuildContext context) {
