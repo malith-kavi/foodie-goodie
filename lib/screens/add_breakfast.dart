@@ -91,9 +91,11 @@ class Addbreakfast extends StatelessWidget {
       ),
     );
   }
+
+
 }
 
-class CustomCard extends StatelessWidget {
+class CustomCard extends StatefulWidget {
   final String name;
 
   const CustomCard({
@@ -101,9 +103,14 @@ class CustomCard extends StatelessWidget {
   });
 
   @override
-  Widget build(BuildContext context) {
-    bool isChecked = false; // Initial state of checkbox
+  State<CustomCard> createState() => _CustomCardState();
+}
 
+class _CustomCardState extends State<CustomCard> {
+  bool isChecked = false;
+  @override
+  Widget build(BuildContext context) {
+ // Initial state of checkbox
     return Card(
       elevation: 2,
       margin: EdgeInsets.all(15.0),
@@ -117,13 +124,13 @@ class CustomCard extends StatelessWidget {
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(10.0),
               image: DecorationImage(
-                image: AssetImage(getImageAsset(name)),
+                image: AssetImage(getImageAsset(widget.name)),
                 fit: BoxFit.fill,
               ),
             ),
           ),
           Text(
-            name,
+            widget.name,
             style: TextStyle(
               fontSize: 20.0,
               fontWeight: FontWeight.bold,
@@ -131,9 +138,10 @@ class CustomCard extends StatelessWidget {
           ),
           Checkbox(
             value: isChecked,
-            onChanged: (bool? value) {
-              // Update the state of isChecked when the checkbox is toggled
-              isChecked = value!;
+            onChanged: (value) {
+              setState(() {
+                isChecked=value!;
+              });
             },
           ),
         ],

@@ -1,4 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:first/models/UserModel.dart';
 import 'package:first/screens/about_us.dart';
 import 'package:first/screens/add_breakfast.dart';
@@ -130,7 +131,7 @@ class _HomePageState extends State<HomePage> {
               leading: const Icon(Icons.logout),
               title: const Text('Log Out'),
               onTap: () async {
-                await AuthServices().signOut(context).then((value) {
+                await FirebaseAuth.instance.signOut().then((value) {
                   Navigator.pushReplacement(
                     context,
                     MaterialPageRoute(builder: (context) => LoginScreen()),
