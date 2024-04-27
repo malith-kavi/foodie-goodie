@@ -22,17 +22,6 @@ class Suggestdinner extends StatelessWidget {
     return Scaffold(
       key: _scaffoldKey,
       appBar: AppBar(
-        leading: IconButton(
-          icon: const Icon(Icons.arrow_back_ios_new),
-          onPressed: () {
-            // Navigator.pop(
-            //   context,
-            //   MaterialPageRoute(
-            //     builder: (context) => HomePage(),
-            //   ),
-            // );
-          },
-        ),
         title: const Center(
           child: Text(
             'Dinner Suggestions           ',

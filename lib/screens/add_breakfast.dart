@@ -1,12 +1,22 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:first/screens/home_page.dart';
 import 'package:first/screens/meal_breakfast_history.dart';
 
 import 'package:first/widgets/small_widgets.dart';
 import 'package:flutter/material.dart';
 
-class Addbreakfast extends StatelessWidget {
-  final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
+class Addbreakfast extends StatefulWidget {
+  final String uid;
+  const Addbreakfast({required this.uid,});
 
+  @override
+  State<Addbreakfast> createState() => _AddbreakfastState();
+}
+
+class _AddbreakfastState extends State<Addbreakfast> {
+
+  final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
   final List<String> foodNames = [
     "Avocado",
     "BrownRice",
@@ -20,22 +30,13 @@ class Addbreakfast extends StatelessWidget {
     // Add more food names as needed
   ];
 
+  List<String> selectedFoodNames = [];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       key: _scaffoldKey,
       appBar: AppBar(
-        leading: IconButton(
-          icon: const Icon(Icons.arrow_back_ios_new),
-          onPressed: () {
-            // Navigator.pop(
-            //   context,
-            //   MaterialPageRoute(
-            //     builder: (context) => HomePage(),
-            //   ),
-            // );
-          },
-        ),
         title: Text(
           'Add Your Breakfast',
           style: TextStyle(
@@ -62,7 +63,7 @@ class Addbreakfast extends StatelessWidget {
               child: ListView.builder(
                 itemCount: foodNames.length,
                 itemBuilder: (context, index) {
-                  return CustomCard(name: foodNames[index]);
+                  return CustomCard(name: foodNames[index],selectedFoodNames: selectedFoodNames,);
                 },
               ),
             ),
@@ -79,10 +80,41 @@ class Addbreakfast extends StatelessWidget {
                       fontWeight: FontWeight.bold,
                       color: Colors.white)),
               onPressed: () {
-                Navigator.pushReplacement(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) => BreakfastHistory()));
+
+                FirebaseFirestore.instance
+                    .collection('user_details/'+widget.uid+'/mealPlan')
+                    .doc('breakfast') // Replace 'user_id_here' with actual user ID
+                    .update({
+                  'selected_foods': selectedFoodNames,
+                  'timestamp': FieldValue.serverTimestamp(),
+                })
+                    .then((value) {
+                  // Upload successful, navigate to BreakfastHistory
+                  Navigator.pushReplacement(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => BreakfastHistory(uid: widget.uid,)));
+                })
+                    .catchError((error) {
+                  FirebaseFirestore.instance
+                      .collection('user_details/'+widget.uid+'/mealPlan')
+                      .doc('breakfast') // Replace 'user_id_here' with actual user ID
+                      .set({
+                    'selected_foods': selectedFoodNames,
+                    'timestamp': FieldValue.serverTimestamp(),
+                  })
+                      .then((value) {
+                    // Upload successful, navigate to BreakfastHistory
+                    Navigator.pushReplacement(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => BreakfastHistory(uid: widget.uid,)));
+                  })
+                      .catchError((error) {
+                    // Handle error
+                    print("Failed to add breakfast: $error");
+                  });
+                });
               },
               style: ElevatedButton.styleFrom(
                 backgroundColor: Color.fromARGB(255, 0, 187, 24),
@@ -91,15 +123,15 @@ class Addbreakfast extends StatelessWidget {
       ),
     );
   }
-
-
 }
 
 class CustomCard extends StatefulWidget {
   final String name;
+  final List<String> selectedFoodNames;
 
   const CustomCard({
     required this.name,
+    required this.selectedFoodNames,
   });
 
   @override
@@ -140,7 +172,12 @@ class _CustomCardState extends State<CustomCard> {
             value: isChecked,
             onChanged: (value) {
               setState(() {
-                isChecked=value!;
+                isChecked = value!;
+                if (isChecked) {
+                  widget.selectedFoodNames.add(widget.name);
+                } else {
+                  widget.selectedFoodNames.remove(widget.name);
+                }
               });
             },
           ),

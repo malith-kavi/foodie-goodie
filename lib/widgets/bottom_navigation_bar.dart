@@ -21,7 +21,7 @@ class Dash extends StatelessWidget {
       return [
         HomePage(responseObject: responseObject),
         Suggestions(),
-        Mealhistory(),
+        Mealhistory(responseObject: responseObject),
         UserProfile(responseObject: responseObject)
       ];
     }

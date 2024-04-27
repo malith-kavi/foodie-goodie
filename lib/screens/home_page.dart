@@ -87,6 +87,7 @@ class _HomePageState extends State<HomePage> {
                 ),
               ),
             ),
+
             ListTile(
               title: const Text('Check For Updates'),
               leading: const Icon(Icons.system_update_alt_rounded),
@@ -97,6 +98,7 @@ class _HomePageState extends State<HomePage> {
                 );
               },
             ),
+
             ListTile(
               leading: const Icon(Icons.settings),
               title: const Text('Settings'),
@@ -231,7 +233,7 @@ class _HomePageState extends State<HomePage> {
                               Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                    builder: (context) => Addbreakfast()),
+                                    builder: (context) => Addbreakfast(uid:widget.responseObject.userid,)),
                               );
                             },
                           ),
@@ -298,7 +300,7 @@ class _HomePageState extends State<HomePage> {
                               Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                    builder: (context) => Addlunch()),
+                                    builder: (context) => Addlunch(uid:widget.responseObject.userid,)),
                               );
                             },
                           ),
@@ -365,7 +367,7 @@ class _HomePageState extends State<HomePage> {
                               Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                    builder: (context) => Adddinner()),
+                                    builder: (context) => Adddinner(uid:widget.responseObject.userid,)),
                               );
                             },
                           ),

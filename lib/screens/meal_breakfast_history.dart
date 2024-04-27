@@ -4,7 +4,8 @@ import 'package:first/widgets/small_widgets.dart';
 import 'package:flutter/material.dart';
 
 class BreakfastHistory extends StatefulWidget {
-  
+  final String uid;
+  const BreakfastHistory({required this.uid,});
 
   @override
   State<BreakfastHistory> createState() => _BreakfastHistoryState();
@@ -26,17 +27,6 @@ class _BreakfastHistoryState extends State<BreakfastHistory> {
     return Scaffold(
       key: _scaffoldKey,
       appBar: AppBar(
-        leading: IconButton(
-          icon: const Icon(Icons.arrow_back_ios_new),
-          onPressed: () {
-            // Navigator.pop(
-            //   context,
-            //   MaterialPageRoute(
-            //     // builder: (context) => HomePage(responseObject: ,),
-            //   ),
-            // );
-          },
-        ),
         title: const Center(
           child: Text(
             'Breakfast Meal History           ',
@@ -70,61 +60,73 @@ class _BreakfastHistoryState extends State<BreakfastHistory> {
                 ),
                 color: Color.fromARGB(255, 211, 236, 217),
               ),
-              child: SizedBox(
-                height: 100,
-                child: ListView.builder(
-                  itemCount: foodName.length,
-                  itemBuilder: (BuildContext context, int index) {
-                    return Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Container(
-                        margin: const EdgeInsets.only(top: 5),
-                        height: 100,
-                        decoration: BoxDecoration(
-                          color: const Color.fromARGB(255, 255, 255, 255),
-                          borderRadius: BorderRadius.circular(20),
-                          boxShadow: const [
-                            BoxShadow(
-                                color: Colors.black12,
-                                spreadRadius: 5,
-                                blurRadius: 7,
-                                offset: Offset(0, 3)),
-                          ],
-                        ),
-                        child: Row(
-                          children: [
-                            const SizedBox(width: 10),
-                            ClipRRect(
-                              borderRadius: BorderRadius.circular(20),
-                              child: Image.network(
-                                foodImage[index],
-                                fit: BoxFit.cover,
-                                height: 80,
-                                width: 100,
-                              ),
-                            ),
-                            const SizedBox(width: 10),
-                            Expanded(
+              child: Center(
+                child: FutureBuilder<DocumentSnapshot>(
+                  future: FirebaseFirestore.instance.collection('user_details/'+widget.uid+'/mealPlan').doc('breakfast').get(),
+                  builder: (BuildContext context, AsyncSnapshot<DocumentSnapshot> snapshot) {
+                    if (snapshot.connectionState == ConnectionState.waiting) {
+                      // Check the connection state
+                      return Wrap(
+                        children: [
+                          Container(
                               child: Column(
+                                mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
-                                  const SizedBox(height: 30),
-                                  Text(
-                                    foodName[index],
-                                    style: const TextStyle(
-                                      color: Colors.black,
-                                      fontSize: 19,
-                                      fontWeight: FontWeight.w600,
-                                    ),
+                                  const CircularProgressIndicator(
+                                      color: Colors.black),
+                                  SizedBox(
+                                    height: 20,
                                   ),
-                                  SizedBox(height: 10),
+                                  Text(
+                                      "Loading data"), // Display a loading message
                                 ],
-                              ),
-                            ),
-                            const SizedBox(width: 10),
+                              )),
+                        ],
+                      );
+                    }  else if (snapshot.hasError) {
+                      return Center(
+                        child: Text('Error: ${snapshot.error}'),
+                      );
+                    } else {
+                      try{
+                        List<dynamic> suggestions = snapshot.data!.get('selected_foods');
+                        if(suggestions.isEmpty){
+                          return Wrap(
+                            children: [
+                              Container(
+                                  child: Column(
+                                    mainAxisAlignment: MainAxisAlignment
+                                        .center, // Display a message if no details are found
+                                    children: [
+                                      Text(
+                                          'No details found'), // Display a message if no details are found
+                                    ],
+                                  )),
+                            ],
+                          );
+                        }
+                        return ListView.builder(
+                          itemCount: suggestions.length,
+                          itemBuilder: (context, index) {
+                            return BreakfastListItem(suggestion: suggestions[index].toString(),img: suggestions[index].toString(),);
+                          },
+                        );
+                      }catch(error){
+                        return Wrap(
+                          children: [
+                            Container(
+                                child: Column(
+                                  mainAxisAlignment: MainAxisAlignment
+                                      .center, // Display a message if no details are found
+                                  children: [
+                                    Text(
+                                        'No details found'), // Display a message if no details are found
+                                  ],
+                                )),
                           ],
-                        ),
-                      ),
-                    );
+                        );
+                      }
+                    }
                   },
                 ),
               ),
@@ -134,28 +136,121 @@ class _BreakfastHistoryState extends State<BreakfastHistory> {
       ),
     );
   }
+}
 
-  Future<void> getDataFromSubcollection(String uid) async {
-    // Get a reference to the collection
-    CollectionReference mainCollection =
-        FirebaseFirestore.instance.collection('user_selection');
+class BreakfastListItem extends StatelessWidget {
+  final String suggestion;
+  final String img;
+  const BreakfastListItem({required this.suggestion,required this.img});
 
-    // Get a reference to the document
-    DocumentReference docRef = mainCollection.doc(uid);
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onTap: (){
 
-    // Get a reference to the subcollection
-    CollectionReference subCollection = docRef.collection('/Breakfast');
+      },
+      child: Padding(
+        padding: const EdgeInsets.all(20),
+        child: Container(
+          height: 100,
+          decoration: BoxDecoration(
+            color: const Color.fromARGB(255, 255, 255, 255),
+            borderRadius: BorderRadius.circular(20),
+            boxShadow: const [
+              BoxShadow(
+                color: Colors.black12,
+                spreadRadius: 5,
+                blurRadius: 7,
+                offset: Offset(0, 3),
+              ),
+            ],
+          ),
+          child: Row(
+            children: [
+              const SizedBox(width: 10),
+              ClipRRect(
+                borderRadius: BorderRadius.circular(20),
+                child: Image.asset(
+                  getImageAsset(img),
+                  fit: BoxFit.cover,
+                  height: 80,
+                  width: 100,
+                ),
+              ),
+              const SizedBox(width: 10),
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text(suggestion,
+                      style: TextStyle(
+                        color: Colors.black,
+                        fontSize: 19,
+                        fontWeight: FontWeight.w600,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              const SizedBox(width: 10),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
 
-    // Get the documents from the subcollection
-    QuerySnapshot subCollectionSnapshot = await subCollection.get();
-
-    // Iterate through the documents and retrieve data
-    subCollectionSnapshot.docs.forEach((DocumentSnapshot document) {
-      // Access the data of each document
-      Map<String, dynamic> data = document.data() as Map<String, dynamic>;
-      // You can now use the data retrieved as needed
-      foodName.add(data['foodName']);
-      foodImage.add(data['foodImage']);
-    });
+String getImageAsset(String name) {
+  switch (name) {
+    case "Avocado":
+      return 'assets/images/avocado.png';
+    case "BrownRice":
+      return 'assets/images/brownRice.png';
+    case "Banana":
+      return 'assets/images/banana.png';
+    case "ChickPeas":
+      return 'assets/images/chickPeas.png';
+    case "Chocolate":
+      return 'assets/images/chocolate.png';
+    case "Dhal":
+      return 'assets/images/dhal.png';
+    case "FattyFish":
+      return 'assets/images/fattyFish.png';
+    case "Fruits":
+      return 'assets/images/fruits.png';
+    case "FruitSalads":
+      return 'assets/images/fruitSalads.png';
+    case "GingerTea":
+      return 'assets/images/gingerTea.png';
+    case "Grains":
+      return 'assets/images/grains.png';
+    case "LaefyGreens":
+      return 'assets/images/laefyGreens.png';
+    case "Nuts":
+      return 'assets/images/nuts.png';
+    case "Oats":
+      return 'assets/images/oats.png';
+    case "Olives":
+      return 'assets/images/olives.png';
+    case "Papaya":
+      return 'assets/images/papaya.png';
+    case "Sambol":
+      return 'assets/images/sambol.png';
+    case "Tomato":
+      return 'assets/images/tomato.png';
+    case "Tofu":
+      return 'assets/images/tofu.png';
+    case "Vegetables":
+      return 'assets/images/vegetables.png';
+    case "VegetableSoup":
+      return 'assets/images/vegetablesSoup.png';
+    case "WheatRoti":
+      return 'assets/images/wheatRoti.png';
+    case "Youghurt2":
+      return 'assets/images/youghurt2.png';
+    default:
+      return 'assets/images/youghurt.png';
   }
 }

@@ -14,7 +14,18 @@ import 'package:flutter/material.dart';
 import 'package:first/services/auth.dart';
 import 'package:first/routes.dart';
 
-class Mealhistory extends StatelessWidget {
+import '../models/UserModel.dart';
+
+class Mealhistory extends StatefulWidget {
+
+  final GetUserDetails responseObject;
+  const Mealhistory({super.key, required this.responseObject});
+
+  @override
+  State<Mealhistory> createState() => _MealhistoryState();
+}
+
+class _MealhistoryState extends State<Mealhistory> {
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
@@ -164,7 +175,7 @@ class Mealhistory extends StatelessWidget {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => BreakfastHistory()),
+                              builder: (context) => BreakfastHistory(uid: widget.responseObject.userid,)),
                         );
                       },
                       child: Container(
@@ -226,7 +237,7 @@ class Mealhistory extends StatelessWidget {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => LunchHistory()),
+                              builder: (context) => LunchHistory(uid: widget.responseObject.userid,)),
                         );
                       },
                       child: Container(
@@ -288,7 +299,7 @@ class Mealhistory extends StatelessWidget {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => DinnerHistory()),
+                              builder: (context) => DinnerHistory(uid: widget.responseObject.userid,)),
                         );
                       },
                       child: Container(

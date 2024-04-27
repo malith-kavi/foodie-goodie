@@ -195,12 +195,16 @@ class _LoginScreenState extends State<LoginScreen> {
         String age = value['BirthDay'].toString();
         String height = value['Height'].toString();
         String weight = value['Weight'].toString();
+
         GetUserDetails getUserDetails = GetUserDetails(
-            userName: name,
-            profilePicture: pic,
-            age: age,
-            hight: height,
-            weight: weight);
+          userid: user.id,
+          userName: name,
+          profilePicture: pic,
+          age: age,
+          hight: height,
+          weight: weight,
+        );
+
         Navigator.push(
           context,
           MaterialPageRoute(
